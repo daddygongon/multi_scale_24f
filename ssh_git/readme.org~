@@ -1,0 +1,23 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: ssh and github
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* ssh
+- already installed
+- ssh-keygen
+- cat ~/.ssh/id_rsa.pub
+* github (web appli by rails)
+- explorer.exe https://github.com
+- make account
+- setup -> ssh keys -> new ssh
+- mk new repository
+  - named multi_scale_24f
+  - select private!
+* git
+- already installed
+- see instruction on github

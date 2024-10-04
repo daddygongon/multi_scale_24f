@@ -1,0 +1,26 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: 画面分割
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* terminal pane
+
+terminal paneをつかって画面分割します．
+| [[file:./screen_241001_2.png]]
+| 画面分割．
+
+1. まずは全画面表示に
+1. Altキーを押しながらUbuntu選択で分割
+1. Alt + shift + '->'で分割線の移動
+   1. =my_help -e emacs_j=
+      でsubmenuを表示
+1. Alt + '<-'でカーソル移動
+main画面でedit
+
+- 分割は自動で長いほうの辺で分かれる．
+- これだけの操作を一発でできるといいのですが．．．
+

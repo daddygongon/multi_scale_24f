@@ -1,0 +1,26 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: make environment
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* GUI vs CUI to GUI x CUI
+hyper_card + my_help = GUI x CUI を期待しています．
+
+| file:./images/screen_1003_1.png | file:./images/screen_1003_2.png | file:./images/screen_1003_3.png
+* make_environment: 初期セットアップ<2024-09-25 Wed>
+#+begin_src bash
+    5  sudo apt update
+    6  sudo apt install fish
+    7  chsh -s /usr/bin/fish
+    8  sudo apt install emacs
+    9  sudo apt install ruby
+   10  ruby -v
+   12  emacs -nw temp.rb
+   14  ruby temp.rb
+   16  sudo gem install my_help
+#+end_src
+
