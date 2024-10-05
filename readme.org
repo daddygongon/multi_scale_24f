@@ -24,7 +24,7 @@
 #+begin_export html
 <a href="w2_my_help_emacs/readme.html"
   class="example">
-  <img src="w2_my_help_emacs/images/screen_241003_1.png"
+  <img src="w2_my_help_emacs/terminal_pane/screen_241001_2.png"
   width=200
   alt=finite_temp
   >

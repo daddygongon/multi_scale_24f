@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-10-01 Tue 16:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>template for org-file</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Shigeto R. Nishitani" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">template for org-file</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8c7f198">1. install</a></li>
+<li><a href="#org893a5bb">2. check</a></li>
+<li><a href="#orgee8bf68">3. init</a></li>
+<li><a href="#orgdcfb260">4. hyper_card</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8c7f198" class="outline-2">
+<h2 id="org8c7f198"><span class="section-number-2">1</span> install</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-ruby">bob<span style="color: #a0522d;">@surfacepro9</span> ~<span style="color: #8b2252;">/my_help_install&gt; gem install my_help</span>
+<span style="color: #8b2252;">ERROR:  While executing gem ... (Gem::FilePermissionError)</span>
+<span style="color: #8b2252;">    You don't have write permissions for the /</span>var/lib/gems/3.0.0 directory.
+
+bob<span style="color: #a0522d;">@surfacepro9</span> ~<span style="color: #8b2252;">/my_help_install [1]&gt; sudo gem install my_help</span>
+<span style="color: #8b2252;">[sudo] password for bob:</span>
+<span style="color: #8b2252;">Successfully installed my_help-1.2.6</span>
+<span style="color: #8b2252;">Parsing documentation for my_help-1.2.6</span>
+<span style="color: #8b2252;">Done installing documentation for my_help after 0 seconds</span>
+<span style="color: #8b2252;">1 gem installed</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org893a5bb" class="outline-2">
+<h2 id="org893a5bb"><span class="section-number-2">2</span> check</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-shell">bob@surfacepro9 ~/my_help_install&gt; my_help
+my_help commands:
+  my_help add_defaults        <span style="color: #b22222;"># </span><span style="color: #b22222;">add defaults org files</span>
+  my_help delete [HELP]       <span style="color: #b22222;"># </span><span style="color: #b22222;">delete HELP</span>
+  my_help edit [HELP]         <span style="color: #b22222;"># </span><span style="color: #b22222;">edit help</span>
+  my_help git [pull|push]     <span style="color: #b22222;"># </span><span style="color: #b22222;">git operations</span>
+  my_help hello               <span style="color: #b22222;"># </span><span style="color: #b22222;">hello</span>
+  my_help help [COMMAND]      <span style="color: #b22222;"># </span><span style="color: #b22222;">Describe available commands or on...</span>
+  my_help init                <span style="color: #b22222;"># </span><span style="color: #b22222;">initialize my_help environment</span>
+  my_help list [HELP] [ITEM]  <span style="color: #b22222;"># </span><span style="color: #b22222;">list helps</span>
+  my_help new  [HELP]         <span style="color: #b22222;"># </span><span style="color: #b22222;">mk new HELP</span>
+  my_help place [TEMPLATE]    <span style="color: #b22222;"># </span><span style="color: #b22222;">place template on cwd</span>
+  my_help set [:key] [VAL]    <span style="color: #b22222;"># </span><span style="color: #b22222;">set editor or ext</span>
+  my_help version             <span style="color: #b22222;"># </span><span style="color: #b22222;">show version</span>
+
+Options:
+  [--help-dir=HELP_DIR]
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgee8bf68" class="outline-2">
+<h2 id="orgee8bf68"><span class="section-number-2">3</span> init</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-ruby">bob<span style="color: #a0522d;">@surfacepro9</span> ~<span style="color: #8b2252;">/my_help_install [127]&gt; my_help init</span>
+<span style="color: #8b2252;">bob@surfacepro9 ~/</span><span style="color: #483d8b;">m</span>y_help_install [1]&gt; my_help -l
+     <span style="color: #008b8b;">emacs:</span> - <span style="color: #228b22;">Emacs</span> key bind
+   <span style="color: #008b8b;">emacs_j:</span> - <span style="color: #228b22;">Emacs</span> key bind&#12398;&#26085;&#26412;&#35486;&#29256;
+   <span style="color: #008b8b;">example:</span>
+ <span style="color: #008b8b;">my_help_j:</span> - my_help&#12398;&#26085;&#26412;&#35486;&#29256;&#35299;&#35500;
+     <span style="color: #008b8b;">org_j:</span>
+      todo:
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdcfb260" class="outline-2">
+<h2 id="orgdcfb260"><span class="section-number-2">4</span> hyper_card</h2>
+<div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><img src="./screen_241001_3.png" alt="screen_241001_3.png" /></td>
+</tr>
+
+<tr>
+<td class="org-left">my_helpのinstall</td>
+</tr>
+</tbody>
+</table>
+
+<ol class="org-ol">
+<li><code>gem install my_help</code>
+<ol class="org-ol">
+<li>FilePermissionErrorがでたら，
+<code>sudo</code>
+を付ける．</li>
+</ol></li>
+<li><code>my_help</code>
+で動作確認</li>
+<li><code>my_help init</code>
+でdefault files, editorなどを調整</li>
+<li><code>my_help add_defaults</code>
+が必要かも．．</li>
+<li><code>my_help -l</code>
+でdefault helpsを確認．</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-10-01 Tue 16:10</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

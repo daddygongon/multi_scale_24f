@@ -1,0 +1,71 @@
+#+OPTIONS: ^:{}
+#　+startup: num　# it doesn't work on win11, then M-x org-num-mode to acivate
+#+STARTUP: indent nolineimages overview num
+#+TITLE: template for org-file
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* hyper_card
+| [[file:./screen_241001_3.png]]
+| my_helpのinstall
+
+1. =gem install my_help=
+   1. FilePermissionErrorがでたら，
+      =sudo=
+      を付ける．
+1. =my_help=
+   で動作確認
+1. =my_help init=
+   でdefault files, editorなどを調整
+1. =my_help add_defaults=
+   が必要かも．．
+1. =my_help -l=
+   でdefault helpsを確認．
+* install
+#+begin_src ruby
+bob@surfacepro9 ~/my_help_install> gem install my_help
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /var/lib/gems/3.0.0 directory.
+
+bob@surfacepro9 ~/my_help_install [1]> sudo gem install my_help
+[sudo] password for bob:
+Successfully installed my_help-1.2.6
+Parsing documentation for my_help-1.2.6
+Done installing documentation for my_help after 0 seconds
+1 gem installed
+#+end_src
+* check
+#+begin_src shell
+bob@surfacepro9 ~/my_help_install> my_help
+my_help commands:
+  my_help add_defaults        # add defaults org files
+  my_help delete [HELP]       # delete HELP
+  my_help edit [HELP]         # edit help
+  my_help git [pull|push]     # git operations
+  my_help hello               # hello
+  my_help help [COMMAND]      # Describe available commands or on...
+  my_help init                # initialize my_help environment
+  my_help list [HELP] [ITEM]  # list helps
+  my_help new  [HELP]         # mk new HELP
+  my_help place [TEMPLATE]    # place template on cwd
+  my_help set [:key] [VAL]    # set editor or ext
+  my_help version             # show version
+
+Options:
+  [--help-dir=HELP_DIR]
+#+end_src
+* init
+#+begin_src ruby
+bob@surfacepro9 ~/my_help_install [127]> my_help init
+bob@surfacepro9 ~/my_help_install [1]> my_help -l
+     emacs: - Emacs key bind
+   emacs_j: - Emacs key bindの日本語版
+   example:
+ my_help_j: - my_helpの日本語版解説
+     org_j:
+      todo:
+#+end_src
+

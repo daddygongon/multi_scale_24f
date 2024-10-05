@@ -1,0 +1,21 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: my_help usage
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* my_help
+my_help = man + emacs + org
+
+* init
+- my_help init
+- my_help new todo
+- my_help edit todo
+
+* edit
+- 
+  - my_
+

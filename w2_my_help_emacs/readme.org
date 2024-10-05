@@ -7,6 +7,41 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+
+# 0: my_help_install/readme.html
+
+#+begin_export html
+<a href="my_help_install/readme.html"
+  class="example">
+ <img src="images/screen_241003_1.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+# 1: my_help_usage/readme.html
+
+#+begin_export html
+<a href="my_help_usage/readme.html"
+  class="example">
+  <img src="my_help_install/screen_241001_3.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+# 2: terminal_pane/readme.html
+
+#+begin_export html
+<a href="terminal_pane/readme.html"
+  class="example">
+  <img src="terminal_pane/screen_241001_2.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+
 * GUI and CUIでのactivateあるいはcommand capture
 
 |file:./images/screen_241003_1.png|file:./images/screen_241003_2.png
