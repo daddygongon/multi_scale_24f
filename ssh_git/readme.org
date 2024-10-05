@@ -38,8 +38,14 @@
 # | file:./images/screen_1004_10.png
 
 * git 
-- =git init=
+** git init config
 - =git config --global user.name "Shigeto R. Nishitani"=
 - =git config --global user.email "nishitani@hoge.hage.ha"=
 - =git config --global core.editor "emacs"=
 - =git config pull.rebase false=
+** git basic commands
+- =git add -A=
+- =git commit -m 'first commit'= 
+  - or =git commit= and edit on emacs
+- =git pull origin main=
+- =git push origin main=
