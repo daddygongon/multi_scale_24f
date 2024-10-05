@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-10-04 Fri 15:57 -->
+<!-- 2024-10-04 Fri 15:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ssh and github</title>
@@ -69,16 +69,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7b110cb">1. ssh</a></li>
-<li><a href="#org2f11a08">2. github (web appli by rails)</a></li>
-<li><a href="#org9b758eb">3. git</a></li>
+<li><a href="#org73047ba">1. ssh</a></li>
+<li><a href="#org6244961">2. github (web appli by rails)</a></li>
+<li><a href="#orgf559ad6">3. git clone</a></li>
+<li><a href="#org1e492aa">4. mk own repository</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org7b110cb" class="outline-2">
-<h2 id="org7b110cb"><span class="section-number-2">1</span> ssh</h2>
+<div id="outline-container-org73047ba" class="outline-2">
+<h2 id="org73047ba"><span class="section-number-2">1</span> ssh</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>already installed</li>
@@ -101,8 +102,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org2f11a08" class="outline-2">
-<h2 id="org2f11a08"><span class="section-number-2">2</span> github (web appli by rails)</h2>
+<div id="outline-container-org6244961" class="outline-2">
+<h2 id="org6244961"><span class="section-number-2">2</span> github (web appli by rails)</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>explorer.exe https://github.com</code></li>
@@ -121,8 +122,15 @@ for the JavaScript code in this tag.
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 
-
+<div id="outline-container-orgf559ad6" class="outline-2">
+<h2 id="orgf559ad6"><span class="section-number-2">3</span> git clone</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><code>git clone git@github.com.daddygongon/multi_scale_24f.git</code></li>
+</ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -138,16 +146,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9b758eb" class="outline-2">
-<h2 id="org9b758eb"><span class="section-number-2">3</span> git</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li>mk new repository
+<div id="outline-container-org1e492aa" class="outline-2">
+<h2 id="org1e492aa"><span class="section-number-2">4</span> mk own repository</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>named multi_scale_24f</li>
 <li>select private!</li>
-</ul></li>
-<li>already installed</li>
 <li>follow the instruction on github</li>
 </ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -167,7 +171,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-10-04 Fri 15:57</p>
+<p class="date">Created: 2024-10-04 Fri 15:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

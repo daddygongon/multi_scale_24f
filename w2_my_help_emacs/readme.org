@@ -19,9 +19,6 @@
 | editor           | emacs, vscode               | elpa            | ./emacs.d/init.el         |
 | language         | Ruby, Python, C             | gem, pip        |                           |
 
-
-
-
 * my_help <2024-10-02 Wed>
 - gem install my_help
 - my_help set editor 'emacs -nw'
@@ -36,7 +33,7 @@
 - emacsの完全終了
   - c-x c-c
 
-ーemacs .config/fish/config.fish
+- emacs .config/fish/config.fish
   - alias emacs "emacs -nw"
 
 - shunkuntype

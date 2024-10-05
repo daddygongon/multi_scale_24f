@@ -38,7 +38,8 @@
 # | file:./images/screen_1004_10.png
 
 * git 
-- git init
-- git config --global user.name "Shigeto R. Nishitani"
-- git config --global user.email "nishitani@hoge.hage.ha"
-- git config --global core.editor "emacs"
+- =git init=
+- =git config --global user.name "Shigeto R. Nishitani"=
+- =git config --global user.email "nishitani@hoge.hage.ha"=
+- =git config --global core.editor "emacs"=
+- =git config pull.rebase false=
