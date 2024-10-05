@@ -13,21 +13,26 @@
 - ssh-keygen
 - cat ~/.ssh/id_rsa.pub
 
-| file:./images/screen_1004_3.png | file:./images/screen_1004_4.png
+| file:./images/screen_1004_11.png
+# | file:./images/screen_1004_3.png | file:./images/screen_1004_4.png
 
 * github (web appli by rails)
 - =explorer.exe https://github.com=
 - make account
 - settings -> SSH keys -> new ssh
-| file:./images/screen_1004_5.png | file:./images/screen_1004_6.png | file:./images/screen_1004_7.png 
+| file:./images/screen_1004_12.png
+# | file:./images/screen_1004_5.png | file:./images/screen_1004_6.png | file:./images/screen_1004_7.png 
 
-- mk new repository
-  - named multi_scale_24f
-  - select private!
+* git clone
+- =git clone git@github.com.daddygongon/multi_scale_24f.git=
+| file:./images/screen_1004_13.png
 
-| file:./images/screen_1004_8.png | file:./images/screen_1004_9.png 
+# | file:./images/screen_1004_8.png | file:./images/screen_1004_9.png 
 
-* git
-- already installed
+* mk own repository
+- named multi_scale_24f
+- select private!
 - follow the instruction on github
-| file:./images/screen_1004_10.png
+| file:./images/screen_1004_14.png
+
+# | file:./images/screen_1004_10.png
