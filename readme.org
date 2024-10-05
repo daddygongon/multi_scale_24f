@@ -7,32 +7,39 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* my_help <2024-10-02 Wed>
-- gem install my_help
-- my_help set editor 'emacs -nw'
-- terminal pane
-  - Alt- open
-  - Alt-shift- -> 分割線が移動
-  - Alt -> Cursorが別画面に移動
-- emacsの一時的終了と復活
-  - c-z
-  - fg (fore ground)
-  - ps (process status)
-- emacsの完全終了
-  - c-x c-c
 
-ーemacs .config/fish/config.fish
-  - alias emacs "emacs -nw"
-* make_environment: 初期セットアップ<2024-09-25 Wed>
-#+begin_src bash
-    5  sudo apt update
-    6  sudo apt install fish
-    7  chsh -s /usr/bin/fish
-    8  sudo apt install emacs
-    9  sudo apt install ruby
-   10  ruby -v
-   12  emacs -nw temp.rb
-   14  ruby temp.rb
-   16  sudo gem install my_help
-#+end_src
+* ssh_git/readme.html
+
+#+begin_export html
+<a href="ssh_git/readme.html"
+  class="example">
+  <img src="./ssh_git/images/screen_1004_10.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+
+* w2_my_help_emacs/readme.html
+#+begin_export html
+<a href="w2_my_help_emacs/readme.html"
+  class="example">
+  <img src="w2_my_help_emacs/images/screen_241003_1.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+
+* w1_introduction/readme.html
+#+begin_export html
+<a href="w1_introduction/readme.html"
+  class="example">
+  <img src="w1_introduction/images/screen_1004_1.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+
 
