@@ -9,4 +9,9 @@ out.split("\n").each do |line|
     url += address
   end
 end
-system "open #{url}"
+
+if ENV["WSL_DISTRO_NAME"]
+  system "explorer.exe #{url}"
+else
+  system "open #{url}"
+end
