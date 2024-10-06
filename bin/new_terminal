@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'colorize'
+
+if ARGV[0]==nil
+  target = Dir.pwd
+else
+  target = File.realdirpath(ARGV[0])
+end
+system "osascript -e 'tell application \"Terminal\" to do script \"cd #{target} \" '"
+
