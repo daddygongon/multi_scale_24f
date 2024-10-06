@@ -1,0 +1,21 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: copy = ctrl-shift-v
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* images
+| file:./images/screen_ctrl_shift_v.png | file:./images/screen_add_ctrl_v_.png
+
+* Situation
+emacsでpage移動しようとして，ctrl-vしてしまう．
+
+* ctrl-shift-v
+やはり，ctrl-shift-vがよさそう．
+- 設定から操作で選択．
+
+
+
