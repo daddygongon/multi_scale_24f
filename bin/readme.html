@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-10-07 Mon 12:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>user local bin</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Shigeto R. Nishitani" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">user local bin</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4daf41a">1. ~/bin</a></li>
+<li><a href="#orge103b83">2. パスを通す</a>
+<ul>
+<li><a href="#org9c4f08b">2.1. tldr(too long don't read)</a></li>
+<li><a href="#orgbe91eb2">2.2. $PATH</a></li>
+<li><a href="#orgd1158bc">2.3. その他の置き場</a></li>
+</ul>
+</li>
+<li><a href="#orga556886">3. commands</a>
+<ul>
+<li><a href="#org6e7e6ca">3.1. mk_link_button.rb</a></li>
+<li><a href="#org12e4bdf">3.2. new_terminal</a></li>
+<li><a href="#org410e171">3.3. open</a></li>
+<li><a href="#orgbbf318d">3.4. pull_request</a></li>
+<li><a href="#org8d9ef92">3.5. tidy -r</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4daf41a" class="outline-2">
+<h2 id="org4daf41a"><span class="section-number-2">1</span> ~/bin</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+userが自分で使うcommandの置き場が~/binです．
+ここにあるいくつかのcommandをそこに置いて使ってください．
+</p>
+</div>
+</div>
+<div id="outline-container-orge103b83" class="outline-2">
+<h2 id="orge103b83"><span class="section-number-2">2</span> パスを通す</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org9c4f08b" class="outline-3">
+<h3 id="org9c4f08b"><span class="section-number-3">2.1</span> tldr(too long don't read)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+fishで使えるようにパス(path)を通す必要があります．
+</p>
+<ul class="org-ul">
+<li><code>emacs ~/.config/fish/config.fish</code></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-fish">set PATH ~/bin $PATH 
+</pre>
+</div>
+<p>
+とします．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe91eb2" class="outline-3">
+<h3 id="orgbe91eb2"><span class="section-number-3">2.2</span> $PATH</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+実行可能コマンドの置き場所を
+パソコンに教えてあげる必要があります．
+そうでないと，パソコンは全ディレクトリを探す
+ことになります．
+現在のshell環境でどこに通っているかは，
+</p>
+<ul class="org-ul">
+<li><code>echo $PATH$</code></li>
+</ul>
+<p>
+で確認できます．
+</p>
+
+<p>
+config.fishを変更したら，それをfishに知らせる必要あります．
+</p>
+<ul class="org-ul">
+<li>shellを新たに起動するか，</li>
+<li><code>source ~/config/fish/config.fish</code></li>
+</ul>
+<p>
+でできるはず．echoして確かめてください．
+</p>
+</div>
+</div>
+<div id="outline-container-orgd1158bc" class="outline-3">
+<h3 id="orgd1158bc"><span class="section-number-3">2.3</span> その他の置き場</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+systemが使うのや，そのほかのがあります．
+</p>
+<ul class="org-ul">
+<li>/bin, /sbin,</li>
+<li>/usr/bin</li>
+<li>/usr/local/bin</li>
+</ul>
+<p>
+apt(brew), gemなどでバリエーションがありますので，
+commandのinstallマニュアルを参照ください．
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga556886" class="outline-2">
+<h2 id="orga556886"><span class="section-number-2">3</span> commands</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org6e7e6ca" class="outline-3">
+<h3 id="org6e7e6ca"><span class="section-number-3">3.1</span> mk_link_button.rb</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+hyper_card用の作成段階のコマンドです．
+</p>
+</div>
+</div>
+<div id="outline-container-org12e4bdf" class="outline-3">
+<h3 id="org12e4bdf"><span class="section-number-3">3.2</span> new_terminal</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+macでそのdirectoryで新たなterminalをひらく
+</p>
+</div>
+</div>
+<div id="outline-container-org410e171" class="outline-3">
+<h3 id="org410e171"><span class="section-number-3">3.3</span> open</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+fileやdirctory, htmlを適当なアプリで開く(open).
+wsl用を意図していますが，まだ未完成です．
+macや純正linuxでは標準装備されているコマンドです．
+</p>
+</div>
+</div>
+<div id="outline-container-orgbbf318d" class="outline-3">
+<h3 id="orgbbf318d"><span class="section-number-3">3.4</span> pull_request</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+git directoryでgithubのoriginをbrowserで開きます．
+mac, wsl兼用です．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d9ef92" class="outline-3">
+<h3 id="org8d9ef92"><span class="section-number-3">3.5</span> tidy -r</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+dirctoryをきれいに(tidy up)します．
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-10-07 Mon 12:15</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

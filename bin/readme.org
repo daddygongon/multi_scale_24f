@@ -1,0 +1,56 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: user local bin
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* ~/bin
+userが自分で使うcommandの置き場が~/binです．
+ここにあるいくつかのcommandをそこに置いて使ってください．
+* パスを通す
+** tldr(too long don't read)
+fishで使えるようにパス(path)を通す必要があります．
+- =emacs ~/.config/fish/config.fish=
+#+begin_src fish  
+set PATH ~/bin $PATH 
+#+end_src
+とします．
+
+** $PATH
+実行可能コマンドの置き場所を
+パソコンに教えてあげる必要があります．
+そうでないと，パソコンは全ディレクトリを探す
+ことになります．
+現在のshell環境でどこに通っているかは，
+- =echo $PATH$=
+で確認できます．
+
+config.fishを変更したら，それをfishに知らせる必要あります．
+- shellを新たに起動するか，
+- =source ~/config/fish/config.fish=
+でできるはず．echoして確かめてください．
+** その他の置き場
+systemが使うのや，そのほかのがあります．
+- /bin, /sbin, 
+- /usr/bin
+- /usr/local/bin
+apt(brew), gemなどでバリエーションがありますので，
+commandのinstallマニュアルを参照ください．
+* commands
+** mk_link_button.rb
+hyper_card用の作成段階のコマンドです．
+** new_terminal
+macでそのdirectoryで新たなterminalをひらく
+** open
+fileやdirctory, htmlを適当なアプリで開く(open).
+wsl用を意図していますが，まだ未完成です．
+macや純正linuxでは標準装備されているコマンドです．
+** pull_request
+git directoryでgithubのoriginをbrowserで開きます．
+mac, wsl兼用です．
+
+** tidy -r
+dirctoryをきれいに(tidy up)します．
