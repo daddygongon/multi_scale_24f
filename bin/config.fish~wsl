@@ -1,0 +1,10 @@
+alias emacs "emacs -nw"
+alias bat "batcat --theme Coldark-Cold"
+set -gx BROWSER /home/bob/bin/open
+set PATH ~/bin $PATH
+alias rm "rm -i"
+alias cp "cp -i"
+
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
