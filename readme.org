@@ -7,8 +7,6 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-Maple
-<https://kwansei.box.com/s/9u67c3urk50map83rhqqebdggt93yf0m>
 
 * ssh_git/readme.html
 
