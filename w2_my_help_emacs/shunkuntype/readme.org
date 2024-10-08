@@ -1,9 +1,19 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: template for org-file
+#+TITLE: タッチタイプの勧め
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+* キックオフ
+Dear all,
+
+西谷です．今日はお疲れ様でした．化学の学生さんに勧めていたタッチタイピングの内容で大きな間違いがありました．習得には50時間かかると述べましたが，５時間の間違いでした．簡単なんで，頑張ってください．shunkuntypeの手本になったテキスト（5時間10分_キー入力習得法）の最初の部分だけをズームの置き場におきます．姿勢とか運指の基本ですので +習得+ 練習する人は必ず最初に読んでください．
+
+* 視線追跡(Eye track動画)
+  - [[https://kwanseio365-my.sharepoint.com/:v:/g/personal/cru32369_nuc_kwansei_ac_jp/EQI-6D9pimpAhQhj2SQD5IYBnmym-Sto-bLVIa3iMMtzHA?e=5rwy1Q][初心者]]
+  - [[https://kwanseio365-my.sharepoint.com/:v:/g/personal/cru32369_nuc_kwansei_ac_jp/EYWKHFEghL5Pg09P3bhGg4UBU7wwJSzThQ_DAxzEoFNRCg?e=7OWkkm][達人]]
+* 参考資料
+- [[https://kwanseio365-my.sharepoint.com/:b:/g/personal/cru32369_nuc_kwansei_ac_jp/EcP9a1gh_y9JjDZuJHmdoBQBqRuhxCyUigW5wg4_sk5ZYQ?e=XO0J37][5時間10分_キー入力習得法.pdf]]
