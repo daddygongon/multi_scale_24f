@@ -49,3 +49,10 @@
   - or =git commit= and edit on emacs
 - =git pull origin main=
 - =git push origin main=
+* github作り直しメモ
+- 新しいuser id作成
+- sshのcopy
+- mk own repository(新しいrepositoryを作って，remote addressをcopy)
+- =git remote rm origin=
+- push
+- 上手く行っているのを確認したら古いuser idを削除

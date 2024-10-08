@@ -1,7 +1,7 @@
 alias emacs "emacs -nw"
 alias bat "batcat --theme Coldark-Cold"
 set -gx BROWSER /home/bob/bin/open
-set PATH ~/bin $PATH
+set PATH . ~/bin $PATH
 alias rm "rm -i"
 alias cp "cp -i"
 

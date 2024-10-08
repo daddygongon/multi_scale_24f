@@ -15,23 +15,39 @@ userが自分で使うcommandの置き場が~/binです．
 fishで使えるようにパス(path)を通す必要があります．
 - =emacs ~/.config/fish/config.fish=
 #+begin_src fish  
-set PATH ~/bin $PATH 
+set PATH . ~/bin $PATH 
 #+end_src
 とします．
+
+ついでに，"."(dot, current directory, 今のdirectory)も追加しています．
 
 ** $PATH
 実行可能コマンドの置き場所を
 パソコンに教えてあげる必要があります．
 そうでないと，パソコンは全ディレクトリを探す
-ことになります．
-現在のshell環境でどこに通っているかは，
-- =echo $PATH$=
+必要がありますよね？！
+現在のshell環境でどこにパス(path)が通っているかは，
+- =echo $PATH=
 で確認できます．
 
-config.fishを変更したら，それをfishに知らせる必要あります．
+ちなみに$で始まる大文字変数は **環境変数(environmental variable)** と呼ばれます．
+
+config.fishを変更したら，それをfishに知らせる必要があります．
 - shellを新たに起動するか，
 - =source ~/config/fish/config.fish=
 でできるはず．echoして確かめてください．
+** 順番
+$PATHはリストになっていて，前から順にsystemは実行可能ファイルを探します．
+=whereis=, =echo $PATH=   で確認できます．
+#+begin_src bash
+bob@surfacepro9 ~/m/bin (main)> whereis open
+open: /usr/bin/open /home/bob/bin/open /usr/share/man/man1/open.1.gz
+bob@surfacepro9 ~/m/bin (main)> echo $PATH
+. /home/bob/bin /usr/sbin /usr/bin /sbin /bin ....
+#+begin_src
+
+昔はよくこれで路頭に迷ったな．．．
+
 ** その他の置き場
 systemが使うのや，そのほかのがあります．
 - /bin, /sbin, 
