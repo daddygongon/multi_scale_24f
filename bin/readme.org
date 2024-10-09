@@ -30,7 +30,8 @@ set PATH . ~/bin $PATH
 - =echo $PATH=
 で確認できます．
 
-ちなみに$で始まる大文字変数は **環境変数(environmental variable)** と呼ばれます．
+ちなみに$で始まる大文字変数は 
+**環境変数(environment variable)** と呼ばれます．
 
 config.fishを変更したら，それをfishに知らせる必要があります．
 - shellを新たに起動するか，
@@ -39,22 +40,24 @@ config.fishを変更したら，それをfishに知らせる必要がありま�
 ** 順番
 $PATHはリストになっていて，前から順にsystemは実行可能ファイルを探します．
 =whereis=, =echo $PATH=   で確認できます．
-#+begin_src bash
+
+#+begin_src ruby
 bob@surfacepro9 ~/m/bin (main)> whereis open
-open: /usr/bin/open /home/bob/bin/open /usr/share/man/man1/open.1.gz
+open: /usr/bin/open /home/bob/bin/open /usr/share/...
 bob@surfacepro9 ~/m/bin (main)> echo $PATH
 . /home/bob/bin /usr/sbin /usr/bin /sbin /bin ....
-#+begin_src
+#+end_src
 
 昔はよくこれで路頭に迷ったな．．．
 
 ** その他の置き場
-systemが使うのや，そのほかのがあります．
+systemが使うのや，そのほか定まったdirectoryがあります．
 - /bin, /sbin, 
 - /usr/bin
 - /usr/local/bin
-apt(brew), gemなどでバリエーションがありますので，
-commandのinstallマニュアルを参照ください．
+apt(brew), gemなどpackage managerで
+バリエーションがありますので，
+マニュアルを参照ください．
 * commands
 ** mk_link_button.rb
 hyper_card用の作成段階のコマンドです．
