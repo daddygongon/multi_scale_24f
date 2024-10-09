@@ -1,0 +1,43 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+* head
+- Emacs key bind
+-   c-g,操作を中断する
+-   c-x u, undo
+* license:      cc by Kaede Ogawa & Shigeto R. Nishitani, 2024
+* truncate
+- M-x toggle-truncate-lines
+* usage
+** init
+- emacs readme.org
+* move
+** line c-
+- [F]orward/[B]ack char
+- [A]head/  [E]nd line
+- [N]ext/   [P]revious line
+** page
+- c-l, 1:mid,
+  -    2:top, 3:bottom
+- c-v, vertical: one-page forward
+* file c-x
+- c-f, open(find file)
+- c-s, save
+- c-w, write
+- c-b, buffer list
+- b, back
+* edit
+- delete, kill line
+- c-y, yank (paste)
+- c-w, (cut)
+- 領域選択は、先頭 or 最後尾で 
+  c-space した後、
+  最後尾 or 先頭へカーソル移動
+* search
+- c-s, search
+- c-r, reverse searc
+- M-x query-replace WORD1 <ret> 
+  WORD2, replace words
+
+* quit
+- c-x c-c, quit
+- c-z, interrupt -> fg
