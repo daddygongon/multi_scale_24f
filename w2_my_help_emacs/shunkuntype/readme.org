@@ -17,3 +17,5 @@ Dear all,
   - [[https://kwanseio365-my.sharepoint.com/:v:/g/personal/cru32369_nuc_kwansei_ac_jp/EYWKHFEghL5Pg09P3bhGg4UBU7wwJSzThQ_DAxzEoFNRCg?e=7OWkkm][達人]]
 * 参考資料
 - [[https://kwanseio365-my.sharepoint.com/:b:/g/personal/cru32369_nuc_kwansei_ac_jp/EcP9a1gh_y9JjDZuJHmdoBQBqRuhxCyUigW5wg4_sk5ZYQ?e=XO0J37][5時間10分_キー入力習得法.pdf]]
+* hyper card
+| [[file:./images/ss_1009_2.png]] |

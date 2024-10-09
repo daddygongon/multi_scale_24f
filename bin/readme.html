@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-10-09 Wed 07:27 -->
+<!-- 2024-10-09 Wed 11:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>user local bin</title>
@@ -69,30 +69,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgab9fb63">1. ~/bin</a></li>
-<li><a href="#org95318e6">2. パスを通す</a>
+<li><a href="#org6dca6de">1. ~/bin</a></li>
+<li><a href="#orgc24aa0f">2. パスを通す</a>
 <ul>
-<li><a href="#orge643d0f">2.1. tldr(too long don't read)</a></li>
-<li><a href="#org0a67105">2.2. $PATH</a></li>
-<li><a href="#org57c6662">2.3. 順番</a></li>
-<li><a href="#org1905bb1">2.4. その他の置き場</a></li>
+<li><a href="#org4d3e44d">2.1. tldr(too long don't read)</a></li>
+<li><a href="#orgdd98a37">2.2. $PATH</a></li>
+<li><a href="#org25ba05f">2.3. 順番</a></li>
+<li><a href="#org09b50de">2.4. その他の置き場</a></li>
 </ul>
 </li>
-<li><a href="#org140e9c8">3. commands</a>
+<li><a href="#orgc4395c4">3. commands</a>
 <ul>
-<li><a href="#orgcfb555d">3.1. mk_link_button.rb</a></li>
-<li><a href="#org6ef587b">3.2. new_terminal</a></li>
-<li><a href="#orgaf96fad">3.3. open</a></li>
-<li><a href="#org5f0cfef">3.4. pull_request</a></li>
-<li><a href="#org7d191ee">3.5. tidy -r</a></li>
+<li><a href="#org7317db3">3.1. mk_link_button.rb</a></li>
+<li><a href="#orgd9eedff">3.2. new_terminal</a></li>
+<li><a href="#orgc978549">3.3. open</a></li>
+<li><a href="#orgaf8fb74">3.4. pull_request</a></li>
+<li><a href="#org42c17ec">3.5. tidy -r</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgab9fb63" class="outline-2">
-<h2 id="orgab9fb63"><span class="section-number-2">1</span> ~/bin</h2>
+<div id="outline-container-org6dca6de" class="outline-2">
+<h2 id="org6dca6de"><span class="section-number-2">1</span> ~/bin</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 userが自分で使うcommandの置き場が~/binです．
@@ -100,12 +100,12 @@ userが自分で使うcommandの置き場が~/binです．
 </p>
 </div>
 </div>
-<div id="outline-container-org95318e6" class="outline-2">
-<h2 id="org95318e6"><span class="section-number-2">2</span> パスを通す</h2>
+<div id="outline-container-orgc24aa0f" class="outline-2">
+<h2 id="orgc24aa0f"><span class="section-number-2">2</span> パスを通す</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orge643d0f" class="outline-3">
-<h3 id="orge643d0f"><span class="section-number-3">2.1</span> tldr(too long don't read)</h3>
+<div id="outline-container-org4d3e44d" class="outline-3">
+<h3 id="org4d3e44d"><span class="section-number-3">2.1</span> tldr(too long don't read)</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 fishで使えるようにパス(path)を通す必要があります．
@@ -127,8 +127,8 @@ fishで使えるようにパス(path)を通す必要があります．
 </div>
 </div>
 
-<div id="outline-container-org0a67105" class="outline-3">
-<h3 id="org0a67105"><span class="section-number-3">2.2</span> $PATH</h3>
+<div id="outline-container-orgdd98a37" class="outline-3">
+<h3 id="orgdd98a37"><span class="section-number-3">2.2</span> $PATH</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 実行可能コマンドの置き場所を
@@ -145,7 +145,8 @@ fishで使えるようにパス(path)を通す必要があります．
 </p>
 
 <p>
-ちなみに$で始まる大文字変数は <b><b>環境変数(environmental variable)</b></b> と呼ばれます．
+ちなみに$で始まる大文字変数は 
+<b><b>環境変数(environment variable)</b></b> と呼ばれます．
 </p>
 
 <p>
@@ -160,19 +161,21 @@ config.fishを変更したら，それをfishに知らせる必要がありま�
 </p>
 </div>
 </div>
-<div id="outline-container-org57c6662" class="outline-3">
-<h3 id="org57c6662"><span class="section-number-3">2.3</span> 順番</h3>
+<div id="outline-container-org25ba05f" class="outline-3">
+<h3 id="org25ba05f"><span class="section-number-3">2.3</span> 順番</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 $PATHはリストになっていて，前から順にsystemは実行可能ファイルを探します．
 <code>whereis</code>, <code>echo $PATH</code>   で確認できます．
-#+begin_src bash
-bob@surfacepro9 ~/m/bin (main)&gt; whereis open
-open: /usr/bin/open /home/bob/bin/open /usr/share/man/man1/open.1.gz
-bob@surfacepro9 ~/m/bin (main)&gt; echo $PATH
-. /home/bob/bin /usr/sbin /usr/bin /sbin /bin &#x2026;.
-#+begin_src
 </p>
+
+<div class="org-src-container">
+<pre class="src src-ruby">bob<span style="color: #a0522d;">@surfacepro9</span> ~<span style="color: #8b2252;">/m/</span>bin (main)&gt; whereis open
+<span style="color: #483d8b;">open</span>: <span style="color: #8b2252;">/usr/</span>bin/<span style="color: #483d8b;">open</span> /home/bob/bin/<span style="color: #483d8b;">open</span> /usr/share/...
+bob<span style="color: #a0522d;">@surfacepro9</span> ~<span style="color: #8b2252;">/m/</span>bin (main)&gt; echo <span style="color: #a0522d;">$PATH</span>
+. /home/bob/bin /usr/sbin /usr/bin /sbin /bin ....
+</pre>
+</div>
 
 <p>
 昔はよくこれで路頭に迷ったな．．．
@@ -180,8 +183,8 @@ bob@surfacepro9 ~/m/bin (main)&gt; echo $PATH
 </div>
 </div>
 
-<div id="outline-container-org1905bb1" class="outline-3">
-<h3 id="org1905bb1"><span class="section-number-3">2.4</span> その他の置き場</h3>
+<div id="outline-container-org09b50de" class="outline-3">
+<h3 id="org09b50de"><span class="section-number-3">2.4</span> その他の置き場</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 systemが使うのや，そのほかのがあります．
@@ -193,33 +196,33 @@ systemが使うのや，そのほかのがあります．
 </ul>
 <p>
 apt(brew), gemなどでバリエーションがありますので，
-commandのinstallマニュアルを参照ください．
+package managerのマニュアルを参照ください．
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org140e9c8" class="outline-2">
-<h2 id="org140e9c8"><span class="section-number-2">3</span> commands</h2>
+<div id="outline-container-orgc4395c4" class="outline-2">
+<h2 id="orgc4395c4"><span class="section-number-2">3</span> commands</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgcfb555d" class="outline-3">
-<h3 id="orgcfb555d"><span class="section-number-3">3.1</span> mk_link_button.rb</h3>
+<div id="outline-container-org7317db3" class="outline-3">
+<h3 id="org7317db3"><span class="section-number-3">3.1</span> mk_link_button.rb</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 hyper_card用の作成段階のコマンドです．
 </p>
 </div>
 </div>
-<div id="outline-container-org6ef587b" class="outline-3">
-<h3 id="org6ef587b"><span class="section-number-3">3.2</span> new_terminal</h3>
+<div id="outline-container-orgd9eedff" class="outline-3">
+<h3 id="orgd9eedff"><span class="section-number-3">3.2</span> new_terminal</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 macでそのdirectoryで新たなterminalをひらく
 </p>
 </div>
 </div>
-<div id="outline-container-orgaf96fad" class="outline-3">
-<h3 id="orgaf96fad"><span class="section-number-3">3.3</span> open</h3>
+<div id="outline-container-orgc978549" class="outline-3">
+<h3 id="orgc978549"><span class="section-number-3">3.3</span> open</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 fileやdirctory, htmlを適当なアプリで開く(open).
@@ -228,8 +231,8 @@ macや純正linuxでは標準装備されているコマンドです．
 </p>
 </div>
 </div>
-<div id="outline-container-org5f0cfef" class="outline-3">
-<h3 id="org5f0cfef"><span class="section-number-3">3.4</span> pull_request</h3>
+<div id="outline-container-orgaf8fb74" class="outline-3">
+<h3 id="orgaf8fb74"><span class="section-number-3">3.4</span> pull_request</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 git directoryでgithubのoriginをbrowserで開きます．
@@ -238,8 +241,8 @@ mac, wsl兼用です．
 </div>
 </div>
 
-<div id="outline-container-org7d191ee" class="outline-3">
-<h3 id="org7d191ee"><span class="section-number-3">3.5</span> tidy -r</h3>
+<div id="outline-container-org42c17ec" class="outline-3">
+<h3 id="org42c17ec"><span class="section-number-3">3.5</span> tidy -r</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 dirctoryをきれいに(tidy up)します．
@@ -250,7 +253,7 @@ dirctoryをきれいに(tidy up)します．
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-10-09 Wed 07:27</p>
+<p class="date">Created: 2024-10-09 Wed 11:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
