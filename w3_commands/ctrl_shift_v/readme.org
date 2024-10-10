@@ -8,7 +8,8 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * images
-| file:./images/screen_ctrl_shift_v.png | file:./images/screen_add_ctrl_v_.png
+| file:./images/ss_1010_2.png
+
 
 * Situation
 emacsでpage移動しようとして，ctrl-vしてしまう．
@@ -17,5 +18,10 @@ emacsでpage移動しようとして，ctrl-vしてしまう．
 やはり，ctrl-shift-vがよさそう．
 - 設定から操作で選択．
 
+* zoomとconflict
+同時にctrl-shift-vだけにすると，zoomを併用したときに
+そっちとぶつかる．
+
+| file:./images/ss_1010_1.png
 
 
