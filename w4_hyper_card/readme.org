@@ -1,0 +1,38 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: hyper_card system
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
+* outline
+- hyper_card = Alexander + chunk
+
+| file:./images/HyperCard_24f-38.jpg |  file:./images/HyperCard_24f-40.jpg
+
+* [[https://qiita.com/daddygongon/items/dcf50940f04fb34c5c53][Alexander]]
+- 粒度, link, 
+- 問題, イラスト, 箇条書きの解答
+
+* [[https://qiita.com/daddygongon/items/a53d806cf493b6a56dab][Chunking]]
+- 概念
+- directory
+- toggle
+
+* unit
+- Tight Binding
+- 巻物(Wiki) -> 浮世絵
+
+* Memoの本質
+- 覚える
+  - 見直し(イラスト/板書)
+- 忘れる
+  - 検索(word)
+
+* その他の関連
+- 知的生産の技術
+- chart式
+- 治具，ツール，道具
