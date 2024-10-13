@@ -1,0 +1,31 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: batcat 
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
+* bat
+| [[file:./images/goodnote_241001_1.png]] |
+| batのinstallとテーマ設定   |
+
+catの発展形のbatをいれる．
+コマンド名とカラー表示に問題があったので修正して，コマンドのalias(別名)
+をfishで登録．
+
+1. =sudo apt install bat=
+   - [[https://github.com/sharkdp/bat/blob/master/doc/README-ja.md][正規日本語マニュアル]]
+   - command is `batcat`
+1. =emacs ~/.config/fish/config.fish=
+1. =sudo apt install fzf=
+1. ~bat --list-themes | fzf --preview="bat --theme={} --color=always readme.org"~
+   - Coldark-Cold
+   - OneHalfLight
+1. ~bat --theme Coldark-Col init.el~
+1. =emacs ~/.config/fish/config.fish=
+#+begin_src config
+alias bat "batcat --theme Coldark-Cold"
+#+end_src

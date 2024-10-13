@@ -1,0 +1,38 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: emacs周辺のbrowserの設定
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* browser
+  - No usable browser found エラーが出る場合，
+  - [[https://qiita.com/tadsan/items/8c66e7d753a1b24acd4e][WSL2のEmacsからWindows側のブラウザを開く]]
+  - で解決．
+- ただし，setoptでエラーが出るかも．setqに変更で解決
+
+* open ./file.html
+#+begin_src bash
+open ./readme.html
+Couldn't find a suitable web browser!
+
+Set the BROWSER environment variable to your desired browser.
+
+Warning: program returned non-zero exit code #256
+#+end_src
+
+open を~/bin/に置く．
+さらに，~/.config/fish/config.fishにて
+#+begin_src fish
+alias emacs "emacs -nw"
+set -gx BROWSER /home/bob/bin/open
+set PATH ~/bin $PATH
+#+end_src
+を追記．
+* colorize
+orgからexport htmlするとcolorizeが失敗．
+- [[https://qiita.com/daddygongon/items/298e3e351bf15cfaa699][emacs26.1にしてorg-to-htmlしたらemacs-htmlizeを入れなさいって．]]
+のつい追記に従って設定．
+

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-09-30 Mon 16:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>emacs周辺のbrowserの設定</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Shigeto R. Nishitani" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">emacs周辺のbrowserの設定</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge347c38">1. browser</a></li>
+<li><a href="#org711a64c">2. open ./file.html</a></li>
+<li><a href="#org3fc5a51">3. colorize</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge347c38" class="outline-2">
+<h2 id="orge347c38"><span class="section-number-2">1</span> browser</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>No usable browser found エラーが出る場合，</li>
+<li><a href="https://qiita.com/tadsan/items/8c66e7d753a1b24acd4e">WSL2のEmacsからWindows側のブラウザを開く</a></li>
+<li>で解決．</li>
+</ul>
+<ul class="org-ul">
+<li>ただし，setoptでエラーが出るかも．setqに変更で解決</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org711a64c" class="outline-2">
+<h2 id="org711a64c"><span class="section-number-2">2</span> open ./file.html</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-bash">open ./readme.html
+Couldn<span style="color: #8b2252;">'t find a suitable web browser!</span>
+
+<span style="color: #8b2252;">Set the BROWSER environment variable to your desired browser.</span>
+
+<span style="color: #8b2252;">Warning: program returned non-zero exit code #256</span>
+</pre>
+</div>
+
+<p>
+open を~/bin/に置く．
+さらに，~/.config/fish/config.fishにて
+</p>
+<div class="org-src-container">
+<pre class="src src-fish">alias emacs "emacs -nw"
+set -gx BROWSER /home/bob/bin/open
+set PATH ~/bin $PATH
+</pre>
+</div>
+<p>
+を追記．
+</p>
+</div>
+</div>
+<div id="outline-container-org3fc5a51" class="outline-2">
+<h2 id="org3fc5a51"><span class="section-number-2">3</span> colorize</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+orgからexport htmlするとcolorizeが失敗．
+</p>
+<ul class="org-ul">
+<li><a href="https://qiita.com/daddygongon/items/298e3e351bf15cfaa699">emacs26.1にしてorg-to-htmlしたらemacs-htmlizeを入れなさいって．</a></li>
+</ul>
+<p>
+のつい追記に従って設定．
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-09-30 Mon 16:45</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
