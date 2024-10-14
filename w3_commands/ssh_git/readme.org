@@ -19,6 +19,9 @@
 * github (web appli by rails)
 - =explorer.exe https://github.com=
 - make account
+  - original account name (後で修正可能)
+  - need mail address
+  - accept
 - settings -> SSH keys -> new ssh
 | file:./images/screen_1004_12.png
 # | file:./images/screen_1004_5.png | file:./images/screen_1004_6.png | file:./images/screen_1004_7.png 
@@ -29,30 +32,3 @@
 
 # | file:./images/screen_1004_8.png | file:./images/screen_1004_9.png 
 
-* mk own repository
-- named multi_scale_24f
-- select private!
-- follow the instruction on github
-| file:./images/screen_1004_14.png
-
-# | file:./images/screen_1004_10.png
-
-* git 
-** git init config
-- =git config --global user.name "Shigeto R. Nishitani"=
-- =git config --global user.email "nishitani@hoge.hage.ha"=
-- =git config --global core.editor "emacs"=
-- =git config pull.rebase false=
-** git basic commands
-- =git add -A=
-- =git commit -m 'first commit'= 
-  - or =git commit= and edit on emacs
-- =git pull origin main=
-- =git push origin main=
-* github作り直しメモ
-- 新しいuser id作成
-- sshのcopy
-- mk own repository(新しいrepositoryを作って，remote addressをcopy)
-- =git remote rm origin=
-- push
-- 上手く行っているのを確認したら古いuser idを削除

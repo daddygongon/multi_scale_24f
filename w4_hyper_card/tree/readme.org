@@ -10,8 +10,8 @@
 * tree
 tree構造でdirectoryの中身を見せてくれるtreeをinstallします．
 
-| file:./images/screen_241002_1.png   |
-| treeによる表示と整理の概念          |
+| file:./screen_241002_1.png |
+| treeによる表示と整理の概念 |
 
 * 粒度
 * chunking

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-10-09 Wed 07:03 -->
+<!-- 2024-10-14 Mon 15:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ssh and github</title>
@@ -11,9 +11,11 @@
 <meta name="author" content="Shigeto R. Nishitani" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
@@ -69,24 +71,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6c4d30e">1. ssh</a></li>
-<li><a href="#org0569901">2. github (web appli by rails)</a></li>
-<li><a href="#org4c6a851">3. git clone</a></li>
-<li><a href="#org95e6208">4. mk own repository</a></li>
-<li><a href="#org09a2634">5. git</a>
-<ul>
-<li><a href="#orgaead79d">5.1. git init config</a></li>
-<li><a href="#org725a164">5.2. git basic commands</a></li>
-</ul>
-</li>
-<li><a href="#org186efd6">6. github作り直しメモ</a></li>
+<li><a href="#org3c3cae2">1. ssh</a></li>
+<li><a href="#org6abf5d2">2. github (web appli by rails)</a></li>
+<li><a href="#org0c68587">3. git clone</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org6c4d30e" class="outline-2">
-<h2 id="org6c4d30e"><span class="section-number-2">1</span> ssh</h2>
+<div id="outline-container-org3c3cae2" class="outline-2">
+<h2 id="org3c3cae2"><span class="section-number-2">1</span> ssh</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>already installed</li>
@@ -109,12 +103,17 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0569901" class="outline-2">
-<h2 id="org0569901"><span class="section-number-2">2</span> github (web appli by rails)</h2>
+<div id="outline-container-org6abf5d2" class="outline-2">
+<h2 id="org6abf5d2"><span class="section-number-2">2</span> github (web appli by rails)</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>explorer.exe https://github.com</code></li>
-<li>make account</li>
+<li>make account
+<ul class="org-ul">
+<li>original account name (後で修正可能)</li>
+<li>need mail address</li>
+<li>accept</li>
+</ul></li>
 <li>settings -&gt; SSH keys -&gt; new ssh</li>
 </ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -132,8 +131,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4c6a851" class="outline-2">
-<h2 id="org4c6a851"><span class="section-number-2">3</span> git clone</h2>
+<div id="outline-container-org0c68587" class="outline-2">
+<h2 id="org0c68587"><span class="section-number-2">3</span> git clone</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><code>git clone git@github.com.daddygongon/multi_scale_24f.git</code></li>
@@ -152,77 +151,10 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </div>
-
-<div id="outline-container-org95e6208" class="outline-2">
-<h2 id="org95e6208"><span class="section-number-2">4</span> mk own repository</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li>named multi_scale_24f</li>
-<li>select private!</li>
-<li>follow the instruction on github</li>
-</ul>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><img src="./images/screen_1004_14.png" alt="screen_1004_14.png" /></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org09a2634" class="outline-2">
-<h2 id="org09a2634"><span class="section-number-2">5</span> git</h2>
-<div class="outline-text-2" id="text-5">
-</div>
-<div id="outline-container-orgaead79d" class="outline-3">
-<h3 id="orgaead79d"><span class="section-number-3">5.1</span> git init config</h3>
-<div class="outline-text-3" id="text-5-1">
-<ul class="org-ul">
-<li><code>git config --global user.name "Shigeto R. Nishitani"</code></li>
-<li><code>git config --global user.email "nishitani@hoge.hage.ha"</code></li>
-<li><code>git config --global core.editor "emacs"</code></li>
-<li><code>git config pull.rebase false</code></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org725a164" class="outline-3">
-<h3 id="org725a164"><span class="section-number-3">5.2</span> git basic commands</h3>
-<div class="outline-text-3" id="text-5-2">
-<ul class="org-ul">
-<li><code>git add -A</code></li>
-<li><code>git commit -m 'first commit'</code> 
-<ul class="org-ul">
-<li>or <code>git commit</code> and edit on emacs</li>
-</ul></li>
-<li><code>git pull origin main</code></li>
-<li><code>git push origin main</code></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org186efd6" class="outline-2">
-<h2 id="org186efd6"><span class="section-number-2">6</span> github作り直しメモ</h2>
-<div class="outline-text-2" id="text-6">
-<ul class="org-ul">
-<li>新しいuser id作成</li>
-<li>sshのcopy</li>
-<li>mk own repository(新しいrepositoryを作って，remote addressをcopy)</li>
-<li><code>git remote rm origin</code></li>
-<li>push</li>
-<li>上手く行っているのを確認したら古いuser idを削除</li>
-</ul>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-10-09 Wed 07:03</p>
+<p class="date">Created: 2024-10-14 Mon 15:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
