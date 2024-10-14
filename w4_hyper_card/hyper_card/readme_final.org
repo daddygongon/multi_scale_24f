@@ -13,3 +13,34 @@
 | [[file:semi_lattice/readme.html][semi_lattice]]                                  | hyper_card=semi_lattice+chunking | [[file:./chunking/readme.org][chunking]]                      |
 
 
+
+* hyper_card
+#+begin_export html
+<a href="chunking/readme.html"
+  class="example">
+  <img src="./semi_lattice/images/semi_lattice.004.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+# 1: semi_lattice/readme.html
+
+#+begin_export html
+<a href="./readme_final.html"
+  class="example">
+  <img src="./images/ss_20241014_3.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+#+begin_export html
+<a href="semi_lattice/readme.html"
+  class="example">
+  <img src="./chunking/ss_241014_2.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
