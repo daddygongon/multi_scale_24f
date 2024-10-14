@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-10-14 Mon 10:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chunking</title>
+<meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Chunking</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org57a6cc8">1. 既知感</a></li>
+<li><a href="#org5d8a268">2. チャンキング</a></li>
+<li><a href="#org3cc2175">3. Hash</a></li>
+<li><a href="#orge4ea53e">4. 絶対参照と相対参照(absolute and relative references)</a></li>
+<li><a href="#orgf4c655e">5. 参照文献</a></li>
+</ul>
+</div>
+</div>
+<p>
+![Mac OS X-10.15.7](<a href="https://img.shields.io/badge/MacOSX-10.15.7-brightgreen">https://img.shields.io/badge/MacOSX-10.15.7-brightgreen</a>) ![ruby-2.7.1p83](<a href="https://img.shields.io/badge/ruby-2.7.1p83-brightgreen">https://img.shields.io/badge/ruby-2.7.1p83-brightgreen</a>) 
+</p>
+
+<div id="outline-container-org57a6cc8" class="outline-2">
+<h2 id="org57a6cc8"><span class="section-number-2">1.</span> 既知感</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+ロバート A.バートンの著書「確信する脳「知っている」とはどういうことか」
+[^feelingofknowing]というのにある，**知る瞬間**を体験してもらいましょう．
+</p>
+
+<blockquote>
+<p>
+「既知感」についての考察を始めるにあたって，次の段落を普通の速さでお読みいただきたい．飛ばし読みをしたり，途中で止めたりしないこと．この体験は，一度説明を知ってしまうと繰り返すことができないため，読み終えたら少し時間をとって，自分でどう感じたかを自問しよう．そして説明の言葉を聞いた後，もう一度段落を読み直す．その際，自分の心の状態と，この段落についての感じがどう変わったかに注意を向けてほしい．
+</p>
+</blockquote>
+
+
+<blockquote>
+<p>
+新聞は雑誌よりよい．海岸は道路よりよい場所である．最初は歩くよりも走るほうがよい．何度か試みる必要があるかもしれない．ある程度の技術はいるが，学ぶのは簡単だ．小さな子どもでも楽しめる．一度うまくいったら，障害はほとんどない．鳥が近づきすぎることはめったにない．しかしすぐに雨に濡れる．同じことをする人が多すぎると問題が起こることがある．かなり余裕が必要である．障害がなければ，非常にのどかである．岩はいかりの代わりになる．しかし，いったん切り離されてしまうと，二度目のチャンスはない．
+</p>
+</blockquote>
+
+
+<blockquote>
+<p>
+ご理解いただけただろうか．それとも意味のない文章だと思われただろうか．可能性のある説明を心が探っているのを感じておこう．さて，次の言葉を聞いたとき，何が起こるかを見てみよう．
+</p>
+</blockquote>
+
+<p>
+&lt;details&gt;&lt;summary&gt;謎の単語&lt;/summary&gt;凧&lt;/details&gt;
+</p>
+
+<blockquote>
+<p>
+ここで前の段落を読み直して，最初に感じた何かが欠けているという不快感が，正しいという快感に変わるのを感じてほしい．すべてがぴたりとはまり，一文一文がきちんと意味を持つ．もう一度読み直してみよう．もう，理解できないという感覚を取り戻すことはできない．一瞬のうちに，しかるべき意識的な施策をすることもなく，文章は不可逆的に＜既知感＞に満たされる．
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org5d8a268" class="outline-2">
+<h2 id="org5d8a268"><span class="section-number-2">2.</span> チャンキング</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">file:</td>
+</tr>
+</tbody>
+</table>
+<p>
+次にチャンクについての記述を読んでみてください．
+</p>
+
+<blockquote>
+<p>
+心理学者ミラーの提唱した概念で、人間が情報を知覚する際の「情報のまとまり」のこと。また、その単位。たとえば、「かがみもち」を、平仮名5文字として知覚すると5チャンク、「鏡」と「餅」として理解すると2チャンク、「鏡餅」のこととして理解すると1チャンクとなる。ミラーによれば、人間が一度に覚えられるチャンクの数には限界があり、7±2チャンクとされる（この値をマジカルナンバーという）。ただし、複数のチャンクをグループにし、より大きな1つのチャンクにまとめることで、知覚・記憶する情報量を増やすことができる（これをチャンキングと呼ぶ）。複雑な内容をわかりやすく伝達するためには、情報を減らしたりまとめたりして、チャンクの数を7〜5以下に抑えることが効果的である。
+</p>
+
+<p>
+[コトバンク](<a href="http://kotobank.jp/word">http://kotobank.jp/word</a>)で「チャンク」を検索[^chunk].
+</p>
+</blockquote>
+<p>
+いかがでしょう．ところで「鏡餅」って知ってますよね？　
+なら，なんであれを鏡餅というかご存知でしょうか？　
+</p>
+
+<p>
+<b><b>鏡餅の由来</b></b>
+</p>
+
+<p>
+このように言葉は，単なる意味だけでなく，
+関連情報，由来なんかをまとめて概念として記憶することをあらかじめ意図されています．
+それらをバルク(塊)にして覚えると忘れにくいということが知られています．
+単に単語を丸暗記するだけでなく，身近な単語と関連づけるとより覚えやすくなります．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3cc2175" class="outline-2">
+<h2 id="org3cc2175"><span class="section-number-2">3.</span> Hash</h2>
+</div>
+<div id="outline-container-orge4ea53e" class="outline-2">
+<h2 id="orge4ea53e"><span class="section-number-2">4.</span> 絶対参照と相対参照(absolute and relative references)</h2>
+</div>
+<div id="outline-container-orgf4c655e" class="outline-2">
+<h2 id="orgf4c655e"><span class="section-number-2">5.</span> 参照文献</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+[^feelingofknowing]: 確信する脳「知っている」とはどういうことか，ロバート A.バートン，(河出書房新社,2010).
+</p>
+
+<p>
+[^chunk]: [コトバンク](<a href="http://kotobank.jp/word">http://kotobank.jp/word</a>)で「チャンク」を検索, (2020/06/22 accessed).
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-10-14 Mon 10:46</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
