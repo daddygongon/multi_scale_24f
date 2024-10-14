@@ -9,9 +9,8 @@
 
 
 * outline
-- Hyper_Card = Semi_lattice + Chunk
-
-| file:./images/HyperCard_24f-38.jpg |  file:./images/HyperCard_24f-40.jpg
+| file:./images/ss_20241014_3.png
+| Hyper_Card = Semi_lattice + Chunking
 
 * [[https://qiita.com/daddygongon/items/dcf50940f04fb34c5c53][Semi_Lattice]]
 - 粒度, link, 

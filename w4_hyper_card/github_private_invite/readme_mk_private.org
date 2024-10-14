@@ -1,0 +1,44 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: make private on github
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
+* mv daddygongon
+- =mv multi_scale_24f daddygongon= # on wsl
+* mk own repository
+- named multi_scale_24f
+- select private!
+- follow the instruction on github
+| file:./images/screen_1004_14.png
+
+# | file:./images/screen_1004_10.png
+
+* git 
+** git init config
+- =git config --global user.name "Shigeto R. Nishitani"=
+- =git config --global user.email "nishitani@hoge.hage.ha"=
+- =git config --global core.editor "emacs"=
+- =git config pull.rebase false=
+** git basic commands
+- =git add -A=
+- =git commit -m 'first commit'= 
+  - or =git commit= and edit on emacs
+- =git pull origin main=
+- =git push origin main=
+* github作り直しメモ
+- 古いuser idを削除
+- 新しいuser id作成
+- sshのcopy
+- mk own repository(新しいrepositoryを作って，remote addressをcopy)
+- =git remote rm origin=
+- =git remote add origin git@github.com:******/multi_scale_24f.git=
+- 上のgit basic commandsを参照
+
+* privateが見れる設定
+
+| file:./images/ss_20241014_1.png
