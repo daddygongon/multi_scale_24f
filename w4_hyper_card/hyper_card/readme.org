@@ -9,30 +9,6 @@
 
 
 * outline
-- Hyper_Card = Semi_lattice + Chunk
+| file:semi_lattice/images/semi_lattice.004.png | [[file:images/ss_20241014_3.png]]    | [[file:chunking/ss_241014_2.png]] |
+| [[file:semi_lattice/readme.html][semi_lattice]] | hyper_card=semi_lattice+chunking | [[file:./chunking/            |
 
-| file:./images/HyperCard_24f-38.jpg |  file:./images/HyperCard_24f-40.jpg
-
-* [[https://qiita.com/daddygongon/items/dcf50940f04fb34c5c53][Semi_Lattice]]
-- 粒度, link, 
-- 問題, イラスト, 箇条書きの解答
-
-* [[https://qiita.com/daddygongon/items/a53d806cf493b6a56dab][Chunking]]
-- 概念
-- directory
-- toggle
-
-* unit
-- Tight Binding
-- 巻物(Wiki) -> 浮世絵
-
-* Memoの本質
-- 覚える
-  - 見直し(イラスト/板書)
-- 忘れる
-  - 検索(word)
-
-* その他の関連
-- 知的生産の技術
-- chart式
-- 治具，ツール，道具
