@@ -10,5 +10,6 @@
 
 * outline
 | file:semi_lattice/images/semi_lattice.004.png | [[file:images/ss_20241014_3.png]]    | [[file:chunking/ss_241014_2.png]] |
-| [[file:semi_lattice/readme.html][semi_lattice]] | hyper_card=semi_lattice+chunking | [[file:./chunking/            |
+| [[file:semi_lattice/readme.html][semi_lattice]]                                  | hyper_card=semi_lattice+chunking | [[file:./chunking/readme.org][chunking]]                      |
+
 
