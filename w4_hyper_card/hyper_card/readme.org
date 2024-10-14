@@ -9,11 +9,11 @@
 
 
 * outline
-- hyper_card = Alexander + chunk
+- Hyper_Card = Semi_lattice + Chunk
 
 | file:./images/HyperCard_24f-38.jpg |  file:./images/HyperCard_24f-40.jpg
 
-* [[https://qiita.com/daddygongon/items/dcf50940f04fb34c5c53][Alexander]]
+* [[https://qiita.com/daddygongon/items/dcf50940f04fb34c5c53][Semi_Lattice]]
 - 粒度, link, 
 - 問題, イラスト, 箇条書きの解答
 
