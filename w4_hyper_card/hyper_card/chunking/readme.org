@@ -8,7 +8,8 @@
 #+TAG: chunk, semi_lattice
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-![Mac OS X-10.15.7](https://img.shields.io/badge/MacOSX-10.15.7-brightgreen) ![ruby-2.7.1p83](https://img.shields.io/badge/ruby-2.7.1p83-brightgreen) 
+[[https://img.shields.io/badge/MacOSX-10.15.7-brightgreen][Mac OS X-10.15.7]]
+[[https://img.shields.io/badge/ruby-2.7.1p83-brightgreen][ruby-2.7.1p83]]
 
 * 既知感
 ロバート A.バートンの著書「確信する脳「知っている」とはどういうことか」

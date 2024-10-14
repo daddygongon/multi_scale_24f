@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-10-14 Mon 12:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>知識の構造(ツリーではない)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Shigeto R. Nishitani" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">知識の構造(ツリーではない)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd47537c">1. 「パタン・ランゲージ」</a></li>
+<li><a href="#org3985da1">2. 引用文献</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd47537c" class="outline-2">
+<h2 id="orgd47537c"><span class="section-number-2">1</span> 「パタン・ランゲージ」</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+大学に入って驚くのは，思っていたほど講義が難しくない割に，
+知識が定着しないことです．
+これは，なぜでしょうか? 
+ひとつの答えは，扱う知識そのものが確立していないからかな．
+では，そもそも知識と言うのはどんな構造をしているのでしょうか．
+より身近でわかりやすい建築を例に紹介します[^nishitani_11]．
+</p>
+
+<p>
+ケンブリッジ大の数学科に進んで後に建築家になった
+クリストファー・アレグザンダーが
+1977年に著した「パタン・ランゲージ」では，
+都市・町並み・家・部屋などの建築の全ての構成物を形式・粒度によって分類し，
+「無名の質」という美意識を基準にカタログとして提供しています[^alexandar]．
+</p>
+
+<p>
+アレグザンダーが提案した知識構築への考え方は，
+複雑な全体像を理解，記憶，利用しやすいように，
+「階層構造，細かな分類，相互参照」など構造的にすることです．
+小さい部分から見始めても，
+大きな全体像から見ても理解できるようになっています．
+さらに，図1 に示したように体裁を整えて
+「名称，写真や図，上位参照，問題，考察，解答，下位参照」
+が定まった順序に提供されています．
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/151211/b363dbfb-0f0f-fca4-92e4-95bc07a7e57d.png" alt="b363dbfb-0f0f-fca4-92e4-95bc07a7e57d.png" /></td>
+</tr>
+
+<tr>
+<td class="org-left">図1:パタン・ランゲージの「No.115:生き生きとした中庭」を例にした体裁 [3]．</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+これだけではわかりにくいですが，
+図2にまとめ直したように，粒度の上下項目との関連や，
+問題，一目で分かるイラスト，箇条書きのまとめ等
+によって覚えやすい工夫がなされています．
+粒度や上下参照はまさに頭の中にある知識構造を表出させたようなイメージを与えてくれます．
+木構造，あるいはピラミッドのような，
+単一のルートによって上下関係や階層構造が定められているのでないというのが肝です．
+あるいは，「逆引き」という形態での知識提供の源流なのかもしれません．
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/151211/2838629f-4a74-5dd1-94f7-564ef4fced85.png" alt="2838629f-4a74-5dd1-94f7-564ef4fced85.png" /></td>
+</tr>
+
+<tr>
+<td class="org-left">図2:パタン・ランゲージの「No.115:生き生きとした中庭」を中心にして，粒度，上下 参照の模式図，問題，覚えやすいイラスト， 箇条書きの解答．</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+現実の庭はこのような美意識を逆撫でするように作られています．残念ですよね．
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/151211/1fcd78c9-44b6-8e99-2ddc-31663ecc5149.png" alt="1fcd78c9-44b6-8e99-2ddc-31663ecc5149.png" /></td>
+</tr>
+
+<tr>
+<td class="org-left">図3:現実の中庭．</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+このような知識の構造は，セミラティスとかリゾームと呼ばれています[^kato]．
+セミラティスの構造を再現しようというのが，BobTheFish shellです(嘘)．
+でも，wikiはこれを原点にしています(ホント)[^ewatari] ．
+領域やマルチスケールでは，
+こういう視点で知識を習得する練習をしていきます．
+まずはメモソフトのmy_helpから．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3985da1" class="outline-2">
+<h2 id="org3985da1"><span class="section-number-2">2</span> 引用文献</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+[^nishitani_11]: 西谷滋人，廣岡愛未著，「パターンとペアプロの数式処理ソフト学習への適用」，RIMS研究集会報告書(2011). 
+</p>
+
+<p>
+[^ewatari]: 江渡浩一郎著，「パターン，Wiki，XP」，(技術評論社，2009).
+</p>
+
+<p>
+[^alexandar]: クリストファー・アレグザンダー著，平田翰那訳「パタン・ランゲージ環境設計の手引」,(鹿島出版会1977).
+</p>
+
+<p>
+[^kato]: 加藤弘一.『パターン、wiki、xp~時を超えた創造の原則~』江渡浩一郎(技術評論社), <a href="https://booklog.kinokuniya.co.jp/kato/archives/2010/07/post_206.html">書評空間::紀伊國屋書店 kinokuniya::booklog</a>．
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-10-14 Mon 12:10</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
