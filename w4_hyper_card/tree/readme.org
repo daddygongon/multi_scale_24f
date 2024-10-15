@@ -9,11 +9,11 @@
 
 * tldr
 tree構造でdirectoryの中身を見せてくれるtreeをinstallします．
-- =sudo apd install tree= 
+- =sudo apt install tree= 
 
 * 様子
 
-| file:./screen_241002_1.png |
+| file:./screen_241015_1.png |
 | treeによる表示と整理の概念 |
 
 * 粒度
