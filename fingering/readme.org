@@ -1,0 +1,28 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: Fingering
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* 運指(Fingering)
+| emacs   | Ctrl-a           | pinky -> ctrl | ring -> a      |               |
+| windows | Atl-v            | thumb -> alt  | index -> v     |               |
+| Mac     | com-v            | thumb -> com  | index -> v     |               |
+|         | command or Apple |               |                |               |
+|         | com-x com-v      | thumb -> com  | index -> x     | index -> v    |
+|         | opt-shift-i      | thumb -> opt  | middle-> shift | r-middle -> i |
+
+
+* emacs
+| Ctrl-a      | pinky -> ctrl | ring -> a   |             |             |
+| Ctrl-f      | pinky -> ctrl | index -> f  |             |             |
+| Ctrl-g      | pinky -> ctrl | index -> g  |             |             |
+| c-x c-f     | pinky -> ctrl | index  -> x | index  -> f |             |
+| c-x c-s c-z | pinky -> ctrl | middle -> x | middle -> s | middle -> z |
+| c-x c-c     | pinky -> ctrl | index  -> x | index  -> c |             |
+| c-c c-l     | pinky -> ctrl | index  -> c | r-pinky-> l |             |
+
+
