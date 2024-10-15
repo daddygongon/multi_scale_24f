@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-09-30 Mon 16:45 -->
+<!-- 2024-10-15 Tue 15:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs周辺のbrowserの設定</title>
@@ -11,9 +11,11 @@
 <meta name="author" content="Shigeto R. Nishitani" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
@@ -69,15 +71,15 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge347c38">1. browser</a></li>
-<li><a href="#org711a64c">2. open ./file.html</a></li>
-<li><a href="#org3fc5a51">3. colorize</a></li>
+<li><a href="#org19b0bb2">1. browser</a></li>
+<li><a href="#org955361b">2. open ./file.html</a></li>
+<li><a href="#org1bc659b">3. colorize</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge347c38" class="outline-2">
-<h2 id="orge347c38"><span class="section-number-2">1</span> browser</h2>
+<div id="outline-container-org19b0bb2" class="outline-2">
+<h2 id="org19b0bb2"><span class="section-number-2">1</span> browser</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>No usable browser found エラーが出る場合，</li>
@@ -90,8 +92,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org711a64c" class="outline-2">
-<h2 id="org711a64c"><span class="section-number-2">2</span> open ./file.html</h2>
+<div id="outline-container-org955361b" class="outline-2">
+<h2 id="org955361b"><span class="section-number-2">2</span> open ./file.html</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-bash">open ./readme.html
@@ -109,8 +111,8 @@ open を~/bin/に置く．
 </p>
 <div class="org-src-container">
 <pre class="src src-fish">alias emacs "emacs -nw"
-set -gx BROWSER /home/bob/bin/open
-set PATH ~/bin $PATH
+set -gx BROWSER /home/[USERNAME]/bin/open
+set PATH . ~/bin $PATH
 </pre>
 </div>
 <p>
@@ -118,8 +120,8 @@ set PATH ~/bin $PATH
 </p>
 </div>
 </div>
-<div id="outline-container-org3fc5a51" class="outline-2">
-<h2 id="org3fc5a51"><span class="section-number-2">3</span> colorize</h2>
+<div id="outline-container-org1bc659b" class="outline-2">
+<h2 id="org1bc659b"><span class="section-number-2">3</span> colorize</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 orgからexport htmlするとcolorizeが失敗．
@@ -135,7 +137,7 @@ orgからexport htmlするとcolorizeが失敗．
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-09-30 Mon 16:45</p>
+<p class="date">Created: 2024-10-15 Tue 15:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

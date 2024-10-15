@@ -27,8 +27,8 @@ open を~/bin/に置く．
 さらに，~/.config/fish/config.fishにて
 #+begin_src fish
 alias emacs "emacs -nw"
-set -gx BROWSER /home/bob/bin/open
-set PATH ~/bin $PATH
+set -gx BROWSER /home/[USERNAME]/bin/open
+set PATH . ~/bin $PATH
 #+end_src
 を追記．
 * colorize
