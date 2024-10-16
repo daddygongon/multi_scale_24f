@@ -7,6 +7,20 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+* emacs org
+emacsではmajor modeというのがあって，それが下のstatus barの真ん中にまる括弧()で
+しめされている．
+
+今は，たぶんOrg Ind.
+
+c-cで始まるコマンドがそこへ渡される．
+org-modeの便利なコマンドとして次の二つがある．
+これをwslで動作させる設定．
+
+** org export to html
+- c-c c-e [h]tml [o]pen
+** org open html link
+- c-c c-o
 * browser
   - No usable browser found エラーが出る場合，
   - [[https://qiita.com/tadsan/items/8c66e7d753a1b24acd4e][WSL2のEmacsからWindows側のブラウザを開く]]

@@ -1,17 +1,28 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: todo for multi_scale
+#+TITLE: template for org-file
 #+AUTHOR: Shigeto R. Nishitani
-#+EMAIL: (concat "shigeto_nishitani@mac.com")
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-
-* w4_hyper_card/readme.html
+# ssh_git/readme.html
 
 #+begin_export html
-<a href="w4_hyper_card/readme.html"
+<a href="ssh_git/readme.html"
+  class="example">
+  <img src="./ssh_git/images/screen_1004_13.png"
+  width=200
+  alt=finite_temp
+  >
+</a>
+#+end_export
+
+# bin/readme.html
+
+#+begin_export html
+<a href="bin/readme.html"
   class="example">
   <img src=""
   width=200
@@ -19,37 +30,24 @@
   >
 </a>
 #+end_export
-
-* w3_commands/readme.html
+# command/readme.html
 
 #+begin_export html
-<a href="w3_commands/readme.html"
+<a href="command/readme.html"
   class="example">
-  <img src="./w3_commands/ssh_git/images/screen_1004_10.png"
+  <img src="./command/images/screen_1007_2.png"
   width=200
   alt=finite_temp
   >
 </a>
 #+end_export
 
-* w2_my_help_emacs/readme.html
+# ctrl_shift_v/readme.html
 
 #+begin_export html
-<a href="w2_my_help_emacs/readme.html"
+<a href="ctrl_shift_v/readme.html"
   class="example">
-  <img src="w2_my_help_emacs/images/screen_appli_layer_1006.png"
-  width=200
-  alt=finite_temp
-  >
-</a>
-#+end_export
-
-* w1_introduction/readme.html
-
-#+begin_export html
-<a href="w1_introduction/readme.html"
-  class="example">
-  <img src="w1_introduction/images/screen_1004_1.png"
+  <img src="./ctrl_shift_v/images/ss_1010_2.png"
   width=200
   alt=finite_temp
   >

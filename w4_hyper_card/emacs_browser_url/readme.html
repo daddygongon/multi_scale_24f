@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-10-15 Tue 15:58 -->
+<!-- 2024-10-16 Wed 15:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs周辺のbrowserの設定</title>
@@ -71,16 +71,58 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org19b0bb2">1. browser</a></li>
-<li><a href="#org955361b">2. open ./file.html</a></li>
-<li><a href="#org1bc659b">3. colorize</a></li>
+<li><a href="#orgb0255d0">1. emacs org</a>
+<ul>
+<li><a href="#org4af4719">1.1. org export to html</a></li>
+<li><a href="#org6e04c61">1.2. org open html link</a></li>
+</ul>
+</li>
+<li><a href="#orgdec05f3">2. browser</a></li>
+<li><a href="#orgd8cfac8">3. open ./file.html</a></li>
+<li><a href="#orgdbd1472">4. colorize</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org19b0bb2" class="outline-2">
-<h2 id="org19b0bb2"><span class="section-number-2">1</span> browser</h2>
+<div id="outline-container-orgb0255d0" class="outline-2">
+<h2 id="orgb0255d0"><span class="section-number-2">1</span> emacs org</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+emacsではmajor modeというのがあって，それが下のstatus barの真ん中にまる括弧()で
+しめされている．
+</p>
+
+<p>
+今は，たぶんOrg Ind.
+</p>
+
+<p>
+c-cで始まるコマンドがそこへ渡される．
+org-modeの便利なコマンドとして次の二つがある．
+これをwslで動作させる設定．
+</p>
+</div>
+
+<div id="outline-container-org4af4719" class="outline-3">
+<h3 id="org4af4719"><span class="section-number-3">1.1</span> org export to html</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>c-c c-e [h]tml [o]pen</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6e04c61" class="outline-3">
+<h3 id="org6e04c61"><span class="section-number-3">1.2</span> org open html link</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>c-c c-o</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdec05f3" class="outline-2">
+<h2 id="orgdec05f3"><span class="section-number-2">2</span> browser</h2>
+<div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>No usable browser found エラーが出る場合，</li>
 <li><a href="https://qiita.com/tadsan/items/8c66e7d753a1b24acd4e">WSL2のEmacsからWindows側のブラウザを開く</a></li>
@@ -92,9 +134,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org955361b" class="outline-2">
-<h2 id="org955361b"><span class="section-number-2">2</span> open ./file.html</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgd8cfac8" class="outline-2">
+<h2 id="orgd8cfac8"><span class="section-number-2">3</span> open ./file.html</h2>
+<div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-bash">open ./readme.html
 Couldn<span style="color: #8b2252;">'t find a suitable web browser!</span>
@@ -120,9 +162,9 @@ set PATH . ~/bin $PATH
 </p>
 </div>
 </div>
-<div id="outline-container-org1bc659b" class="outline-2">
-<h2 id="org1bc659b"><span class="section-number-2">3</span> colorize</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgdbd1472" class="outline-2">
+<h2 id="orgdbd1472"><span class="section-number-2">4</span> colorize</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 orgからexport htmlするとcolorizeが失敗．
 </p>
@@ -137,7 +179,7 @@ orgからexport htmlするとcolorizeが失敗．
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-10-15 Tue 15:58</p>
+<p class="date">Created: 2024-10-16 Wed 15:07</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
