@@ -8,9 +8,14 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 | file:./ss_1013_1.png
-* man tree
+- =man tree=
 基本はmanです．
 
-でも，
-* はやりはtldr
+でも，はやりは
+- =tldr tree=
+
+* install
+- =sudo apt install tldr=
+何もありませんと言われたら，
+- =tldr --update=
 
