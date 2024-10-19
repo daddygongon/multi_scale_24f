@@ -17,11 +17,13 @@ pasteすることができます．
 - =ls -1 | pbcopy=
 ** linux
 Xを介しての場合は，以下の通り．
-$ sudo apt-get install xsel # ubuntu
+#+begin_src shell
+> sudo apt-get install xsel # ubuntu
 or
-$ brew install xsel # cent
-$ cat hoge.txt | xsel --clipboard --input # on directories
-$ alias pbcopy='xsel --clipboard --input' # on ~/.config/fish/config.fish
+> brew install xsel # cent
+> cat hoge.txt | xsel --clipboard --input # on directories
+> alias pbcopy='xsel --clipboard --input' # on ~/.config/fish/config.fish
+#+end_src
 誰か，Xがない場合でもできる方法を知ってたら教えてください．
 
 * unix
