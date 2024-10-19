@@ -1,0 +1,50 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: pull request
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* merge
+- file:./pull_request.png
+
+* daddy gon作業
+** gh auth login
+#+begin_src
+> gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? SSH
+? Upload your SSH public key to your GitHub account? /home/bob/.ssh/id_rsa.pub
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: D64D-F402
+- Press Enter to open github.com in your browser...
+open: https://github.com/login/device : No such file or directory
+✓ Authentication complete. Press Enter to continue...
+
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+HTTP 422: Validation Failed (https://api.github.com/user/keys)
+key is already in use
+⏎
+#+end_src
+
+** pr
+#+begin_src
+> rake pr
+(in /home/bob/ms_24f_students)
+pull request procedure
+1. git switch -c daddygon_1019
+2. git status
+3. git log --graph --oneline
+4. git add .
+5. git commit -m 'add daddygon comments'
+6. git push -u origin daddygon_1019
+7. gh pr create -w
+> gh pr create -w
+Opening github.com/aicpy/multi_scale/compare/main...daddygon_1019 in your browser.
+open: https://github.com/aicpy/multi_scale/compare/main...daddygon_1019?body=&expand=1 :
+#+end_src
+- httpsのopenはctrl押しながらclick

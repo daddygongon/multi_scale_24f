@@ -1,0 +1,15 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: emacs rubyでのtoggle
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* hs-minor-mode
+- add in ~/.emacs.d/init.el
+#+begin_src elisp
+(add-hook 'ruby-mode-hook
+	  (lambda () (hs-minor-mode)))
+#+end_src
