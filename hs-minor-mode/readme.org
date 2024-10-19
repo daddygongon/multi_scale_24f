@@ -7,9 +7,29 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+* ruby-mode
+- =cp -r rubyk-mode ~/.emacs.d=
+
+- add in ~/.emacs.d/init.el
+#+begin_src elisp
+(add-hook 'ruby-mode-hook
+	  (lambda () (hs-minor-mode)))
+#+end_src
+
 * hs-minor-mode
 - add in ~/.emacs.d/init.el
 #+begin_src elisp
 (add-hook 'ruby-mode-hook
 	  (lambda () (hs-minor-mode)))
+
+(eval-after-load "hideshow"
+  '(add-to-list 'hs-special-modes-alist
+    `(ruby-mode
+     ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
+      ,(rx (or "}" "]" "end"))                       ; Block end
+      ,(rx (or "#" "=begin"))                        ; Comment start
+      ruby-forward-sexp nil)))
+
+(global-set-key (kbd "C-c h") 'hs-hide-block)
+(global-set-key (kbd "C-c s") 'hs-show-block)
 #+end_src

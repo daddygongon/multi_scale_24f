@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-10-19 Sat 13:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>emacs rubyでのtoggle</title>
+<meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">emacs rubyでのtoggle</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb226393">1. ruby-mode</a></li>
+<li><a href="#orgaa140df">2. hs-minor-mode</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb226393" class="outline-2">
+<h2 id="orgb226393"><span class="section-number-2">1.</span> ruby-mode</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><code>cp -r rubyk-mode ~/.emacs.d</code></li>
+
+<li>add in ~/.emacs.d/init.el</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-elisp">(add-hook 'ruby-mode-hook
+          (<span style="color: #1c86ee;">lambda</span> () (hs-minor-mode)))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa140df" class="outline-2">
+<h2 id="orgaa140df"><span class="section-number-2">2.</span> hs-minor-mode</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>add in ~/.emacs.d/init.el</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-elisp">(add-hook 'ruby-mode-hook
+          (<span style="color: #1c86ee;">lambda</span> () (hs-minor-mode)))
+
+(eval-after-load <span style="color: #8b7355;">"hideshow"</span>
+  '(add-to-list 'hs-special-modes-alist
+    `(ruby-mode
+     ,(<span style="color: #1c86ee;">rx</span> (<span style="color: #1c86ee;">or</span> <span style="color: #8b7355;">"def"</span> <span style="color: #8b7355;">"class"</span> <span style="color: #8b7355;">"module"</span> <span style="color: #8b7355;">"do"</span> <span style="color: #8b7355;">"{"</span> <span style="color: #8b7355;">"["</span>)) <span style="color: #7f7f7f;">; </span><span style="color: #7f7f7f;">Block start</span>
+      ,(<span style="color: #1c86ee;">rx</span> (<span style="color: #1c86ee;">or</span> <span style="color: #8b7355;">"}"</span> <span style="color: #8b7355;">"]"</span> <span style="color: #8b7355;">"end"</span>))                       <span style="color: #7f7f7f;">; </span><span style="color: #7f7f7f;">Block end</span>
+      ,(<span style="color: #1c86ee;">rx</span> (<span style="color: #1c86ee;">or</span> <span style="color: #8b7355;">"#"</span> <span style="color: #8b7355;">"=begin"</span>))                        <span style="color: #7f7f7f;">; </span><span style="color: #7f7f7f;">Comment start</span>
+      ruby-forward-sexp nil)))
+
+(global-set-key (kbd <span style="color: #8b7355;">"C-c h"</span>) 'hs-hide-block)
+(global-set-key (kbd <span style="color: #8b7355;">"C-c s"</span>) 'hs-show-block)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-10-19 Sat 13:34</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
