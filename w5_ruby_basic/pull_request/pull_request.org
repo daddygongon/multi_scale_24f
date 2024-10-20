@@ -8,7 +8,7 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * merge
-- file:./pull_request.png
+| file:./pull_request.png
 
 * daddy gon作業
 ** gh auth login
