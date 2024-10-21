@@ -1,0 +1,29 @@
+slide_1.PNG
+slide_2.PNG
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: Maple install
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* Maple
+plot作成に数式処理ソフトMapleを使います．
+関学はサイトライセンスがありますので，[[https://ict.kwansei.ac.jp/guide/site_license/1906292/][ictのリンク]]から申し込んでください．
+mailでリンクが送られてきます．
+
+| file:./images/slide_1.PNG | file:./images/slide_2.PNG |
+| Mapleの申し込み           | 使い方                    |
+
+* usage
+使い方はjupter notebookにそっくりです．
+（jupyter notebookがまねたんで当たり前ですが）
+
+- ファイル->新規作成->ワークシート
+- =1+1;= [enter]
+- =plot3d(x^2+x*y+y^2);= [enter]
+- 改行が[shift-enter]
+
+ 
