@@ -6,10 +6,7 @@
 #+EMAIL:     (concat "nishitani@kwansei.ac.jp")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:2 num:2
-#+SETUPFILE: ~/.emacs.d/org-mode/theme-readtheorg.setup
-
-#+STARTUP: indent 
-#+OPTIONS: ^:{}
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * 初めからframe work?
 テストの重要性はある程度認識していると思います.

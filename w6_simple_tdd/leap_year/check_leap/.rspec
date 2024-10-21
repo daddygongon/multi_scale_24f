@@ -1,6 +1,0 @@
-#+begin_src
-# .rspec
-#--format Fuubar
---format documentation
---color
-#+end_src

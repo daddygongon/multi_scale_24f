@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-require_relative '../lib/check_leap.rb'
-
-p leap?(ARGV[0].to_i)
-
