@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+# shebang
+# a+x tidy
+# cp tidy ~/bin
+
 Dir.glob("*~").each do |file|
   p file
   p comm = "rm #{file}"
