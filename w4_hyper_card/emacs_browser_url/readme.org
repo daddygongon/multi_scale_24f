@@ -27,6 +27,7 @@ org-modeの便利なコマンドとして次の二つがある．
   - で解決．
 - ただし，setoptでエラーが出るかも．setqに変更で解決
 
+- 次のfishの設定で自動で開く．<2024-10-22 Tue> atsuyaありがとう
 * open ./file.html
 #+begin_src bash
 open ./readme.html

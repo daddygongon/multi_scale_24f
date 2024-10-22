@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-10-16 Wed 15:07 -->
+<!-- 2024-10-22 Tue 11:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs周辺のbrowserの設定</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
@@ -17,75 +17,29 @@
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">emacs周辺のbrowserの設定</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb0255d0">1. emacs org</a>
+<li><a href="#org055c225">1. emacs org</a>
 <ul>
-<li><a href="#org4af4719">1.1. org export to html</a></li>
-<li><a href="#org6e04c61">1.2. org open html link</a></li>
+<li><a href="#org84cda19">1.1. org export to html</a></li>
+<li><a href="#org642c375">1.2. org open html link</a></li>
 </ul>
 </li>
-<li><a href="#orgdec05f3">2. browser</a></li>
-<li><a href="#orgd8cfac8">3. open ./file.html</a></li>
-<li><a href="#orgdbd1472">4. colorize</a></li>
+<li><a href="#org234ad25">2. browser</a></li>
+<li><a href="#org37fe43e">3. open ./file.html</a></li>
+<li><a href="#orgd03814a">4. colorize</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb0255d0" class="outline-2">
-<h2 id="orgb0255d0"><span class="section-number-2">1</span> emacs org</h2>
+<div id="outline-container-org055c225" class="outline-2">
+<h2 id="org055c225"><span class="section-number-2">1.</span> emacs org</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 emacsではmajor modeというのがあって，それが下のstatus barの真ん中にまる括弧()で
@@ -103,16 +57,16 @@ org-modeの便利なコマンドとして次の二つがある．
 </p>
 </div>
 
-<div id="outline-container-org4af4719" class="outline-3">
-<h3 id="org4af4719"><span class="section-number-3">1.1</span> org export to html</h3>
+<div id="outline-container-org84cda19" class="outline-3">
+<h3 id="org84cda19"><span class="section-number-3">1.1.</span> org export to html</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>c-c c-e [h]tml [o]pen</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6e04c61" class="outline-3">
-<h3 id="org6e04c61"><span class="section-number-3">1.2</span> org open html link</h3>
+<div id="outline-container-org642c375" class="outline-3">
+<h3 id="org642c375"><span class="section-number-3">1.2.</span> org open html link</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>c-c c-o</li>
@@ -120,8 +74,8 @@ org-modeの便利なコマンドとして次の二つがある．
 </div>
 </div>
 </div>
-<div id="outline-container-orgdec05f3" class="outline-2">
-<h2 id="orgdec05f3"><span class="section-number-2">2</span> browser</h2>
+<div id="outline-container-org234ad25" class="outline-2">
+<h2 id="org234ad25"><span class="section-number-2">2.</span> browser</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>No usable browser found エラーが出る場合，</li>
@@ -130,20 +84,21 @@ org-modeの便利なコマンドとして次の二つがある．
 </ul>
 <ul class="org-ul">
 <li>ただし，setoptでエラーが出るかも．setqに変更で解決</li>
+
+<li>次のfishの設定で自動で開く．<span class="timestamp-wrapper"><span class="timestamp">&lt;2024-10-22 Tue&gt; </span></span> atsuyaありがとう</li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgd8cfac8" class="outline-2">
-<h2 id="orgd8cfac8"><span class="section-number-2">3</span> open ./file.html</h2>
+<div id="outline-container-org37fe43e" class="outline-2">
+<h2 id="org37fe43e"><span class="section-number-2">3.</span> open ./file.html</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-bash">open ./readme.html
-Couldn<span style="color: #8b2252;">'t find a suitable web browser!</span>
+Couldn<span style="color: #8b7355;">'t find a suitable web browser!</span>
 
-<span style="color: #8b2252;">Set the BROWSER environment variable to your desired browser.</span>
+<span style="color: #8b7355;">Set the BROWSER environment variable to your desired browser.</span>
 
-<span style="color: #8b2252;">Warning: program returned non-zero exit code #256</span>
+<span style="color: #8b7355;">Warning: program returned non-zero exit code #256</span>
 </pre>
 </div>
 
@@ -162,8 +117,8 @@ set PATH . ~/bin $PATH
 </p>
 </div>
 </div>
-<div id="outline-container-orgdbd1472" class="outline-2">
-<h2 id="orgdbd1472"><span class="section-number-2">4</span> colorize</h2>
+<div id="outline-container-orgd03814a" class="outline-2">
+<h2 id="orgd03814a"><span class="section-number-2">4.</span> colorize</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 orgからexport htmlするとcolorizeが失敗．
@@ -179,8 +134,8 @@ orgからexport htmlするとcolorizeが失敗．
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-10-16 Wed 15:07</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2024-10-22 Tue 11:29</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
