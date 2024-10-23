@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-10-22 Tue 20:11 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>チャート式ruby-V(Recursive Fibonacci)</title>
+<meta name="author" content="西谷滋人" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">チャート式ruby-V(Recursive Fibonacci)
+<br />
+<span class="subtitle">recursion(再帰)をtestで</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org742290d">1. お題:Fibonacci数列</a></li>
+<li><a href="#org030f14d">2. 解説</a></li>
+<li><a href="#org2164f2e">3. fib(0) = 0</a></li>
+<li><a href="#org6320aea">4. fib(1) = 1</a></li>
+<li><a href="#org7e8f498">5. refactoring</a></li>
+<li><a href="#org03d9de1">6. fib(2) = 1</a>
+<ul>
+<li><a href="#org553396e">6.1. red</a></li>
+<li><a href="#org4b78db8">6.2. green</a></li>
+<li><a href="#org1e590c7">6.3. refactoring</a></li>
+</ul>
+</li>
+<li><a href="#orgf9044eb">7. fib(2) = 1 = fib(0) + fib(1)</a>
+<ul>
+<li><a href="#org85ec911">7.1. red &amp; green</a></li>
+<li><a href="#orgea7e4e7">7.2. refactoring</a></li>
+</ul>
+</li>
+<li><a href="#orgc976ff3">8. fib(3) = fib(1) + fib(2) = 1 + 1 = 2</a>
+<ul>
+<li><a href="#org33b5add">8.1. red &amp; green &amp; refactoring = magic</a></li>
+</ul>
+</li>
+<li><a href="#orgb4dbdf7">9. まとめ</a></li>
+<li><a href="#org2459cfc">10. 参照文献</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org742290d" class="outline-2">
+<h2 id="org742290d"><span class="section-number-2">1.</span> お題:Fibonacci数列</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="https://qiita.com/daddygongon/items/6f38d9a04e127a7952a7">チャート式Ruby</a>の5回目，recursion(再帰)です．
+</p>
+<pre class="example" id="org3be9c0e">
+fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1)+fib(n-2) for n&gt;=2
+0 1 1 2 3 5 8 13 21 ...
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">index</td>
+<td class="org-left">n</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">val</td>
+<td class="org-left">fin(n)</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+をrecursion(再帰)で求めなさい．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org030f14d" class="outline-2">
+<h2 id="org030f14d"><span class="section-number-2">2.</span> 解説</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+以下はTDDのバイブルのKent Beck本[^TDDbyKentBeck]に載っていたののアレンジです．
+chart式の解法，解説，発展のサイクルがめちゃくちゃ短くなって，
+TDDのred, green, refactoringに対応している感触を掴んでください．
+</p>
+
+<p>
+<a href="https://qiita.com/daddygongon/items/f6cea87314ee26e130ea">前回</a>作ったassert_equal.rbをcodes(作業directory)にcopyしておいてください．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2164f2e" class="outline-2">
+<h2 id="org2164f2e"><span class="section-number-2">3.</span> fib(0) = 0</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Fibonacci数列の初項は0です．
+</p>
+
+<dl class="org-dl">
+<dt>red</dt><dd><p>
+まずは表示させてみます．
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #cd6600;">p</span> fib(0)
+</pre>
+</div>
+<p>
+ないよね．
+</p></dd>
+<dt>green</dt><dd><p>
+そこで，defします．
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">if</span> n==0
+    <span style="color: #1c86ee;">return</span> 0
+  <span style="color: #1c86ee;">end</span>
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div></dd>
+<dt>refactoring</dt><dd><p>
+assert_equal.rbのassertion(確認)を試しておきます．
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'./assert_equal'</span>
+<span style="color: #cd6600;">puts</span> assert_equal(0, fib(0))
+</pre>
+</div></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org6320aea" class="outline-2">
+<h2 id="org6320aea"><span class="section-number-2">4.</span> fib(1) = 1</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+次はfib(1)=1
+</p>
+<dl class="org-dl">
+<dt>red</dt><dd>まずはassertion</dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #cd6600;">puts</span> assert_equal(1, fib(1))
+</pre>
+</div>
+<p>
+もちろん失敗するが．．．
+</p>
+<dl class="org-dl">
+<dt>green</dt><dd>コピペ．</dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">if</span> n==0
+    <span style="color: #1c86ee;">return</span> 0
+  <span style="color: #1c86ee;">end</span>
+  <span style="color: #1c86ee;">if</span> n==1
+    <span style="color: #1c86ee;">return</span> 1
+  <span style="color: #1c86ee;">end</span>
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+これで通る．
+</p>
+<dl class="org-dl">
+<dt>refactoring</dt><dd>テスト側の重複が気になってきたので，配列にしよう．</dd>
+</dl>
+<div class="org-src-container">
+<pre class="src src-ruby">[[0,0],[1,1]].each <span style="color: #1c86ee;">do</span> |pair|
+  <span style="color: #cd6600;">puts</span> assert_equal(pair[0], fib(pair[1]))
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+テストはもちろんgreen.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e8f498" class="outline-2">
+<h2 id="org7e8f498"><span class="section-number-2">5.</span> refactoring</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+ここらへんまで来るとcodeがごちゃついてきた感じしません？
+しない？　それは頭のいい人．私には無理．
+えっと，rubocopという汚いcodeの取り締まり警官は10行以上のmethodがあると，
+烈火のごとく怒ります．
+</p>
+
+<p>
+治しようがないと思わずに削減を考えます．
+求めよさらば与えられん．そんなに無理しなくても，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">return</span> 0 <span style="color: #1c86ee;">if</span> n==0
+  <span style="color: #1c86ee;">return</span> 1 <span style="color: #1c86ee;">if</span> n==1
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+と2行に削減できます．この記法も英語的でしょ．
+それがrubyのいいところ．
+これだと何をしているのか一目瞭然でしょ．
+動いた部分を隠すというのがありますが，こっちの方がスマートです．
+だからrefactoring(因数分解をもう一度)って名付けられています．
+</p>
+
+<p>
+さらによく見ると
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">return</span> n <span style="color: #1c86ee;">if</span> n&lt;=1
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+と一行になることにも気がつくはず．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org03d9de1" class="outline-2">
+<h2 id="org03d9de1"><span class="section-number-2">6.</span> fib(2) = 1</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org553396e" class="outline-3">
+<h3 id="org553396e"><span class="section-number-3">6.1.</span> red</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+まずはテスト
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby">[[0,0],[1,1],[2,1]].each <span style="color: #1c86ee;">do</span> |pair|
+</pre>
+</div>
+<p>
+なんですが，これはred.
+</p>
+<pre class="example" id="org0a9557b">
+&gt; ruby fibonacci_2.rb
+expected:0
+result :0
+succeeded in assert_equal 0 should be expected.
+
+expected:1
+result :1
+succeeded in assert_equal 1 should be expected.
+
+expected:2
+result :1
+failed in assert_equal 1 should be expected.
+</pre>
+</div>
+</div>
+<div id="outline-container-org4b78db8" class="outline-3">
+<h3 id="org4b78db8"><span class="section-number-3">6.2.</span> green</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+returnを増やして，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">return</span> n <span style="color: #1c86ee;">if</span> n&lt;=1
+  <span style="color: #1c86ee;">return</span> 1
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+これで動くはず&#x2026; おやおや．
+</p>
+
+<p>
+実は，assert_equalは(expected, actual)とうけとっています．
+</p>
+<pre class="example" id="org6a3cd93">
+result = fib(2)
+expected = 1
+</pre>
+<p>
+だから，テストは配列変数pairの示数indexが逆で，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'./assert_equal'</span>
+[[0,0],[1,1],[2,1]].each <span style="color: #1c86ee;">do</span> |pair|
+  <span style="color: #cd6600;">puts</span> assert_equal(pair[1], fib(pair[0]))
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+が正解．そうするとgreen.
+</p>
+</div>
+</div>
+<div id="outline-container-org1e590c7" class="outline-3">
+<h3 id="org1e590c7"><span class="section-number-3">6.3.</span> refactoring</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+もう少し配列の受け取りを明示的にすると，
+</p>
+<pre class="example">
+index, expected = pair
+</pre>
+
+<p>
+と修正できて
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'./assert_equal'</span>
+[[0,0],[1,1],[2,1]].each <span style="color: #1c86ee;">do</span> |index, expected|
+  <span style="color: #cd6600;">puts</span> assert_equal(expected, fib(index))
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+の方がいいかも，圧倒的にいい〜〜．
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf9044eb" class="outline-2">
+<h2 id="orgf9044eb"><span class="section-number-2">7.</span> fib(2) = 1 = fib(0) + fib(1)</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org85ec911" class="outline-3">
+<h3 id="org85ec911"><span class="section-number-3">7.1.</span> red &amp; green</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+人間は賢いから上のように書いても納得するけど，computerはだめ．
+sourceは
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">return</span> n <span style="color: #1c86ee;">if</span> n&lt;=1
+  <span style="color: #1c86ee;">return</span> 1
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+でまずはgreenにしています．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea7e4e7" class="outline-3">
+<h3 id="orgea7e4e7"><span class="section-number-3">7.2.</span> refactoring</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+そのあとでcodeを修正します．return 1の意味を考えると
+</p>
+<pre class="example">
+return 0+1
+</pre>
+
+<p>
+ですよね．さらには
+</p>
+<pre class="example">
+return fib(0) + fib(1)
+</pre>
+
+<p>
+というのも気がつくはず．
+そうするとcodeは
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">return</span> n <span style="color: #1c86ee;">if</span> n&lt;=1
+  <span style="color: #1c86ee;">return</span> fib(0) + fib(1)
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+です．これで通るのが不思議かもしれませんが，とおりますし，意味も
+okです．
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc976ff3" class="outline-2">
+<h2 id="orgc976ff3"><span class="section-number-2">8.</span> fib(3) = fib(1) + fib(2) = 1 + 1 = 2</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org33b5add" class="outline-3">
+<h3 id="org33b5add"><span class="section-number-3">8.1.</span> red &amp; green &amp; refactoring = magic</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+次は3項目. 期待値は2ですね．
+</p>
+<pre class="example">
+[[0,0],[1,1],[2,1],[3,2]].each do |index, expected|
+</pre>
+
+<p>
+としましょう．テストはもちろんredです．
+最後のreturnを定義通り
+</p>
+<pre class="example">
+fib(n) = fib(n-1) + fib(n-2)
+</pre>
+
+<p>
+と修正しましょう．
+</p>
+
+<p>
+そうするとあら不思議．通ります．
+そのさき1,1,2,3,5,8,13,21ももちろん．
+</p>
+
+<p>
+最終形は，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby" id="orgb0ac7bf"><span style="color: #1c86ee;">def</span> <span style="color: #cd9b1d;">fib</span>(n)
+  <span style="color: #1c86ee;">return</span> n <span style="color: #1c86ee;">if</span> n&lt;=1
+  <span style="color: #1c86ee;">return</span> fib(n-1) + fib(n-2)
+<span style="color: #1c86ee;">end</span>
+
+<span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'./assert_equal'</span>
+[[0,0],[1,1],[2,1],[3,2],[4,3],
+[5,5],[6,8],[7,13],[8,21]].each <span style="color: #1c86ee;">do</span> |index, expected|
+  <span style="color: #cd6600;">puts</span> assert_equal(expected, fib(index))
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+です．
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4dbdf7" class="outline-2">
+<h2 id="orgb4dbdf7"><span class="section-number-2">9.</span> まとめ</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+うーーーん．こんなに綺麗にFibonacciを説明できるなんて．TDD万歳!![^DHH]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org2459cfc" class="outline-2">
+<h2 id="org2459cfc"><span class="section-number-2">10.</span> 参照文献</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+[^TDDbyKentBeck]: テスト駆動開発, Kent Beck (著), 和田 卓人 (翻訳), オーム社; 新訳版 (2017/10/14).
+</p>
+
+<p>
+[^DHH]: <a href="https://dhh.dk/2014/tdd-is-dead-long-live-testing.html">「TDD死すとも，testingは死せず」"TDD is dead. Long live testing." by David Heinemeier Hansson</a>ってのもありますが．．．
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: 西谷滋人</p>
+<p class="date">Created: 2024-10-22 Tue 20:11</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

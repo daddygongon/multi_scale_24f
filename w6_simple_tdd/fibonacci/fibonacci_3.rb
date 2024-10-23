@@ -1,10 +1,11 @@
-def fib(n)
-  return 0  if n==0
-  return 1  if n<=2
-  return fib(2) + fib(1)
+def fib(num)
+  if num == 0
+    return 0
+  else
+    return 1+0
+  end
 end
 
-require './xunit_23'
-[[0,0],[1,1],[2,1],[3,2]].each do |pair|
-  puts assert_equal(pair[1], fib(pair[0]))
-end
+p fib(0) == 0
+p fib(1) == 1
+p fib(2) == 1

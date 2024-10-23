@@ -6,6 +6,6 @@ def fib(num)
   end
 end
 
-p fib(0) == 0
-p fib(1) == 1
-p fib(2) == 1
+[[0,0],[1,1],[2,1]].each do |index, val|
+  p fib(index) == val
+end

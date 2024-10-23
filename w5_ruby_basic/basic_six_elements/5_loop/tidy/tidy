@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-# shebang
+# add shebang
+# mv tidy.rb tidy
 # a+x tidy
 # cp tidy ~/bin
 

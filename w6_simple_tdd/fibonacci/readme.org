@@ -1,9 +1,30 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: template for org-file
+#+TITLE: Fibonacci
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+* お題:Fibonacci数列
+recursion(再帰)です．
+#+begin_example
+fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1)+fib(n-2) for n>=2
+0 1 1 2 3 5 8 13 21 ...
+#+end_example
+
+| index | n      | 0 | 1 | 2 | 3 |
+| val   | fin(n) | 0 | 1 | 1 | 2 |
+
+
+をrecursion(再帰)で求めなさい．
+
+* 解説
+以下はTDDのバイブルのKent Beck本[^TDDbyKentBeck]に載っていたののアレンジです．
+chart式の解法，解説，発展のサイクルがめちゃくちゃ短くなって，
+TDDのred, green, refactoringに対応している感触を掴んでください．
+
+[[https://qiita.com/daddygongon/items/f6cea87314ee26e130ea][前回]]作ったassert_equal.rbをcodes(作業directory)にcopyしておいてください．
