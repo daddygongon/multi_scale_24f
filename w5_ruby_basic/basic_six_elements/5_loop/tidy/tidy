@@ -2,7 +2,7 @@
 
 # add shebang
 # mv tidy.rb tidy
-# a+x tidy
+# chmod a+x tidy
 # cp tidy ~/bin
 
 Dir.glob("*~").each do |file|
