@@ -1,0 +1,43 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: Ruby basic six elements
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* 作業
+- six elements
+- auto_git
+- tidy
+
+- bat *.rb
+* 課題
+** directoryの整理
+- chunkingの基本は名前をつけることです．
+- 一眼見ただけで，内容がわかる名前にしましょう．
+- w1とかでは中身を忘れてしまいます．
+- =tree -d= で中身まで予測できるようにしましょう．
+
+#+begin_src
+> tree -d -I 'images' #for w4_hyper_card
+.
+├── bat_fzf
+├── emacs_browser_url
+├── github_private_invite
+├── hyper_card
+│   ├── chunking
+│   └── semi_lattice
+├── tldr
+└── tree
+
+9 directories
+#+end_src
+** maple
+- 来週あたりでplotツールとしてMapleを使います．
+- installしておいてください．
+*** 注意
+- matplotlibとかでもいいんですが，自分で読み替えてくだい．
+** コマンド
+auto_gitみたいにmemo替りとなるコマンドを作ってみてください．
