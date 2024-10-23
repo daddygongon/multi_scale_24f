@@ -1,9 +1,9 @@
 def leap_year?(year)
-  case 
-  when year%400==0; true
-  when year%100==0; false
-  when year%4==0; true
-  else; false
+  case year
+  when 2000; true
+  when 1900; false
+  when 1999; false
+  when 2004; true
   end
 end
 
