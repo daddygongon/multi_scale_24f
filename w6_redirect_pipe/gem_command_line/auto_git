@@ -14,7 +14,8 @@ end
 #puts "git commit -m \'first commit\'"
 "git pull origin main",
 "git push origin main"].each do |comm|
-  puts comm
+  puts comm.green
+  puts ''
   unless opts[:dryrun]
     system comm
   end
