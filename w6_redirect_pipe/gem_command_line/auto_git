@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+opts = {}
+if ARGV[0] == '-d'
+  puts 'dryrun.'
+  opts[:dryrun] = true
+else
+  opts[:dryrun] = false
+end
+
+["git add -A",
+"git commit",
+#puts "git commit -m \'first commit\'"
+"git pull origin main",
+"git push origin main"].each do |comm|
+  puts comm
+  unless opts[:dryrun]
+    system comm
+    end
+end
