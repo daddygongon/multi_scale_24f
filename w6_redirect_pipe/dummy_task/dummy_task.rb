@@ -6,7 +6,7 @@ dev_x = []
 end
 dev_x.each do |x|
   #  system "ruby dummy_option.rb #{x} 1.0"
-  File.write('input_parameters.txt', "#{x}\n1\n")
+  File.write('input_parameters.txt', "#{x}\n1.0\n")
   system "cat input_parameters.txt"
   #  system "cat input_parameters.txt | ruby dummy_interactive.rb"
   system "ruby dummy_file.rb"
