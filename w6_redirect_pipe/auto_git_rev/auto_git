@@ -28,5 +28,5 @@ message,
   end
 end
 
-puts "git stash # 変更の取り消し"
-puts "git log --graph --oneline # short log"
+puts "git stash # 変更の取り消し".green
+puts "git log --graph --oneline # short log".green
