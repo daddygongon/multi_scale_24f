@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'colorize'
 
 opts = {}
 if ARGV[0] == '-d'
