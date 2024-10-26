@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-# coding: utf-8
-require 'colorize'
 
 opts = {}
 case ARGV[0]
@@ -18,13 +16,11 @@ commit = if opts[:message]
          end
 
 ["git add -A",
-commit,
+commit, 
 "git pull origin main",
 "git push origin main"].each do |comm|
-  puts (comm+"\n").green
+  puts comm
+  puts ''
   next if opts[:dryrun]
   system comm
 end
-
-puts "git stash # 変更の取り消し".green
-puts "git log --graph --oneline # short log".green
