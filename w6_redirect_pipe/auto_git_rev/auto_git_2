@@ -1,11 +1,8 @@
 #!/usr/bin/env ruby
 
-opts = {}
 if ARGV[0] == '-d'
   puts 'dryrun.'
-  opts[:dryrun] = true
-else
-  opts[:dryrun] = false
+  dryrun = true
 end
 
 ["git add -A",
@@ -14,7 +11,6 @@ end
 "git pull origin main",
 "git push origin main"].each do |comm|
   puts comm
-  unless opts[:dryrun]
-    system comm
-  end
+  next if dryrun
+  system comm
 end

@@ -1,11 +1,5 @@
 #!/usr/bin/env ruby
 
-opts = {}
-if ARGV[0] == '-d'
-  puts 'dryrun.'
-  opts[:dryrun] = true
-end
-
 ["git add -A",
 "git commit",
 #puts "git commit -m \'first commit\'"
