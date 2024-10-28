@@ -1,16 +1,19 @@
 #!/usr/bin/env ruby
+require 'colorize'
 
+opts = {}
 if ARGV[0] == '-d'
   puts 'dryrun.'
-  dryrun = true
+  opts[:dryrun] = true
+elsif ARGV[0] == '-m'
+  opts[:message] = ARGV[1]
 end
 
 ["git add -A",
 "git commit",
-#puts "git commit -m \'first commit\'"
 "git pull origin main",
 "git push origin main"].each do |comm|
-  puts comm
-  next if dryrun
+  puts comm.green
+  next if opts[:dryrun]
   system comm
 end
