@@ -9,9 +9,11 @@ when '-m'
   opts[:message] = ARGV[1]
 end
 
-commit = opts[:message] ?
-           "git commit -m \'#{opts[:message]}\'" :
+commit = if opts[:message]
+           "git commit -m \'#{opts[:message]}\'"
+         else
            "git commit"
+         end
 
 ["git add -A",
 commit, 

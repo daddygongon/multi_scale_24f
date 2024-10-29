@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'colorize'
 
 opts = {}
 case ARGV[0]
@@ -9,16 +10,11 @@ when '-m'
   opts[:message] = ARGV[1]
 end
 
-commit = opts[:message] ?
-           "git commit -m \'#{opts[:message]}\'" :
-           "git commit"
-
 ["git add -A",
-commit, 
+"git commit",
 "git pull origin main",
 "git push origin main"].each do |comm|
-  puts comm
-  puts ''
+  puts comm.green
   next if opts[:dryrun]
   system comm
 end

@@ -1,9 +1,8 @@
 #!/usr/bin/env ruby
 
-opts = {}
 if ARGV[0] == '-d'
   puts 'dryrun.'
-  opts[:dryrun] = true
+  dryrun = true
 end
 
 ["git add -A",
