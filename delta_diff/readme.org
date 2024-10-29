@@ -1,0 +1,5 @@
+* install
+- brew install git-delta
+- sudo apt install git-delta  # error出るかも
+* options
+- --light --side-by-side 

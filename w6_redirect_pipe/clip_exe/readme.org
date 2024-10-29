@@ -8,6 +8,10 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * clip.exe
+- コピペを
+  - システムを跨いで使うための
+  道具
+
 unixのコマンド出力をそのままPaste baord(mac)，
 クリップボード(win),x-selection(unix)へ保存して，
 pasteすることができます．
@@ -26,14 +30,4 @@ or
 #+end_src
 誰か，Xがない場合でもできる方法を知ってたら教えてください．
 
-* unix
-より複雑な機構がunixにはあります．
-unixの基本思想の，「小さいappli(command)を組み合わせて，自動化する」
-を効率的に制御するための機構です．
 
-これを発展させていくのが，Rubyを使った自動化です．
-
-* system 連携
-** pipe(|)
-** redirect(>, >>, <)
-* xargs

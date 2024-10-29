@@ -1,0 +1,30 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: pipe and redirect
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* usage
+- ruby task_selector [--file|--interactive|--option] > results.txt &
+こういう書き方多いよね．
+[a|b|c]とかは，正規表現的な利用説明
+'>' "&" ???
+
+- > :: redirect, 出力の切り替え
+   redirect元へ，標準出力を出力する（結果の保存）
+- >> :: 追記（元々あるのに上書きするのではなく，追記）
+- | :: pipe, パイプ(出力を入力に喰わす
+- & :: back ground,
+   psとかで確認
+
+標準エラーの出力，
+
+「小さな道具を組み合わせて使う」ってののベタ(道具)
+
+* より一般的なツール
+- wc :: word count
+- xargs ::
+ 
