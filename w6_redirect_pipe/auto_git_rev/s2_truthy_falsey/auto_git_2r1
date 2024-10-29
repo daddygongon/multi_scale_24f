@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-# boolean , true, false
-# falsey , false, nil
-# truthy , other
+# boolean : true, false
+# falsey : false and nil
+# truthy : other, thus include true, buy not only true
 dryrun = true 
 
 ["git add -A",
