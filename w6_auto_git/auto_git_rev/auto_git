@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'colorize'
 
 opts = {}
 case ARGV[0]
@@ -17,7 +18,7 @@ commit_command = opts[:message] ?
 commit_command, 
 "git pull origin main",
 "git push origin main"].each do |command|
-  puts command
+  puts command.green
   puts ''
   next if opts[:dryrun]
   system command
