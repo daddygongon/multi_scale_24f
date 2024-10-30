@@ -1,5 +1,13 @@
+* link
+- [[https://github.com/dandavison/delta]]
+
 * install
 - brew install git-delta
-- sudo apt install git-delta  # error出るかも
+- sudo apt install git-delta  # on Ubuntu : error 無いって
+  - https://dandavison.github.io/delta/installation.html
+  - https://github.com/dandavison/delta/issues/504
+    - Cannot install package on Ubuntu 19.10 and earlier due to libgcc-s1
+    - tl;dr if you're on an older version of Ubuntu (19.10 and earlier) or Debian (10 and earlier):
+    - うまくcompileできてないんでしょうね<2024-10-31 Thu>
 * options
 - --light --side-by-side 

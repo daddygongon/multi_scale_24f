@@ -7,14 +7,15 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-| 5(10/23) | six elements    |            | puts, ~/bin, shebang    |
-|        6 | rake            |            | scaffolding, DSL        |
-|        8 | fsm, maple_plot |            |                         |
-|        9 | simple tdd      |            | fibonacci, leap_year    |
-|        7 | bundler? re     |            | coc, test               |
-|       10 | KentBeck        |            | class                   |
-|       11 | KentBeck        |            | test                    |
-|       12 | KentBeck        |            |                         |
+| 5(10/23) | six elements         | puts, ~/bin, shebang |
+| 6(10/30) | ruby_2               | auto_git             |
+|  7(11/6) | pipe_redirect        |                      |
+| 8(11/13) | listplot3d, log, fsm |                      |
+|        9 | rake                 | scaffolding, DSL     |
+|       10 | rubular, bundler     | coc, test            |
+|       11 | KentBeck             | class                |
+|       12 | KentBeck             | test                 |
+|       13 | KentBeck             |                      |
 
 * w4_hyper_card/readme.html
 
