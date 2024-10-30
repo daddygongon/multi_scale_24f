@@ -1,0 +1,35 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: システム連携
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* auto_git改
+unixの特徴の一つである
+「小さな道具を連携する」
+の実践になります．
+
+その前にRubyの学習の二日目です．
+これは，どうやってcodeを完成させるか
+なんですが，
+利用条件を想定して振る舞いに多様性をもたすことです．
+機能を増やすことになりますので，
+必要になってからということです．
+でもgit commandは一日１０回打つようになるんで．．．
+
+* 課題
+** auto_gitをテキストまで
+/daddygongon/w6_auto_git/auto_git_rev
+に従って完成させてください．
+directory名を変更しているのに気を付けて．
+
+** できれば
+なんか自分のcommandも自動化してください．
+
+** 名前，所属研究室，学籍番号
+readme.orgをgit repositoryの直下において，
+名前，所属研究室，学籍番号
+を記入してください．
