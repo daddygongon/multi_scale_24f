@@ -12,13 +12,28 @@
 | 01--04    | Hyper Card       | wsl, fish, emacs, ruby-gems |
 | 05(10/23) | six elements     | puts, ~/bin, shebang        |
 | 06(10/30) | ruby_2           | auto_git                    |
-| 07(11/06) | pipe_redirect    |                             |
+| 07(11/6)  | pipe_redirect    |                             |
 | 08(11/13) | listplot3d, dirs | maple                       |
 | 09(11/20) | rake,  bundler   | scaffolding, DSL            |
 | 10        | rubular, fsm     | coc, test                   |
 | 11        | KentBeck         | class                       |
 | 12        | KentBeck         | test                        |
 | 13        | KentBeck         |                             |
+
+* 大項目
+- hyper_card
+  - meta
+    - semi_lattice, grain size, chunking, # small, same, tb
+  - beta
+    - tldr, tree, bat, fd
+- unix
+  - wls_install, ssh, fish, bin, 
+- emacs
+  - browser_url
+- git
+  - merge, private_invite
+- ruby
+  - basic_six, auto_git, shebang, 
 
 * w4_hyper_card/readme.html
 
