@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+# boolean : true, false
+# falsey : false and nil
+# truthy : other, thus include true, buy not only true
+dryrun = true 
+
+["git add -A",
+"git commit",
+#puts "git commit -m \'first commit\'"
+"git pull origin main",
+"git push origin main"].each do |comm|
+  puts comm
+end

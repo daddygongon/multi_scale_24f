@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+opts = {}
+case ARGV[0]
+when '-d'
+  puts 'dryrun.'
+  opts[:dryrun] = true
+when '-m'
+  opts[:message] = ARGV[1]
+end
+
+commit_command = opts[:message] ?
+                   "git commit -m \'#{opts[:message]}\'" :
+                   "git commit"
+
+["git add -A",
+commit_command, 
+"git pull origin main",
+"git push origin main"].each do |command|
+  puts command
+  puts ''
+  next if opts[:dryrun]
+  system command
+end
