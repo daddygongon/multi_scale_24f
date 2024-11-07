@@ -7,5 +7,5 @@ y = (ARGV[1] || '1').to_f
 
 result = calc(x,y)
 
-sleep(2)
+sleep(0)
 p [x,y,result]

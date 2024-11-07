@@ -8,5 +8,5 @@ y = lines[1].chomp.to_f
 
 result = calc(x,y)
 
-sleep(2)
+sleep(0)
 p [x,y,result]
