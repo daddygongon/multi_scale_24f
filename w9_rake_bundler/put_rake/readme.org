@@ -1,0 +1,32 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: put rake for
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* name
+Rakefileの雛形をpwdに置くgem.
+
+* install
+#+begin_src shell
+> gem install put_rake
+#+end_src
+
+* usage
+#+begin_src shell
+> put_rake
+put_rake commands:
+  put_rake add PATH        # add Rakefile template PATH
+  put_rake for [EXT]       # put Rakefile for [EXT]
+  put_rake help [COMMAND]  # Describe available commands or one specific command
+  put_rake list            # list available Rakefiles
+  put_rake path            # show Rakefile template path
+  put_rake version         # show version
+#+end_rake
+
+* tldr
+** put_rake for [EXT]       # put Rakefile for [EXT]
+** put_rake add PATH        # add Rakefile template PATH
