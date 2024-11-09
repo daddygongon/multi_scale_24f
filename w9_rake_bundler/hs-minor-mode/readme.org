@@ -26,7 +26,7 @@
 (global-set-key (kbd "C-c s") 'hs-show-block)
 #+end_src
 
-* usage
+* keybind
 - c-c h : hide
 - c-c s : show
 - c-c @ c-l : hide all blocks
