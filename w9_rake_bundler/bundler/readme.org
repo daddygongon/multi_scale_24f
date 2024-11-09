@@ -1,0 +1,14 @@
+#+OPTIONS: ^:{}
+#+STARTUP: bundler
+#+TITLE: bundler memo
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* install
+#+begin_src shell
+> sudo gem install bundler
+#+end_src
+

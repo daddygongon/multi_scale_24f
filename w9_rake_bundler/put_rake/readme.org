@@ -12,7 +12,7 @@ Rakefileの雛形をpwdに置くgem.
 
 * install
 #+begin_src shell
-> gem install put_rake
+> sudo gem install put_rake
 #+end_src
 
 * usage
@@ -27,8 +27,29 @@ put_rake commands:
   put_rake version         # show version
 #+end_src
 
+#+begin_src shell
+> put_rake list
+ * Rakefile template paths
+  /var/lib/gems/3.0.0/gems/put_rake-0.1.7/lib/templates
+ * Available Rakefiles
+                 EXT: some description
+ ** /var/lib/gems/3.0.0/gems/put_rake-0.1.7/lib/templates
+            git_auto: # git automatic pull and push
+            template: Rakefile_template
+#+end_src
 * tldr
 ** put_rake for [EXT]
 ~put Rakefile for [EXT]~
 ** put_rake add PATH
 ~add Rakefile template PATH~
+* development memo
+** bundle install
+#+begin_src shell
+> sudo bundle install
+#+end_src
+で必要なgemsがinstallされる．
+** add <2024-11-09 Sat>
+fishでaddしようとしたが，shにもどっている．
+globalに渡す方法がわからんかったので，
+config.fishの修正法をputsするように変更．
+

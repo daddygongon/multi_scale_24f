@@ -1,0 +1,49 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: stdout and stderr
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* tldr
+commandからの出力にはstdin, stderrがある．
+redirectでそれらを保存するには以下のようにする．
+#+begin_src bash
+$ ruby file_dummy_task.rb               # normal
+$ ruby file_dummy_task.rb > results.txt  # stdout to results.txt
+$ ruby file_dummy_task.rb 2 > errors.txt # stderr only to errors.txt
+$ ruby file_dummy_task.rb &> results.txt # both stdout and stderr to results.txt
+$ ruby file_dummy_task.rb > results.txt 2> errors.txt 
+               # stdout to results.txt, and stderr to errors.txt
+$ cat errors.txt
+$ cat result.txt
+#+end_src
+
+* 追記
+ファイルに上書きするのではなく，追記するには　
+#+begin_src shell
+$ ruby file_dummy_task.rb  >> results.txt
+#+end_src
+すればよい．
+
+* command_line/global
+これらの操作をRubyから呼び出すには，
+#+begin_src shell
+$ sudo gem install command_line
+#+end_src
+したうえで，
+#+begin_src ruby
+system comm
+#+end_src
+の代わりに，
+#+begin_src ruby
+require 'command_line/global'
+require 'colorize'
+
+results = command_line( comm )
+puts results.stderr.red　
+puts results.stdout.blue
+#+end_src
+などとする．

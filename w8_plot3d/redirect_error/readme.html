@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-11-09 Sat 14:29 -->
+<!-- 2024-11-09 Sat 15:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>puts Rakefile for a specific task</title>
+<title>stdout and stderr</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Shigeto R. Nishitani" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
@@ -66,96 +66,93 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">puts Rakefile for a specific task</h1>
+<h1 class="title">stdout and stderr</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaf56b4f">1. name</a></li>
-<li><a href="#org94d5fb1">2. install</a></li>
-<li><a href="#orgfd017df">3. usage</a></li>
-<li><a href="#org7ed6e85">4. tldr</a>
-<ul>
-<li><a href="#org685b200">4.1. put_rake for [EXT]</a></li>
-<li><a href="#org36eb39b">4.2. put_rake add PATH</a></li>
-</ul>
-</li>
+<li><a href="#org8d23b74">1. tldr</a></li>
+<li><a href="#org5c395ff">2. 追記</a></li>
+<li><a href="#org95b7356">3. command_line/global</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaf56b4f" class="outline-2">
-<h2 id="orgaf56b4f"><span class="section-number-2">1</span> name</h2>
+<div id="outline-container-org8d23b74" class="outline-2">
+<h2 id="org8d23b74"><span class="section-number-2">1</span> tldr</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Rakefileの雛形をpwdに置くgem.
+commandからの出力にはstdin, stderrがある．
+redirectでそれらを保存するには以下のようにする．
 </p>
+<div class="org-src-container">
+<pre class="src src-bash">$ ruby file_dummy_task.rb               <span style="color: #b22222;"># </span><span style="color: #b22222;">normal</span>
+$ ruby file_dummy_task.rb &gt; results.txt  <span style="color: #b22222;"># </span><span style="color: #b22222;">stdout to results.txt</span>
+$ ruby file_dummy_task.rb 2 &gt; errors.txt <span style="color: #b22222;"># </span><span style="color: #b22222;">stderr only to errors.txt</span>
+$ ruby file_dummy_task.rb &amp;&gt; results.txt <span style="color: #b22222;"># </span><span style="color: #b22222;">both stdout and stderr to results.txt</span>
+$ ruby file_dummy_task.rb &gt; results.txt 2&gt; errors.txt 
+               <span style="color: #b22222;"># </span><span style="color: #b22222;">stdout to results.txt, and stderr to errors.txt</span>
+$ cat errors.txt
+$ cat result.txt
+</pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org94d5fb1" class="outline-2">
-<h2 id="org94d5fb1"><span class="section-number-2">2</span> install</h2>
+<div id="outline-container-org5c395ff" class="outline-2">
+<h2 id="org5c395ff"><span class="section-number-2">2</span> 追記</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+ファイルに上書きするのではなく，追記するには　
+</p>
 <div class="org-src-container">
-<pre class="src src-shell">&gt; sudo gem install put_rake
+<pre class="src src-shell">$ ruby file_dummy_task.rb  &gt;&gt; results.txt
 </pre>
 </div>
+<p>
+すればよい．
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgfd017df" class="outline-2">
-<h2 id="orgfd017df"><span class="section-number-2">3</span> usage</h2>
+<div id="outline-container-org95b7356" class="outline-2">
+<h2 id="org95b7356"><span class="section-number-2">3</span> command_line/global</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+これらの操作をRubyから呼び出すには，
+</p>
 <div class="org-src-container">
-<pre class="src src-shell">&gt; put_rake
-put_rake commands:
-  put_rake add PATH        <span style="color: #b22222;"># </span><span style="color: #b22222;">add Rakefile template PATH</span>
-  put_rake for [EXT]       <span style="color: #b22222;"># </span><span style="color: #b22222;">put Rakefile for [EXT]</span>
-  put_rake help [COMMAND]  <span style="color: #b22222;"># </span><span style="color: #b22222;">Describe available commands or one specific command</span>
-  put_rake list            <span style="color: #b22222;"># </span><span style="color: #b22222;">list available Rakefiles</span>
-  put_rake path            <span style="color: #b22222;"># </span><span style="color: #b22222;">show Rakefile template path</span>
-  put_rake version         <span style="color: #b22222;"># </span><span style="color: #b22222;">show version</span>
+<pre class="src src-shell">$ sudo gem install command_line
 </pre>
 </div>
+<p>
+したうえで，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #483d8b;">system</span> comm
+</pre>
+</div>
+<p>
+の代わりに，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'command_line/global'</span>
+<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'colorize'</span>
 
-<div class="org-src-container">
-<pre class="src src-shell">&gt; put_rake list
- * Rakefile template paths
-  /var/lib/gems/3.0.0/gems/put_rake-0.1.7/lib/templates
- * Available Rakefiles
-                 EXT: some description
- ** /var/lib/gems/3.0.0/gems/put_rake-0.1.7/lib/templates
-            git_auto: <span style="color: #b22222;"># </span><span style="color: #b22222;">git automatic pull and push</span>
-            template: Rakefile_template
+results = command_line( comm )
+<span style="color: #483d8b;">puts</span> results.stderr.red&#12288;
+<span style="color: #483d8b;">puts</span> results.stdout.blue
 </pre>
 </div>
-</div>
-</div>
-<div id="outline-container-org7ed6e85" class="outline-2">
-<h2 id="org7ed6e85"><span class="section-number-2">4</span> tldr</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org685b200" class="outline-3">
-<h3 id="org685b200"><span class="section-number-3">4.1</span> put_rake for [EXT]</h3>
-<div class="outline-text-3" id="text-4-1">
 <p>
-<code>put Rakefile for [EXT]</code>
+などとする．
 </p>
-</div>
-</div>
-<div id="outline-container-org36eb39b" class="outline-3">
-<h3 id="org36eb39b"><span class="section-number-3">4.2</span> put_rake add PATH</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-<code>add Rakefile template PATH</code>
-</p>
-</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-11-09 Sat 14:29</p>
+<p class="date">Created: 2024-11-09 Sat 15:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
