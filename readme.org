@@ -13,12 +13,12 @@
 | 05(10/23) | six elements     | puts, ~/bin, shebang        |
 | 06(10/30) | ruby_2           | auto_git                    |
 | 07(11/6)  | pipe_redirect    |                             |
-| 08(11/13) | listplot3d, dirs | maple                       |
-| 09(11/20) | rake,  bundler   | scaffolding, DSL            |
-| 10        | rubular, fsm     | coc, test                   |
-| 11        | KentBeck         | class                       |
-| 12        | KentBeck         | test                        |
-| 13        | KentBeck         |                             |
+| 08(11/13) | listplot3d, dirs | maple, tb, 大谷曼荼羅       |
+| 09(11/20) | rubular, fsm     | tdd, good_memo, knowledge   |
+| 10(11/27) | rake,  bundler   | scaffolding, DSL            |
+| 11        | TDD_KentBeck     | class                       |
+| 12        | TDD_KentBeck     | test                        |
+| 13        | TDD_KentBeck     |                             |
 
 * weekly check, and chunking
 - 自分のmulti_scale_24を整理して，git pushしてください．
@@ -33,17 +33,17 @@
 * 大項目
 - hyper_card
   - meta
-    - semi_lattice, grain size, chunking, # small, same, tb
+    - semi_lattice, grain size, chunking, card, tb
   - beta
-    - tldr, tree, bat, fd
+    - tldr, tree, bat, fd(find), delta
 - unix
   - wls_install, ssh, fish, bin, 
 - emacs
-  - browser_url
+  - browser_url, hs-minor-mode
 - git
-  - merge, private_invite
+  - merge, private_invite, auto_git
 - ruby
-  - basic_six, auto_git, shebang, 
+  - basic_six, auto_git, shebang, scaffolding, DSL, CoC
 
 * w4_hyper_card/readme.html
 

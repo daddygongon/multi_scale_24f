@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-11-12 Tue 07:53 -->
+<!-- 2024-11-12 Tue 15:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>stdout and stderr</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
@@ -17,90 +17,52 @@
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">stdout and stderr</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgdb3da4a">1. tldr</a></li>
-<li><a href="#org5671218">2. 追記</a></li>
-<li><a href="#org84937ff">3. command_line/global</a></li>
+<li><a href="#orgfca12dd">1. tldr</a></li>
+<li><a href="#org4ac5ea4">2. 追記</a></li>
+<li><a href="#org855fb0a">3. command_line/global</a>
+<ul>
+<li><a href="#org92f4cd4">3.1. 追記</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdb3da4a" class="outline-2">
-<h2 id="orgdb3da4a"><span class="section-number-2">1</span> tldr</h2>
+<div id="outline-container-orgfca12dd" class="outline-2">
+<h2 id="orgfca12dd"><span class="section-number-2">1.</span> tldr</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 commandからの出力にはstdin, stderrがある．
 redirectでそれらを保存するには以下のようにする．
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">$ ruby file_dummy_task.rb               <span style="color: #b22222;"># </span><span style="color: #b22222;">normal</span>
-$ ruby file_dummy_task.rb &gt; results.txt  <span style="color: #b22222;"># </span><span style="color: #b22222;">stdout to results.txt</span>
-$ ruby file_dummy_task.rb 2 &gt; errors.txt <span style="color: #b22222;"># </span><span style="color: #b22222;">stderr only to errors.txt</span>
-$ ruby file_dummy_task.rb &amp;&gt; results.txt <span style="color: #b22222;"># </span><span style="color: #b22222;">both stdout and stderr to results.txt</span>
+<pre class="src src-bash">$ ruby file_dummy_task.rb               <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">normal</span>
+$ ruby file_dummy_task.rb &gt; results.txt  <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">stdout to results.txt</span>
+$ ruby file_dummy_task.rb 2&gt; errors.txt <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">stderr only to errors.txt</span>
+$ ruby file_dummy_task.rb &amp;&gt; results.txt <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">both stdout and stderr to results.txt</span>
 $ ruby file_dummy_task.rb &gt; results.txt 2&gt; errors.txt 
-               <span style="color: #b22222;"># </span><span style="color: #b22222;">stdout to results.txt, and stderr to errors.txt</span>
+               <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">stdout to results.txt, and stderr to errors.txt</span>
 $ cat errors.txt
 $ cat result.txt
 </pre>
 </div>
+
+<p>
+'2' '&amp;'の後ろに空白があると違う意味，'2&gt;'や'&amp;&gt;'という一つの記号と覚えよ．
+</p>
 </div>
 </div>
 
-<div id="outline-container-org5671218" class="outline-2">
-<h2 id="org5671218"><span class="section-number-2">2</span> 追記</h2>
+<div id="outline-container-org4ac5ea4" class="outline-2">
+<h2 id="org4ac5ea4"><span class="section-number-2">2.</span> 追記</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 ファイルに上書きするのではなく，追記するには　
@@ -115,8 +77,8 @@ $ cat result.txt
 </div>
 </div>
 
-<div id="outline-container-org84937ff" class="outline-2">
-<h2 id="org84937ff"><span class="section-number-2">3</span> command_line/global</h2>
+<div id="outline-container-org855fb0a" class="outline-2">
+<h2 id="org855fb0a"><span class="section-number-2">3.</span> command_line/global</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 これらの操作をRubyから呼び出すには，
@@ -129,36 +91,44 @@ $ cat result.txt
 したうえで，
 </p>
 <div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #483d8b;">system</span> comm
+<pre class="src src-ruby"><span style="color: #cd6600;">system</span> comm
 </pre>
 </div>
 <p>
 の代わりに，
 </p>
-<div class="name" id="&quot;command_line.rb&quot;">
-<p>
-require 'command_line/global'
-require 'colorize'
-</p>
-
-<p>
-comm = "ruby file_dummy_task.rb"
-results = command_line( comm )
-puts results.stdout.green
-puts results.stderr.red
-</p>
-
+<div class="org-src-container">
+<pre class="src src-ruby"><span class="linenr">1: </span><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">coding: utf-8</span>
+<span class="linenr">2: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'command_line/global'</span>
+<span class="linenr">3: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'colorize'</span>
+<span class="linenr">4: </span>
+<span class="linenr">5: </span>comm = <span style="color: #8b7355;">"ruby file_dummy_task.rb"</span>
+<span class="linenr">6: </span><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">system comm</span>
+<span class="linenr">7: </span>results = command_line( comm )
+<span class="linenr">8: </span><span style="color: #cd6600;">puts</span> results.stdout.green
+<span class="linenr">9: </span><span style="color: #cd6600;">puts</span> results.stderr.red
+</pre>
 </div>
 <p>
 などとする．
 </p>
 </div>
+
+<div id="outline-container-org92f4cd4" class="outline-3">
+<h3 id="org92f4cd4"><span class="section-number-3">3.1.</span> 追記</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+これをそのままredirectしても，catやbatはちゃんと
+colorize表示してくれます．
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-11-12 Tue 07:53</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2024-11-12 Tue 15:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

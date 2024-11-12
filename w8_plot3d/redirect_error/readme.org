@@ -13,13 +13,15 @@ redirectでそれらを保存するには以下のようにする．
 #+begin_src bash
 $ ruby file_dummy_task.rb               # normal
 $ ruby file_dummy_task.rb > results.txt  # stdout to results.txt
-$ ruby file_dummy_task.rb 2 > errors.txt # stderr only to errors.txt
+$ ruby file_dummy_task.rb 2> errors.txt # stderr only to errors.txt
 $ ruby file_dummy_task.rb &> results.txt # both stdout and stderr to results.txt
 $ ruby file_dummy_task.rb > results.txt 2> errors.txt 
                # stdout to results.txt, and stderr to errors.txt
 $ cat errors.txt
 $ cat result.txt
 #+end_src
+
+'2' '&'の後ろに空白があると違う意味，'2>'や'&>'という一つの記号と覚えよ．
 
 * 追記
 ファイルに上書きするのではなく，追記するには　
@@ -38,7 +40,6 @@ $ sudo gem install command_line
 system comm
 #+end_src
 の代わりに，
-#+name: "command_line.rb"
 #+include: "./command_line.rb" src ruby -n 
 などとする．
 
