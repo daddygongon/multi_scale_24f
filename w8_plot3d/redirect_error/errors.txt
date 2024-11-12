@@ -1,2 +1,2 @@
-file_dummy_task.rb:5:in `readlines': No such file or directory @ rb_sysopen - input_parameters.txt (Errno::ENOENT)
-	from file_dummy_task.rb:5:in `<main>'
+file_dummy_task.rb:6:in `readlines': No such file or directory @ rb_sysopen - input_parameters.txt (Errno::ENOENT)
+	from file_dummy_task.rb:6:in `<main>'
