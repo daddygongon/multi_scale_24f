@@ -38,12 +38,10 @@ $ sudo gem install command_line
 system comm
 #+end_src
 の代わりに，
-#+begin_src ruby
-require 'command_line/global'
-require 'colorize'
-
-results = command_line( comm )
-puts results.stderr.red　
-puts results.stdout.blue
-#+end_src
+#+name: "command_line.rb"
+#+include: "./command_line.rb" src ruby -n 
 などとする．
+
+** 追記
+これをそのままredirectしても，catやbatはちゃんと
+colorize表示してくれます．

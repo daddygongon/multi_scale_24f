@@ -61,7 +61,7 @@ Dear all,
 西谷@関西学院大・工・情報です．お世話になります．
 windowsとMacのスクリーンショットをお送りします．
 よろしくご査収ください．
-#+end_src mail
+#+end_src
 
 file:./mac_241105.png
 file:./windows_screen_shot.png

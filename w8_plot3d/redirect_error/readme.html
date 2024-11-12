@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-11-09 Sat 15:44 -->
+<!-- 2024-11-12 Tue 07:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>stdout and stderr</title>
@@ -71,15 +71,15 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8d23b74">1. tldr</a></li>
-<li><a href="#org5c395ff">2. 追記</a></li>
-<li><a href="#org95b7356">3. command_line/global</a></li>
+<li><a href="#orgdb3da4a">1. tldr</a></li>
+<li><a href="#org5671218">2. 追記</a></li>
+<li><a href="#org84937ff">3. command_line/global</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8d23b74" class="outline-2">
-<h2 id="org8d23b74"><span class="section-number-2">1</span> tldr</h2>
+<div id="outline-container-orgdb3da4a" class="outline-2">
+<h2 id="orgdb3da4a"><span class="section-number-2">1</span> tldr</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 commandからの出力にはstdin, stderrがある．
@@ -99,8 +99,8 @@ $ cat result.txt
 </div>
 </div>
 
-<div id="outline-container-org5c395ff" class="outline-2">
-<h2 id="org5c395ff"><span class="section-number-2">2</span> 追記</h2>
+<div id="outline-container-org5671218" class="outline-2">
+<h2 id="org5671218"><span class="section-number-2">2</span> 追記</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 ファイルに上書きするのではなく，追記するには　
@@ -115,8 +115,8 @@ $ cat result.txt
 </div>
 </div>
 
-<div id="outline-container-org95b7356" class="outline-2">
-<h2 id="org95b7356"><span class="section-number-2">3</span> command_line/global</h2>
+<div id="outline-container-org84937ff" class="outline-2">
+<h2 id="org84937ff"><span class="section-number-2">3</span> command_line/global</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 これらの操作をRubyから呼び出すには，
@@ -135,14 +135,19 @@ $ cat result.txt
 <p>
 の代わりに，
 </p>
-<div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'command_line/global'</span>
-<span style="color: #483d8b;">require</span> <span style="color: #8b2252;">'colorize'</span>
+<div class="name" id="&quot;command_line.rb&quot;">
+<p>
+require 'command_line/global'
+require 'colorize'
+</p>
 
+<p>
+comm = "ruby file_dummy_task.rb"
 results = command_line( comm )
-<span style="color: #483d8b;">puts</span> results.stderr.red&#12288;
-<span style="color: #483d8b;">puts</span> results.stdout.blue
-</pre>
+puts results.stdout.green
+puts results.stderr.red
+</p>
+
 </div>
 <p>
 などとする．
@@ -152,7 +157,7 @@ results = command_line( comm )
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-11-09 Sat 15:44</p>
+<p class="date">Created: 2024-11-12 Tue 07:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
