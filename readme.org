@@ -20,6 +20,35 @@
 | 12        | TDD_KentBeck     | test                        |
 | 13        | TDD_KentBeck     |                             |
 
+* w7 matplotlib <2024-11-13 Wed>
+- 金井くんのcode
+#+begin_src ruby
+require "scanf"
+
+results = []
+File.readlines("results.txt").each do |line|
+  data = line.scanf("[%f,%f,%f]")
+  results << [data[0], data[2]]
+end
+
+#pp results
+
+puts "
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.array(#{results})
+
+plt.plot(data[:, 0], data[:, 1])
+plt.scatter(data[:, 0], data[:, 1], color='red', s=100, edgecolor='black', label='データポイント', zorder=5)
+plt.grid()
+plt.show()
+"
+#+emd_src
+- これは，純正のlinuxだからそのまま表示してくれる．
+  - ubuntu on wslだと少し工夫が必要．
+  - 多分，jupyter notebookでcopy & pasteが正解．
+
 * weekly check, and chunking
 - 自分のmulti_scale_24を整理して，git pushしてください．
   - daddygon_memo.orgに評価とコメントしていきます．
