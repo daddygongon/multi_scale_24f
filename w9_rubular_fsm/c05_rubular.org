@@ -1,0 +1,96 @@
+#+qiita_public: 5e2de543400fe56be768
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview
+#+TITLE: チャート式ruby-appendix-V(rubular)
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+OPTIONS:   toc:nil
+#+SUBTITLE: 正規表現，ファイルの読み込み
+#+LANGUAGE:  jp
+#+TAG: Ruby, regexp, rubular
+![Mac OS X-10.15.7](https://img.shields.io/badge/MacOSX-10.15.7-brightgreen) ![ruby-2.7.1p83](https://img.shields.io/badge/ruby-2.7.1p83-brightgreen) 
+
+* 正規表現regular expression
+文字情報を取り出す便利ツールが正規表現(regular expression)です．
+これって覚えようとして挫折したことないですか？
+私はRegExpを10年以上使えなくて，本を何冊もトライしたんですが，途中で諦めました．
+でもね．http://rubular.com でわずか10分でバリバリ使えるようになってました．
+コツは，やっぱりTDDです．
+
+* rubular
+| https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/151211/c463deb2-a22d-2af9-14e5-41c55fd77478.png |
+| Rubularの画面 |
+
+Rubularの画面を見てください．
+一番上に正規表現を入れます．
+左下にtest stringを入れます．
+そうすると右に抽出結果が出てきます．
+
+まずはtest文字列として
+: line = '* fix calc kpoints:50, in_plane:0.98, vertical:1.00'
+を考えます．
+
+これから数値の配列[0.98, 1.00]を取り出します．
+まず，取り出す文字列(capture everything enclosed)は
+: (.+)
+で取り出されます．any single caharacterを表す'.'と，一つ以上を表す(+)を入れています．
+これからいらん文字を外していくと考えてください．
+少し試行錯誤すれば，
+#+begin_src ruby
+: in_plane:(.+), vertical:(.+)
+#+end_src
+なんかで数値だけが取り出せたでしょうか？　
+
+正規表現ってたくさん覚えないといけないと思いがちですが，
+Regex quick referenceにまとめられている要素だけでできています．
+大きく分類すると，
+- 範囲指定(左列上)，
+- 位置指定子(左列下)
+- 文字指定子(中列)
+- 量指定子(右列)
+です．
+さらに丸括弧()で抽出になります．
+あとは，そのアンチョコ（カンペ）を見ながら，試行錯誤するだけなんですね．
+どうです，TDDでしょ．
+
+* rubyでの利用
+rubyに組み込むには，
+
+#+include: "./finite_state_machine/test_multiple_methods.rb" :lines "1-15" src ruby
+
+などとします．それぞれにちょっとした特徴がありますが，
+どれを使ってもうまくいくときにはうまくいきます．
+
+* tagつきのregexp
+さらにこの頃，気がついた手法で，tagをつけるのがあります．
+#+begin_src ruby
+string = Regexp.new('in_plane:(?<x>.+), vertical:(?<y>.+)')
+res = line.match(string)
+=> #<MatchData "in_plane:0.98, vertical:1.00" x:"0.98" y:"1.00">
+irb(main): > res[:x]
+=> "0.98"
+irb(main): > res[:y]
+=> "1.00"
+#+end_src
+~:x~ とか ~:y~ というsymbolで取れます．
+
+'=~' だとさらに
+#+begin_src ruby
+irb(main):001:0> line = '* fix calc kpoints:50, in_plane:0.98, vertical:1.00'
+=> "* fix calc kpoints:50, in_plane:0.98, vertical:1.00"
+irb(main):003:0> /in_plane:(?<x>.+), vertical:(?<y>.+)/ =~ line
+=> 23
+irb(main):004:0> x
+=> "0.98"
+irb(main):005:0> y
+=> "1.00"
+#+end_src
+対応した名前がついたローカル変数(local variables with corresponding names)になります．
+
+えっとでも，数値を取り出すときはscanf("%i, %f")も便利です．
+#+include: "./finite_state_machine/test_multiple_methods.rb" :lines "16-" src ruby
+
+C言語と同じformatです．
+regexpで取り出すと文字列なんで，to_fとかto_iでfloat, intに変換する必要がありますが，
+scanfで取り出すとそのままのtypeで取り出されます．
+

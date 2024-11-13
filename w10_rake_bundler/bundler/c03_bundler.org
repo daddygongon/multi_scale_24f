@@ -1,0 +1,171 @@
+#+qiita_public: 14218c96df5cbcf35c62
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages
+#+TITLE: チャート式ruby-appendix-III(bundler)
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "nishitani@kwansei.ac.jp")
+#+SUBTITLE: scaffold(足場)構築, CoC
+#+LANGUAGE:  jp
+#+TAG: Ruby, Bash, Bundler, 初心者
+![Mac OS X-10.15.7](https://img.shields.io/badge/MacOSX-10.15.7-brightgreen) ![ruby-2.7.1p83](https://img.shields.io/badge/ruby-2.7.1p83-brightgreen) 
+
+* CoCの第一歩
+Convention over Configurationという標語があります．
+configurationというのは *設定* という意味ですが，
+ソフトの動作をいくらでも設定できるのはいいことですよね．
+ところがほとんどの場合はデフォルトのままで使いますし，
+そのほうがどこに何があるかを探さなくてもいいので，
+みんなが迷うことがありません．
+それなら「デフォルトのままでいんじゃね」というのが
+convention( *規約* と訳されていますが，コンベンションセンターの方が
+私はなじんでました，意味はa way in which something is usually done
+だそう)です．
+
+それを徹底的にシステム化したのが，David Heinemeier Hansson(DHH)が開発した
+Ruby on Railsです．
+CoCの触りとして，linuxの世界でのbinの掟と
+Railsでよくはじまるscaffolding(足場組)の感覚を紹介します．
+
+* 動作のメモ
+動くようになったら使えるようにしましょう．
+shebangというのを設定して，さらにexecutableに直します．
+- cp hello.rb hello
+- emacs hello
+- #!/usr/bin/env rubyを追加
+- セーブして
+- chmod a+x helloでexecutableにします．
+
+置き場所を工夫すれば，とても便利です．
+| 場所  | for whom      |
+| .     | # very local  |
+| ./bin | # project     |
+| ~/bin | # user        |
+| gem   | # all users   |
+
+tight bindingという考え方があります．
+これは，必要なファイルを出来るだけ必要な場所に
+近いところに置いておくことを意図しています．
+そうすると可搬性が増すから．
+
+execなどの種類で整理したり，~/binなどに置いておくと
+そのうち爆発します．
+localはlocalに必要なprojectで実行できるように．
+さらに，チョコチョコ直すのも気兼ねなくできるようになります．
+ここでしか使わないから．
+
+* pathの設定
+commandが多くなるとsystemが実体を探すのに時間がかかります．
+そこで「pathを通す」んですが，これはやりたくないconfigurationの一種．
+でも，仕方がないんで，覚えてください．
+#+begin_example
+> emacs ~/.bashrc
+  export PATH=".:~/bin:$PATH" を追加，保存
+> source ~/.bashrc
+#+end_example
+これで今いるところとか，'~/bin`に置いたexecutableなcodeを動かすことができます．
+
+fishの場合は，以下の通り．
+#+begin_example
+> emacs ~/.config/fish/config.fish
+  set PATH . $HOME/bin $PATH
+  を追加，保存
+> source ~/.config/fish/config.fish
+#+end_example
+
+* bundler
+さらに，便利なものや，いろいろな場面で使う共通のアプリは
+いろいろなところから使えると便利ですよね．
+そういう時にはgemにしちまいましょう．
+: > gem install bundler
+: > bundle gem hello_rudy -b
+最初は少し質問されますが，TEST:"test-unit", CI:"github"
+他いくつかの質問には'y'で答えてください．
+あるいは
+:  bundle gem hello_rudy -b --git --mit --test=test-unit   
+これでgem作成に必要なファイルが自動生成されます．
+
+あとは，少し修正です．
+: > bundle exec exe/hello_rudy
+で動かないですね．
+
+: > chmod a+x exe/hello_rudy
+で動くかな．
+
+もう少し，
+: > emacs hello_rudy.gemspec
+で怒られたところを修正します．
+用意できてないところは，コメントアウトしときましょう．
+
+さらにlib/hello_rudy.rbを次のように加筆します．
+
+#+begin_src ruby
+require "hello_rudy/version"
+
+module HelloRudy
+  class Error < StandardError; end
+  # Your code goes here...
+  name = ARGV[0] || 'Rudy'
+  puts "Hello #{name}."
+end
+#+end_src
+
+そうして，動くことが確認できたら，
+
+#+begin_example
+> rake install:local
+hello_rudy 0.1.0 built to pkg/hello_rudy-0.1.0.gem.
+hello_rudy (0.1.0) installed.
+#+end_example
+
+そうすると
+#+begin_example
+> hello_rudy Rudy
+Hello Rudy.
+#+end_example
+とちゃんと動くようになったでしょ？
+
+これにはconfiguration要りません．
+どこに入れるかとか，それを読み込む動作とかは，
+gemがよしなにやってくれてます．
+気になるならgem envとかで調べてください．
+
+* scaffolding
+bundleというコマンドでどのようにして自動作成が行われたかを
+少し観察してください．
+
+#+begin_example
+> brew install tree
+> tree 
+.
+├── CODE_OF_CONDUCT.md
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE.txt
+├── README.md
+├── Rakefile
+├── bin
+│   ├── console
+│   └── setup
+├── exe
+│   └── hello_rudy
+├── hello_rudy.gemspec
+├── lib
+│   ├── hello_rudy
+│   │   └── version.rb
+│   └── hello_rudy.rb
+├── pkg
+│   └── hello_rudy-0.1.0.gem
+└── spec
+    ├── hello_rudy_spec.rb
+    └── spec_helper.rb
+
+6 directories, 15 files
+#+end_example
+となっています．
+- どこに何を置くかを決めておく.
+これがCoCの第一歩になります．
+名前とかも自動生成されて，作業の足場(scaffold)ができあがって
+いることに注目してください．
+あとは，指示に従って修正していく．
+これもTDDです．
+
