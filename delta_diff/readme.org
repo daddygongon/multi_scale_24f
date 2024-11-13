@@ -1,3 +1,12 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: todo for multi_scale
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL: (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
 * link
 - [[https://github.com/dandavison/delta]]
 
@@ -9,5 +18,21 @@
     - Cannot install package on Ubuntu 19.10 and earlier due to libgcc-s1
     - tl;dr if you're on an older version of Ubuntu (19.10 and earlier) or Debian (10 and earlier):
     - うまくcompileできてないんでしょうね<2024-10-31 Thu>
+    - brewからのinstallを参照<2024-11-13 Wed>
 * options
 - --light --side-by-side 
+
+* brewからのinstall<2024-11-13 Wed>
+- どうしても入れたい時
+- =sudo apt-get install build-essential curl file git=
+- =/bin/bash -c "(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"=
+bashでやったほうがいいかも
+- =bash=
+- =/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"=
+#+begin_src shell
+> tail -1  ~/.config/fish/config.fish 
+
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#+end_src
+
+- =brew install git-delta=
