@@ -8,6 +8,15 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * 運指(Fingering)
+Ctrl-keyを人差し指で押して操作する人がたくさんいますが，
+それでは，運指の益を享受できません．
+
+Ctrl-keyが両側にあるといいのですが，
+それはありえないみたい．
+
+なので，左手全体をスライドさせます．
+下の写真参照．
+
 | emacs   | Ctrl-a           | pinky -> ctrl | ring -> a      |               |
 | windows | Atl-v            | thumb -> alt  | index -> v     |               |
 | Mac     | com-v            | thumb -> com  | index -> v     |               |
@@ -25,4 +34,15 @@
 | c-x c-c     | pinky -> ctrl | index  -> x | index  -> c |             |
 | c-c c-l     | pinky -> ctrl | index  -> c | r-pinky-> l |             |
 
+* keyboardと左手
+| file:./images/IMG_0025.jpeg | file:./images/IMG_0026.jpeg             |
+| file:./images/IMG_0027.jpeg | file:./images/IMG_0030.jpeg             |
+| left pinky for Ctrl         | left thumb for Alt(Win) or Command(Mac) |
+
+そういえば昔，Vulcan death gripってのがSilicon Graphicsにあったな．．．
+どんなんやったっけ？
+
+=Shift-Ctrl-F12-\=
+
+らしい．[[https://live.julik.nl/2007/04/vulcan-death-grip][Vulcan Death Grip]]
 
