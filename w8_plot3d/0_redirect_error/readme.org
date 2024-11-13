@@ -23,7 +23,7 @@ $ cat result.txt
 
 '2' '&'の後ろに空白があると違う意味，'2>'や'&>'という一つの記号と覚えよ．
 
-* 追記
+** 追記
 ファイルに上書きするのではなく，追記するには　
 #+begin_src shell
 $ ruby file_dummy_task.rb  >> results.txt
@@ -46,3 +46,7 @@ system comm
 ** 追記
 これをそのままredirectしても，catやbatはちゃんと
 colorize表示してくれます．
+** uncolorize
+ところが，読み出す時にはこいつがうっとおしい．
+colorizeに組み込まれている，uncolorizeで解決できます．
+uncolorize.rbを参照ください．
