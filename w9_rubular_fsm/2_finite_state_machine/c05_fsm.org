@@ -1,15 +1,16 @@
-#+qiita_public: c84eaea29a14a5d05945
-#+qiita_private: 544df5c3b5924747d485
+# +qiita_public: c84eaea29a14a5d05945
+# +qiita_private: 544df5c3b5924747d485
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview
 #+TITLE: チャート式ruby-appendix-V(finite state element)
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
-#+OPTIONS:   toc:nil
 #+SUBTITLE: 正規表現，ファイルの読み込み
 #+LANGUAGE:  jp
-#+TAG: Ruby, regexp, FSM
-![Mac OS X-10.15.7](https://img.shields.io/badge/MacOSX-10.15.7-brightgreen) ![ruby-2.7.1p83](https://img.shields.io/badge/ruby-2.7.1p83-brightgreen) 
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
 
 * ファイルからのデータ抽出
 csv, yaml, jsonという一般的に使われるformatされたファイルから
