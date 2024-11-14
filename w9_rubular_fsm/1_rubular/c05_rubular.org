@@ -1,14 +1,14 @@
-#+qiita_public: 5e2de543400fe56be768
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview
-#+TITLE: チャート式ruby-appendix-V(rubular)
+#+TITLE: rubular チャート式ruby-appendix-Vより
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
-#+OPTIONS:   toc:nil
 #+SUBTITLE: 正規表現，ファイルの読み込み
 #+LANGUAGE:  jp
-#+TAG: Ruby, regexp, rubular
-![Mac OS X-10.15.7](https://img.shields.io/badge/MacOSX-10.15.7-brightgreen) ![ruby-2.7.1p83](https://img.shields.io/badge/ruby-2.7.1p83-brightgreen) 
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
 
 * 正規表現regular expression
 文字情報を取り出す便利ツールが正規表現(regular expression)です．
@@ -18,7 +18,7 @@
 コツは，やっぱりTDDです．
 
 * rubular
-| https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/151211/c463deb2-a22d-2af9-14e5-41c55fd77478.png |
+| file:./ss_20141114.png
 | Rubularの画面 |
 
 Rubularの画面を見てください．
@@ -56,7 +56,27 @@ Regex quick referenceにまとめられている要素だけでできていま�
 * rubyでの利用
 rubyに組み込むには，
 
-#+include: "./finite_state_machine/test_multiple_methods.rb" :lines "1-15" src ruby
+#+begin_src ruby
+# "../finite_state_machine/test_multiple_methods.rb"
+line = "* fix calc kpoints:50, in_plane:0.98, vertical:1.00"
+
+string = Regexp.new("\\* fix calc kpoints:50, in_plane:(.+), vertical:(.+)")
+line =~ string
+p [$1.to_f, $2.to_f] #=> [0.98, 1.00]
+
+res = line.scan(string)
+p res #=> [["0.98", "1.00"]]
+p res[0].map(&:to_f) #=> [0.98, 1.0]
+
+p m = line.match(string) 
+#=> #<MatchData "* fix calc kpoints:50, in_plane:0.98, vertical:1.00" 1:"0.98" 2:"1.00">
+p [m[1].to_f, m[2].to_f] #=> [0.98, 1.0]
+
+require 'scanf'
+p line.scanf("* fix calc kpoints:50, in_plane:%f, vertical:%f")
+#=>[0.98, 1.0]
+
+#+end_src
 
 などとします．それぞれにちょっとした特徴がありますが，
 どれを使ってもうまくいくときにはうまくいきます．
@@ -88,7 +108,6 @@ irb(main):005:0> y
 対応した名前がついたローカル変数(local variables with corresponding names)になります．
 
 えっとでも，数値を取り出すときはscanf("%i, %f")も便利です．
-#+include: "./finite_state_machine/test_multiple_methods.rb" :lines "16-" src ruby
 
 C言語と同じformatです．
 regexpで取り出すと文字列なんで，to_fとかto_iでfloat, intに変換する必要がありますが，
