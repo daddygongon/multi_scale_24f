@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-11-18 Mon 15:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>finite state element(fsm) 有限状態マシン</title>
+<meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">finite state element(fsm) 有限状態マシン</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org847fb2f">1. Introduction</a></li>
+<li><a href="#orgc5601b5">2. 有限状態マシン-I(最初のベタベタcode)</a></li>
+<li><a href="#org3770783">3. 有限状態マシン-II(state, event)</a></li>
+<li><a href="#org74ad7fc">4. 有限状態マシン-III(state, action分離版)</a></li>
+<li><a href="#orgf51c238">5. ベストプラクティスから</a></li>
+<li><a href="#org639bb81">6. 参照文献</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org847fb2f" class="outline-2">
+<h2 id="org847fb2f"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+一行からデータを取り出すのに正規表現が使われるように，
+長い文章や繰り返しから，データを抽出するのに
+有限状態マシン(finite state machine)を利用する手があります．
+プログラマのバイブルの一つである
+「達人プログラマー(pragmaticと呼ばれています)」[^RubyBestPractice]の
+第2版でRubyコードで紹介されています[<a href="https://kwanseio365-my.sharepoint.com/:b:/g/personal/cru32369_nuc_kwansei_ac_jp/EcsRmORgJ_5BvEnEDTs245UBDdrOAyveeydmAph7kOYe1g?e=qR5jBK">pp.175-9</a>].
+</p>
+
+<p>
+時間がないので，詳しくは紹介しませんが，
+でかい出力から，データを繰り返し抽出する必要がある時には，
+それほど難しくはないので，是非試してみてください．
+具体事例があれば，部屋に持ってきていただけば，
+実装ステップをお教えします．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc5601b5" class="outline-2">
+<h2 id="orgc5601b5"><span class="section-number-2">2.</span> 有限状態マシン-I(最初のベタベタcode)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+たくさんのデータの中から必要な数値だけを取り出したいのですが，
+</p>
+<ol class="org-ol">
+<li>'1 F'に続く数値を取り出します．</li>
+<li>でもrelaxでは無視して，</li>
+<li>fixの時だけ数値を取り出して，</li>
+<li>'* fix 'でも数値を取り出して．．．</li>
+</ol>
+<p>
+と説明はややこしいですね．
+やりたいことをポンチ絵にすると次の通りです．
+</p>
+
+
+<div id="org6382560" class="figure">
+<p><img src="./images/finite_state_machine_vasp.png" alt="finite_state_machine_vasp.png" />
+</p>
+</div>
+
+<p>
+これだと少しは理解できますか？
+こういうことは日常のデータ処理でよく直面します．
+</p>
+
+<p>
+これを'divide and conquer'で理解していきます．
+まずdivideするのは，状態(state)とactionにです．
+そして適切なtriggerとなるkeywordを抽出します．
+一文にまとめると，
+</p>
+<blockquote>
+<p>
+triggerにぶつかった時に状態(state)を変えて，
+同時に適切な振る舞い(action)を取る．
+</p>
+</blockquote>
+<p>
+ここまで書くと有限状態マシンであることが認識できると思います．
+UMLで書くと図右のようになります．
+</p>
+
+<p>
+まずは，あまり凝らずにわかりやすく動作をベタ書きしたコードです．
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span class="linenr"> 1: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
+<span class="linenr"> 2: </span>file = <span style="color: #00688b;">ARGV</span>[0] || <span style="color: #8b7355;">"./relax_calc.o22733"</span>
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>state = <span style="color: #6e8b3d;">false</span>
+<span class="linenr"> 5: </span>all_data = []
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span><span style="color: #00688b;">File</span>.readlines(file).each <span style="color: #1c86ee;">do</span> |line|
+<span class="linenr"> 8: </span>  <span style="color: #1c86ee;">if</span> line.match(<span style="color: #8b7355;">/fix/</span>)
+<span class="linenr"> 9: </span>    all_data &lt;&lt; line.scanf(<span style="color: #8b7355;">"* fix calc kpoints:50, in_plane:%f, vertical:%f"</span>)
+<span class="linenr">10: </span>    state = <span style="color: #6e8b3d;">true</span>
+<span class="linenr">11: </span>  <span style="color: #1c86ee;">end</span>
+<span class="linenr">12: </span>  
+<span class="linenr">13: </span>  <span style="color: #1c86ee;">if</span> state
+<span class="linenr">14: </span>    <span style="color: #1c86ee;">if</span> line.match(<span style="color: #8b7355;">/1 F=/</span>)
+<span class="linenr">15: </span>      all_data[-1] &lt;&lt; line.scanf(<span style="color: #8b7355;">"1 F= %f E0= %f  d E =%f"</span>)[0]
+<span class="linenr">16: </span>      state = <span style="color: #6e8b3d;">false</span>
+<span class="linenr">17: </span>    <span style="color: #1c86ee;">end</span>
+<span class="linenr">18: </span>  <span style="color: #1c86ee;">end</span>
+<span class="linenr">19: </span><span style="color: #1c86ee;">end</span>
+<span class="linenr">20: </span>
+<span class="linenr">21: </span>all_data.each <span style="color: #1c86ee;">do</span> |data|
+<span class="linenr">22: </span>  <span style="color: #cd6600;">puts</span> <span style="color: #8b7355;">"[%5.3f, %5.3f, %10.5f],"</span> % data
+<span class="linenr">23: </span><span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3770783" class="outline-2">
+<h2 id="org3770783"><span class="section-number-2">3.</span> 有限状態マシン-II(state, event)</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+さらに明示的に有限状態マシンの状態遷移をcodingする書き方です[^PragmaticProgrammerV2].
+少し難しいんですが，焼き直すと次のようになります．
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ruby" id="org981552f"><span class="linenr"> 1: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
+<span class="linenr"> 2: </span>file = <span style="color: #00688b;">ARGV</span>[0] || <span style="color: #8b7355;">"./relax_calc.o22733"</span>
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #00688b;">TRANS</span> = {
+<span class="linenr"> 5: </span>  <span style="color: #6e8b3d;">wait_next:</span> {<span style="color: #6e8b3d;">xy_data:</span> <span style="color: #6e8b3d;">:searching</span>},
+<span class="linenr"> 6: </span>  <span style="color: #6e8b3d;">searching:</span> {<span style="color: #6e8b3d;">idle:</span> <span style="color: #6e8b3d;">:searching</span>, <span style="color: #6e8b3d;">z_data:</span> <span style="color: #6e8b3d;">:wait_next</span>}
+<span class="linenr"> 7: </span>}
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>state = <span style="color: #6e8b3d;">:wait_next</span>
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>all_data = []
+<span class="linenr">12: </span><span style="color: #00688b;">File</span>.readlines(file).each <span style="color: #1c86ee;">do</span> |line|
+<span class="linenr">13: </span>  <span style="color: #1c86ee;">case</span> state
+<span class="linenr">14: </span>  <span style="color: #1c86ee;">when</span> <span style="color: #6e8b3d;">:wait_next</span>
+<span class="linenr">15: </span>    <span style="color: #1c86ee;">if</span> line.match(<span style="color: #8b7355;">/fix/</span>)
+<span class="linenr">16: </span>      state = <span style="color: #00688b;">TRANS</span>[state][<span style="color: #6e8b3d;">:xy_data</span>]
+<span class="linenr">17: </span>      all_data &lt;&lt; line.scanf(
+<span class="linenr">18: </span>        <span style="color: #8b7355;">"* fix calc kpoints:50, in_plane:%f, vertical:%f"</span>)
+<span class="linenr">19: </span>    <span style="color: #1c86ee;">end</span>
+<span class="linenr">20: </span>  <span style="color: #1c86ee;">when</span> <span style="color: #6e8b3d;">:searching</span>
+<span class="linenr">21: </span>    <span style="color: #1c86ee;">if</span> line.match(<span style="color: #8b7355;">/1 F=/</span>)
+<span class="linenr">22: </span>      state = <span style="color: #00688b;">TRANS</span>[state][<span style="color: #6e8b3d;">:z_data</span>]
+<span class="linenr">23: </span>      all_data[-1] &lt;&lt; line.scanf(<span style="color: #8b7355;">"1 F= %f E0= %f  d E =%f"</span>)[0]
+<span class="linenr">24: </span>    <span style="color: #1c86ee;">else</span>
+<span class="linenr">25: </span>      state = <span style="color: #00688b;">TRANS</span>[state][<span style="color: #6e8b3d;">:idle</span>]
+<span class="linenr">26: </span>    <span style="color: #1c86ee;">end</span>
+<span class="linenr">27: </span>  <span style="color: #1c86ee;">end</span>
+<span class="linenr">28: </span><span style="color: #1c86ee;">end</span>
+<span class="linenr">29: </span>
+<span class="linenr">30: </span>all_data.each <span style="color: #1c86ee;">do</span> |data|
+<span class="linenr">31: </span>  <span style="color: #cd6600;">puts</span> <span style="color: #8b7355;">"[%5.3f, %5.3f, %10.5f],"</span> % data
+<span class="linenr">32: </span><span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>`state=:wait_next` の間は，読んでて，</li>
+<li>':in_data'に遭遇すると'state=:searching'に遷移し,</li>
+<li>':match_data'で'state = :wait_next'に遷移します．</li>
+</ul>
+<p>
+コツは，'TRANS'というのをあらかじめ用意しておいて，
+eventと遷移(transition)先を明示してやることのようです．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74ad7fc" class="outline-2">
+<h2 id="org74ad7fc"><span class="section-number-2">4.</span> 有限状態マシン-III(state, action分離版)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+さらにstateとactionを使って，状態遷移と動作を分離する例がp.177にあります．
+</p>
+
+<p>
+これを実装すると以下の通りです．
+</p>
+
+<div class="org-src-container">
+<pre class="src src-ruby" id="org49c4203"><span class="linenr"> 1: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
+<span class="linenr"> 2: </span>file = <span style="color: #00688b;">ARGV</span>[0] || <span style="color: #8b7355;">"./relax_calc.o22733"</span>
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span style="color: #00688b;">TRANS</span> = {
+<span class="linenr"> 5: </span>  <span style="color: #6e8b3d;">wait_next:</span> {
+<span class="linenr"> 6: </span>    <span style="color: #8b7355;">'* fix '</span> =&gt; [<span style="color: #6e8b3d;">:searching</span> , <span style="color: #6e8b3d;">:xy_data</span>],
+<span class="linenr"> 7: </span>    <span style="color: #6e8b3d;">:default</span> =&gt; [<span style="color: #6e8b3d;">:wait_next</span>, <span style="color: #6e8b3d;">:idle</span>]
+<span class="linenr"> 8: </span>  },
+<span class="linenr"> 9: </span>  <span style="color: #6e8b3d;">searching:</span> {
+<span class="linenr">10: </span>    <span style="color: #8b7355;">'   1 F'</span> =&gt; [<span style="color: #6e8b3d;">:wait_next</span>, <span style="color: #6e8b3d;">:z_data</span>],
+<span class="linenr">11: </span>    <span style="color: #6e8b3d;">:default</span> =&gt; [<span style="color: #6e8b3d;">:searching</span>, <span style="color: #6e8b3d;">:idle</span>]
+<span class="linenr">12: </span>  }
+<span class="linenr">13: </span>}
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>state = <span style="color: #6e8b3d;">:wait_next</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>all_data = []
+<span class="linenr">18: </span><span style="color: #00688b;">File</span>.readlines(file).each <span style="color: #1c86ee;">do</span> |line|
+<span class="linenr">19: </span>  state, action = <span style="color: #00688b;">TRANS</span>[state][line[0..5]] ||
+<span class="linenr">20: </span>                  <span style="color: #00688b;">TRANS</span>[state][<span style="color: #6e8b3d;">:default</span>]
+<span class="linenr">21: </span>  <span style="color: #1c86ee;">case</span> action
+<span class="linenr">22: </span>  <span style="color: #1c86ee;">when</span> <span style="color: #6e8b3d;">:idle</span>
+<span class="linenr">23: </span>  <span style="color: #1c86ee;">when</span> <span style="color: #6e8b3d;">:xy_data</span>
+<span class="linenr">24: </span>    all_data &lt;&lt; line.scanf(
+<span class="linenr">25: </span>      <span style="color: #8b7355;">"* fix calc kpoints:50, in_plane:%f, vertical:%f"</span>)
+<span class="linenr">26: </span>  <span style="color: #1c86ee;">when</span> <span style="color: #6e8b3d;">:z_data</span>
+<span class="linenr">27: </span>    all_data[-1] &lt;&lt; line.scanf(<span style="color: #8b7355;">"1 F= %f E0= %f  d E =%f"</span>)[0]
+<span class="linenr">28: </span>  <span style="color: #1c86ee;">end</span>
+<span class="linenr">29: </span><span style="color: #1c86ee;">end</span>
+<span class="linenr">30: </span>
+<span class="linenr">31: </span>all_data.each <span style="color: #1c86ee;">do</span> |data|
+<span class="linenr">32: </span>  <span style="color: #cd6600;">puts</span> <span style="color: #8b7355;">"[%5.3f, %5.3f, %10.5f],"</span> % data
+<span class="linenr">33: </span><span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+
+<p>
+こうするとcodeが短くなりますよね．
+triggerをおしゃれに組み込んでいますが，こういうのをスッと書けるのが
+Rubyの魅力です．
+</p>
+
+<p>
+ただ，debugがしんどいので相当確信を持ってrefactoringしています．
+ただ，Huntらが言う通り，広い対象にこのパターンは使えます．
+こういうの(fsmによるデータ抽出)があると覚えておくと便利です．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf51c238" class="outline-2">
+<h2 id="orgf51c238"><span class="section-number-2">5.</span> ベストプラクティスから</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+初めてこのことに言及したテキスト[^RubyBestPractice]のメモを残しておきます．
+そこでは，状態の遷移とactionを違ったブロックに分けて処理していました．
+</p>
+
+<p>
+複雑な構文がたくさん繰り返されるときに便利な手法です．
+よくあるのは，以下のようにkeywordで囲まれたブロックの塊です．
+</p>
+<pre class="example" id="org48dc2af">
+StartCharMetrics 315
+C 32 ; WX 278 ; N space ; B 0 0 0 0 ;
+C 33 ; WX 278 ; N exclam ; B 90 0 187 718 ;
+C 34 ; WX 355 ; N quotedbl ; B 70 463 285 718 ;
+C 35 ; WX 556 ; N numbersign ; B 28 0 529 688 ;
+C 36 ; WX 556 ; N dollar ; B 32 -115 520 775 ;
+....
+EndCharMetrics
+</pre>
+<p>
+Endはないこともあります．
+</p>
+
+<p>
+こういうときに便利なのが次のようにブロックの中なのか外なのかを
+判断しながらデータを取り出していく手法です．
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby">section = []
+<span style="color: #00688b;">File</span>.foreach(file_name) <span style="color: #1c86ee;">do</span> |line|
+  <span style="color: #1c86ee;">case</span> line
+  <span style="color: #1c86ee;">when</span> <span style="color: #8b7355;">/^Start(\w+)/</span>
+    section.push <span style="color: #cd6600;">$1</span>
+    <span style="color: #1c86ee;">next</span>
+  <span style="color: #1c86ee;">when</span> <span style="color: #8b7355;">/^End(\w+)/</span>
+    section.pop
+    <span style="color: #1c86ee;">next</span>
+  <span style="color: #1c86ee;">end</span>
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+状態(in "FontMetircs", or other)をsectionに溜め込みながら逐次的に処理していきます．
+</p>
+
+<p>
+データを読み取る方は
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #1c86ee;">case</span> section
+<span style="color: #1c86ee;">when</span> [<span style="color: #8b7355;">"FontMetrics"</span>, <span style="color: #8b7355;">"CharMetrics"</span>]
+  <span style="color: #1c86ee;">next</span> <span style="color: #1c86ee;">unless</span> line =~ <span style="color: #8b7355;">/^CH?\s/</span>
+
+  name                  = line[<span style="color: #8b7355;">/\bN\s+(\.?\w+)\s*;/</span>, 1]
+  <span style="color: #2e8b57;">@glyph_widths</span>[name]   = line[<span style="color: #8b7355;">/\bWX\s+(\d+)\s*;/</span>, 1].to_i
+  <span style="color: #2e8b57;">@bounding_boxes</span>[name] = line[<span style="color: #8b7355;">/\bB\s+([^;]+);/</span>, 1].to_s.rstrip
+<span style="color: #1c86ee;">when</span> [<span style="color: #8b7355;">"FontMetrics"</span>, <span style="color: #8b7355;">"KernData"</span>, <span style="color: #8b7355;">"KernPairs"</span>]
+  <span style="color: #1c86ee;">next</span> <span style="color: #1c86ee;">unless</span> line =~ <span style="color: #8b7355;">/^KPX\s+(\.?\w+)\s+(\.?\w+)\s+(-?\d+)/</span>
+  <span style="color: #2e8b57;">@kern_pairs</span>[[<span style="color: #cd6600;">$1</span>, <span style="color: #cd6600;">$2</span>]] = <span style="color: #cd6600;">$3</span>.to_i
+<span style="color: #1c86ee;">when</span> [<span style="color: #8b7355;">"FontMetrics"</span>, <span style="color: #8b7355;">"KernData"</span>, <span style="color: #8b7355;">"TrackKern"</span>], [<span style="color: #8b7355;">"FontMetrics"</span>, <span style="color: #8b7355;">"Composites"</span>]
+  <span style="color: #1c86ee;">next</span>
+<span style="color: #1c86ee;">else</span>
+  parse_generic_afm_attribute(line)
+<span style="color: #1c86ee;">end</span>
+</pre>
+</div>
+<p>
+という感じで，caseに従って読み取る内容を分けています．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org639bb81" class="outline-2">
+<h2 id="org639bb81"><span class="section-number-2">6.</span> 参照文献</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+[^PragmaticProgrammerV2]: 達人プログラマー(第2版): 熟達に向けたあなたの旅 (日本語) 単行本 – 2020/11/21
+David Thomas (著), Andrew Hunt (著), 村上 雅章 (翻訳), オーム社; 第2版 (2020/11/21), p176.
+</p>
+
+<p>
+[^RubyBestPractice]: Rubyベストプラクティス -プロフェッショナルによるコードとテクニック，Gregory Brown (著), 高橋 征義 (監訳), 笹井 崇司  (翻訳)、オライリージャパン (2010/3/26)， <a href="https://www.oreilly.com/library/view/ruby-best-practices/9780596157487/ch04.html">Ruby Best Practices by Gregory T Brown, O'Reilly, </a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-11-18 Mon 15:50</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
