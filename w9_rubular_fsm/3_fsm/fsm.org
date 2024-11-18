@@ -1,26 +1,12 @@
-<<<<<<<< HEAD:w9_rubular_fsm/3_fsm/readme_fsm.org
-========
-# +qiita_public: c84eaea29a14a5d05945
-# +qiita_private: 544df5c3b5924747d485
->>>>>>>> 6cab8bd5cbff72ab0110bcc31c7d48253a4f92cb:w9_rubular_fsm/2_finite_state_machine/c05_fsm.org
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
 #+TITLE: finite state element(fsm) 有限状態マシン
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
-<<<<<<<< HEAD:w9_rubular_fsm/3_fsm/readme_fsm.org
-#+OPTIONS:   toc:nil
-#+LANGUAGE:  jp
-#+OPTIONS:   H:4 toc:t num:2
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
-========
-#+SUBTITLE: 正規表現，ファイルの読み込み
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-
->>>>>>>> 6cab8bd5cbff72ab0110bcc31c7d48253a4f92cb:w9_rubular_fsm/2_finite_state_machine/c05_fsm.org
 
 
 * Introduction

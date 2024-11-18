@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-11-18 Mon 15:14 -->
+<!-- 2024-11-18 Mon 15:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>finite state element(fsm) 有限状態マシン</title>
@@ -25,19 +25,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7c7df07">1. Introduction</a></li>
-<li><a href="#orgcfd8b2d">2. 有限状態マシン-I(最初のベタベタcode)</a></li>
-<li><a href="#orgdd3b2ec">3. 有限状態マシン-II(state, event)</a></li>
-<li><a href="#org2229082">4. 有限状態マシン-III(state, action分離版)</a></li>
-<li><a href="#orgd8f6dca">5. ベストプラクティスから</a></li>
-<li><a href="#org7f18a32">6. 参照文献</a></li>
+<li><a href="#org847fb2f">1. Introduction</a></li>
+<li><a href="#orgc5601b5">2. 有限状態マシン-I(最初のベタベタcode)</a></li>
+<li><a href="#org3770783">3. 有限状態マシン-II(state, event)</a></li>
+<li><a href="#org74ad7fc">4. 有限状態マシン-III(state, action分離版)</a></li>
+<li><a href="#orgf51c238">5. ベストプラクティスから</a></li>
+<li><a href="#org639bb81">6. 参照文献</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org7c7df07" class="outline-2">
-<h2 id="org7c7df07"><span class="section-number-2">1.</span> Introduction</h2>
+
+<div id="outline-container-org847fb2f" class="outline-2">
+<h2 id="org847fb2f"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 一行からデータを取り出すのに正規表現が使われるように，
@@ -58,8 +59,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgcfd8b2d" class="outline-2">
-<h2 id="orgcfd8b2d"><span class="section-number-2">2.</span> 有限状態マシン-I(最初のベタベタcode)</h2>
+<div id="outline-container-orgc5601b5" class="outline-2">
+<h2 id="orgc5601b5"><span class="section-number-2">2.</span> 有限状態マシン-I(最初のベタベタcode)</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 たくさんのデータの中から必要な数値だけを取り出したいのですが，
@@ -76,7 +77,7 @@
 </p>
 
 
-<div id="org5a40fd7" class="figure">
+<div id="org6382560" class="figure">
 <p><img src="./images/finite_state_machine_vasp.png" alt="finite_state_machine_vasp.png" />
 </p>
 </div>
@@ -135,8 +136,8 @@ UMLで書くと図右のようになります．
 </div>
 </div>
 
-<div id="outline-container-orgdd3b2ec" class="outline-2">
-<h2 id="orgdd3b2ec"><span class="section-number-2">3.</span> 有限状態マシン-II(state, event)</h2>
+<div id="outline-container-org3770783" class="outline-2">
+<h2 id="org3770783"><span class="section-number-2">3.</span> 有限状態マシン-II(state, event)</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 さらに明示的に有限状態マシンの状態遷移をcodingする書き方です[^PragmaticProgrammerV2].
@@ -144,7 +145,7 @@ UMLで書くと図右のようになります．
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ruby" id="orgf5310f1"><span class="linenr"> 1: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
+<pre class="src src-ruby" id="org981552f"><span class="linenr"> 1: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
 <span class="linenr"> 2: </span>file = <span style="color: #00688b;">ARGV</span>[0] || <span style="color: #8b7355;">"./relax_calc.o22733"</span>
 <span class="linenr"> 3: </span>
 <span class="linenr"> 4: </span><span style="color: #00688b;">TRANS</span> = {
@@ -191,8 +192,8 @@ eventと遷移(transition)先を明示してやることのようです．
 </div>
 </div>
 
-<div id="outline-container-org2229082" class="outline-2">
-<h2 id="org2229082"><span class="section-number-2">4.</span> 有限状態マシン-III(state, action分離版)</h2>
+<div id="outline-container-org74ad7fc" class="outline-2">
+<h2 id="org74ad7fc"><span class="section-number-2">4.</span> 有限状態マシン-III(state, action分離版)</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 さらにstateとactionを使って，状態遷移と動作を分離する例がp.177にあります．
@@ -203,7 +204,7 @@ eventと遷移(transition)先を明示してやることのようです．
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ruby" id="org6fbcf4b"><span class="linenr"> 1: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
+<pre class="src src-ruby" id="org49c4203"><span class="linenr"> 1: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
 <span class="linenr"> 2: </span>file = <span style="color: #00688b;">ARGV</span>[0] || <span style="color: #8b7355;">"./relax_calc.o22733"</span>
 <span class="linenr"> 3: </span>
 <span class="linenr"> 4: </span><span style="color: #00688b;">TRANS</span> = {
@@ -253,8 +254,8 @@ Rubyの魅力です．
 </div>
 </div>
 
-<div id="outline-container-orgd8f6dca" class="outline-2">
-<h2 id="orgd8f6dca"><span class="section-number-2">5.</span> ベストプラクティスから</h2>
+<div id="outline-container-orgf51c238" class="outline-2">
+<h2 id="orgf51c238"><span class="section-number-2">5.</span> ベストプラクティスから</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 初めてこのことに言及したテキスト[^RubyBestPractice]のメモを残しておきます．
@@ -265,7 +266,7 @@ Rubyの魅力です．
 複雑な構文がたくさん繰り返されるときに便利な手法です．
 よくあるのは，以下のようにkeywordで囲まれたブロックの塊です．
 </p>
-<pre class="example" id="org6b47d30">
+<pre class="example" id="org48dc2af">
 StartCharMetrics 315
 C 32 ; WX 278 ; N space ; B 0 0 0 0 ;
 C 33 ; WX 278 ; N exclam ; B 90 0 187 718 ;
@@ -328,8 +329,8 @@ Endはないこともあります．
 </div>
 </div>
 
-<div id="outline-container-org7f18a32" class="outline-2">
-<h2 id="org7f18a32"><span class="section-number-2">6.</span> 参照文献</h2>
+<div id="outline-container-org639bb81" class="outline-2">
+<h2 id="org639bb81"><span class="section-number-2">6.</span> 参照文献</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 [^PragmaticProgrammerV2]: 達人プログラマー(第2版): 熟達に向けたあなたの旅 (日本語) 単行本 – 2020/11/21
@@ -344,7 +345,7 @@ David Thomas (著), Andrew Hunt (著), 村上 雅章 (翻訳), オーム社; 第
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-11-18 Mon 15:14</p>
+<p class="date">Created: 2024-11-18 Mon 15:50</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
