@@ -1,0 +1,11 @@
+#"/user/bin/env ruby
+
+dirs = ARGV[0]=='-r' ? '**/' : './'
+
+['*~', '*:Zone.Identifier'].each do |files|
+  Dir.glob(dirs+files).each do |file|	
+    p command = "rm #{file}"
+    system command
+  end
+end
+

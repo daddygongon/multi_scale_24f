@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-11-18 Mon 15:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>rubular あるいは正規表現(Regular Expression)</title>
+<meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">rubular あるいは正規表現(Regular Expression)</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga3367ee">1. 正規表現regular expression</a></li>
+<li><a href="#orgb997029">2. rubular</a></li>
+<li><a href="#org8d84950">3. rubyでの利用</a></li>
+<li><a href="#org06756a0">4. tagつきのregexp</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga3367ee" class="outline-2">
+<h2 id="orga3367ee"><span class="section-number-2">1.</span> 正規表現regular expression</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+文字情報を取り出す便利ツールが正規表現(regular expression)です．
+これって覚えようとして挫折したことないですか？
+私はRegExpを10年以上使えなくて，本を何冊もトライして．．．
+途中で諦めました．
+でもね．<a href="http://rubular.com">http://rubular.com</a> で
+わずか10分でバリバリ使えるようになってました．
+「覚えない」というコツです．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb997029" class="outline-2">
+<h2 id="orgb997029"><span class="section-number-2">2.</span> rubular</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><img src="./ss_20141114.png" alt="ss_20141114.png" /></td>
+</tr>
+
+<tr>
+<td class="org-left">Rubularの画面(<a href="http://rubular.com">http://rubular.com</a>).</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Rubularの画面を見てください．
+一番上に正規表現を入れます．
+左下にtest stringを入れます．
+そうすると右に抽出結果が出てきます．
+</p>
+
+<p>
+まずはtest文字列として
+</p>
+<pre class="example">
+[-0.8, 0.2, 1.2]
+</pre>
+
+<p>
+を考えます．
+</p>
+
+<p>
+これから数値の配列を取り出します．
+まず，取り出す文字列(capture everything enclosed)は
+</p>
+<pre class="example">
+(.+)
+</pre>
+
+<p>
+で取り出されます．any single caharacterを表す'.'と，
+一つ以上を表す(+)を入れています．
+これからいらん文字を外していくと考えてください．
+少し試行錯誤すれば，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby">: \[(.+), (.+), (.+)\]
+</pre>
+</div>
+<p>
+なんかで数値だけが取り出せたでしょうか？
+</p>
+
+<p>
+浮動小数点数を表す正しい表記を検索で調べると
+</p>
+<pre class="example">
+(-?\d+\.\d+)
+</pre>
+
+<p>
+なんですが，
+上の表記が楽で間違いないですよね．
+</p>
+
+<p>
+正規表現ってたくさん覚えないといけないと思いがちですが，
+Regex quick referenceにまとめられている要素だけでできています．
+大きく分類すると，
+</p>
+<ul class="org-ul">
+<li>範囲指定(左列上)</li>
+<li>位置指定子(左列下)</li>
+<li>文字指定子(中列)</li>
+<li>量指定子(右列)</li>
+</ul>
+<p>
+です．
+さらに丸括弧()で抽出になります．
+あとは，そのアンチョコ（カンペ）を見ながら，試行錯誤して
+取り出せればいいんですよ．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8d84950" class="outline-2">
+<h2 id="org8d84950"><span class="section-number-2">3.</span> rubyでの利用</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Rubyに組み込むには，
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span class="linenr"> 1: </span><span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">file:./re_gets_examples.rb</span>
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span>line = <span style="color: #8b7355;">"* fix calc kpoints:50, in_plane:0.98, vertical:1.00"</span>
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>string = <span style="color: #00688b;">Regexp</span>.new(<span style="color: #8b7355;">"\\* fix calc kpoints:50, in_plane:(.+), vertical:(.+)"</span>)
+<span class="linenr"> 6: </span>line =~ string
+<span class="linenr"> 7: </span><span style="color: #cd6600;">p</span> [<span style="color: #cd6600;">$1</span>.to_f, <span style="color: #cd6600;">$2</span>.to_f] <span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">=&gt; [0.98, 1.00]</span>
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>res = line.scan(string)
+<span class="linenr">10: </span><span style="color: #cd6600;">p</span> res <span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">=&gt; [["0.98", "1.00"]]</span>
+<span class="linenr">11: </span><span style="color: #cd6600;">p</span> res[0].map(&amp;<span style="color: #6e8b3d;">:to_f</span>) <span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">=&gt; [0.98, 1.0]</span>
+<span class="linenr">12: </span>
+<span class="linenr">13: </span><span style="color: #cd6600;">p</span> m = line.match(string) 
+<span class="linenr">14: </span><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">=&gt; #&lt;MatchData "* fix calc kpoints:50, in_plane:0.98, vertical:1.00" 1:"0.98" 2:"1.00"&gt;</span>
+<span class="linenr">15: </span><span style="color: #cd6600;">p</span> [m[1].to_f, m[2].to_f] <span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">=&gt; [0.98, 1.0]</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">'scanf'</span>
+<span class="linenr">18: </span><span style="color: #cd6600;">p</span> line.scanf(<span style="color: #8b7355;">"* fix calc kpoints:50, in_plane:%f, vertical:%f"</span>)
+<span class="linenr">19: </span><span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">=&gt;[0.98, 1.0]</span>
+</pre>
+</div>
+<p>
+などとします．
+正規表現で読み込むと，Stringで読み込まれます．
+scanf("%f")と違って，to_f(to float)やto_i(to integer)が必要です．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org06756a0" class="outline-2">
+<h2 id="org06756a0"><span class="section-number-2">4.</span> tagつきのregexp</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+さらにこの頃，気がついた手法で，tagをつけるのがあります．
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby">string = <span style="color: #00688b;">Regexp</span>.new(<span style="color: #8b7355;">'in_plane:(?&lt;x&gt;.+), vertical:(?&lt;y&gt;.+)'</span>)
+res = line.match(string)
+=&gt; <span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">&lt;MatchData "in_plane:0.98, vertical:1.00" x:"0.98" y:"1.00"&gt;</span>
+irb(main): &gt; res[<span style="color: #6e8b3d;">:x</span>]
+=&gt; <span style="color: #8b7355;">"0.98"</span>
+irb(main): &gt; res[<span style="color: #6e8b3d;">:y</span>]
+=&gt; <span style="color: #8b7355;">"1.00"</span>
+</pre>
+</div>
+<p>
+<code>:x</code> とか <code>:y</code> というsymbolで取れます．
+</p>
+
+<p>
+'=~' だとさらに
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby">irb(main)<span style="color: #6e8b3d;">:001</span>:0&gt; line = <span style="color: #8b7355;">'* fix calc kpoints:50, in_plane:0.98, vertical:1.00'</span>
+=&gt; <span style="color: #8b7355;">"* fix calc kpoints:50, in_plane:0.98, vertical:1.00"</span>
+irb(main)<span style="color: #6e8b3d;">:003</span>:0&gt; <span style="color: #8b7355;">/in_plane:(?&lt;x&gt;.+), vertical:(?&lt;y&gt;.+)/</span> =~ line
+=&gt; 23
+irb(main)<span style="color: #6e8b3d;">:004</span>:0&gt; x
+=&gt; <span style="color: #8b7355;">"0.98"</span>
+irb(main)<span style="color: #6e8b3d;">:005</span>:0&gt; y
+=&gt; <span style="color: #8b7355;">"1.00"</span>
+</pre>
+</div>
+<p>
+対応した名前がついたローカル変数になります．
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-11-18 Mon 15:44</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

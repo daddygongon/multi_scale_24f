@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-10-31 Thu 13:13 -->
+<!-- 2024-11-18 Mon 14:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>todo for multi_scale</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
@@ -17,64 +17,53 @@
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
 
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">todo for multi_scale</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0e42f6a">1. w4_hyper_card/readme.html</a></li>
-<li><a href="#org72e950a">2. w3_commands/readme.html</a></li>
-<li><a href="#org8a7d77a">3. w2_my_help_emacs/readme.html</a></li>
-<li><a href="#orga32e77f">4. w1_introduction/readme.html</a></li>
+<li><a href="#org9cec43d">1. w7 matplotlib <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-11-13 Wed&gt;</span></span></a></li>
+<li><a href="#org84edeb7">2. weekly check, and chunking</a></li>
+<li><a href="#orgce648e3">3. 大項目</a></li>
+<li><a href="#org8f00f03">4. w4_hyper_card/readme.html</a></li>
+<li><a href="#orgb76482d">5. w3_commands/readme.html</a></li>
+<li><a href="#org196d9ca">6. w2_my_help_emacs/readme.html</a></li>
+<li><a href="#orge8cff74">7. w1_introduction/readme.html</a></li>
 </ul>
 </div>
 </div>
@@ -115,7 +104,7 @@ for the JavaScript code in this tag.
 </tr>
 
 <tr>
-<td class="org-left">07(11/06)</td>
+<td class="org-left">07(11/6)</td>
 <td class="org-left">pipe_redirect</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -123,44 +112,150 @@ for the JavaScript code in this tag.
 <tr>
 <td class="org-left">08(11/13)</td>
 <td class="org-left">listplot3d, dirs</td>
-<td class="org-left">maple</td>
+<td class="org-left">maple, tb, 大谷曼荼羅</td>
 </tr>
 
 <tr>
 <td class="org-left">09(11/20)</td>
+<td class="org-left">rubular, fsm</td>
+<td class="org-left">tdd, good_memo, knowledge</td>
+</tr>
+
+<tr>
+<td class="org-left">10(11/27)</td>
 <td class="org-left">rake,  bundler</td>
 <td class="org-left">scaffolding, DSL</td>
 </tr>
 
 <tr>
-<td class="org-left">10</td>
-<td class="org-left">rubular, fsm</td>
-<td class="org-left">coc, test</td>
-</tr>
-
-<tr>
 <td class="org-left">11</td>
-<td class="org-left">KentBeck</td>
+<td class="org-left">TDD_KentBeck</td>
 <td class="org-left">class</td>
 </tr>
 
 <tr>
 <td class="org-left">12</td>
-<td class="org-left">KentBeck</td>
+<td class="org-left">TDD_KentBeck</td>
 <td class="org-left">test</td>
 </tr>
 
 <tr>
 <td class="org-left">13</td>
-<td class="org-left">KentBeck</td>
+<td class="org-left">TDD_KentBeck</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
 
-<div id="outline-container-org0e42f6a" class="outline-2">
-<h2 id="org0e42f6a"><span class="section-number-2">1</span> w4_hyper_card/readme.html</h2>
+<div id="outline-container-org9cec43d" class="outline-2">
+<h2 id="org9cec43d"><span class="section-number-2">1.</span> w7 matplotlib <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-11-13 Wed&gt;</span></span></h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>金井くんのcode</li>
+</ul>
+<p>
+#+begin_src ruby
+require "scanf"
+</p>
+
+<p>
+results = []
+File.readlines("results.txt").each do |line|
+  data = line.scanf("[%f,%f,%f]")
+  results &lt;&lt; [data[0], data[2]]
+end
+</p>
+
+<p>
+#pp results
+</p>
+
+<p>
+puts "
+import numpy as np
+import matplotlib.pyplot as plt
+</p>
+
+<p>
+data = np.array(#{results})
+</p>
+
+<p>
+plt.plot(data[:, 0], data[:, 1])
+plt.scatter(data[:, 0], data[:, 1], color='red', s=100, edgecolor='black', label='データポイント', zorder=5)
+plt.grid()
+plt.show()
+"
+#+emd_src
+</p>
+<ul class="org-ul">
+<li>これは，純正のlinuxだからそのまま表示してくれる．
+<ul class="org-ul">
+<li>ubuntu on wslだと少し工夫が必要．</li>
+<li>多分，jupyter notebookでcopy &amp; pasteが正解．</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org84edeb7" class="outline-2">
+<h2 id="org84edeb7"><span class="section-number-2">2.</span> weekly check, and chunking</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>自分のmulti_scale_24を整理して，git pushしてください．
+<ul class="org-ul">
+<li>daddygon_memo.orgに評価とコメントしていきます．</li>
+<li>mergeして自分のものとしてください</li>
+</ul></li>
+<li>chunkingのコツ
+<ul class="org-ul">
+<li>naming</li>
+<li>\(7 \pm 2\)</li>
+<li>小さく，長くならない</li>
+<li>tree, batを有効に使う</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgce648e3" class="outline-2">
+<h2 id="orgce648e3"><span class="section-number-2">3.</span> 大項目</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>hyper_card
+<ul class="org-ul">
+<li>meta
+<ul class="org-ul">
+<li>semi_lattice, grain size, chunking, card, tb</li>
+</ul></li>
+<li>beta
+<ul class="org-ul">
+<li>tldr, tree, bat, fd(find), delta</li>
+</ul></li>
+</ul></li>
+<li>unix
+<ul class="org-ul">
+<li>wls_install, ssh, fish, bin,</li>
+</ul></li>
+<li>emacs
+<ul class="org-ul">
+<li>browser_url, hs-minor-mode</li>
+</ul></li>
+<li>git
+<ul class="org-ul">
+<li>merge, private_invite, auto_git</li>
+</ul></li>
+<li>ruby
+<ul class="org-ul">
+<li>basic_six, auto_git, shebang, scaffolding, DSL, CoC</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8f00f03" class="outline-2">
+<h2 id="org8f00f03"><span class="section-number-2">4.</span> w4_hyper_card/readme.html</h2>
+<div class="outline-text-2" id="text-4">
 <a href="w4_hyper_card/readme.html"
   class="example">
   <img src=""
@@ -171,9 +266,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org72e950a" class="outline-2">
-<h2 id="org72e950a"><span class="section-number-2">2</span> w3_commands/readme.html</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgb76482d" class="outline-2">
+<h2 id="orgb76482d"><span class="section-number-2">5.</span> w3_commands/readme.html</h2>
+<div class="outline-text-2" id="text-5">
 <a href="w3_commands/readme.html"
   class="example">
   <img src="./w3_commands/ssh_git/images/screen_1004_10.png"
@@ -184,9 +279,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8a7d77a" class="outline-2">
-<h2 id="org8a7d77a"><span class="section-number-2">3</span> w2_my_help_emacs/readme.html</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org196d9ca" class="outline-2">
+<h2 id="org196d9ca"><span class="section-number-2">6.</span> w2_my_help_emacs/readme.html</h2>
+<div class="outline-text-2" id="text-6">
 <a href="w2_my_help_emacs/readme.html"
   class="example">
   <img src="w2_my_help_emacs/images/screen_appli_layer_1006.png"
@@ -197,9 +292,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orga32e77f" class="outline-2">
-<h2 id="orga32e77f"><span class="section-number-2">4</span> w1_introduction/readme.html</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orge8cff74" class="outline-2">
+<h2 id="orge8cff74"><span class="section-number-2">7.</span> w1_introduction/readme.html</h2>
+<div class="outline-text-2" id="text-7">
 <a href="w1_introduction/readme.html"
   class="example">
   <img src="w1_introduction/images/screen_1004_1.png"
@@ -212,8 +307,8 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-10-31 Thu 13:13</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2024-11-18 Mon 14:44</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
