@@ -93,3 +93,5 @@ irb(main):005:0> y
 #+end_src
 対応した名前がついたローカル変数になります．
 
+* [[file:./install_ripgrep.org][ripgrep]]
+regular expressionを手軽に使えるようにしたgrep.

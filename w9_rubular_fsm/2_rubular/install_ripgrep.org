@@ -1,0 +1,7 @@
+* rg (ripgrep)
+- regular expression grep
+  - ripping(迅速な) grep
+> sudo apt install ripgrep
+  > brew install ripgrep
+> tldr rg
+> rg --help
