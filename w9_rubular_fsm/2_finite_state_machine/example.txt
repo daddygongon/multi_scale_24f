@@ -1,0 +1,44 @@
+loading .bash_profile
+"098_098"
+"/usr/local/vasp/vasp.5.4.4.pl2_C
+* relax calc kpoints:50, in_plane
+ running on   48 total cores
+
+DAV:   4    -0.399795981780E+03  
+
+DAV:  11    -0.396921106477E+03  
+   1 F= -.39692111E+03 E0= -.3969
+
+* fix calc kpoints:50, in_plane:0
+ entering main loop
+       N       E                 
+DAV:   1    -0.397007376210E+03  
+DAV:   4    -0.397006695114E+03  
+   1 F= -.39700670E+03 E0= -.3969
+ writing wavefunctions
+"100_100"
+"/usr/local/vasp/vasp.5.4.4.pl2_C
+
+* relax calc kpoints:50, in_plane
+ running on   48 total cores
+
+ entering main loop
+       N       E                 
+DAV:   1    -0.398748344340E+03  
+
+DAV:   6    -0.398599069570E+03  
+   1 F= -.39859907E+03 E0= -.3985
+
+...
+
+* fix calc kpoints:50, in_plane:1
+ running on   48 total cores
+ entering main loop
+       N       E                 
+DAV:   1    -0.398684463830E+03  
+
+DAV:   4    -0.398683382021E+03  
+   1 F= -.39868338E+03 E0= -.3986
+ writing wavefunctions
+
+...
