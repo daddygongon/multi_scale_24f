@@ -1,0 +1,9 @@
+* new_terminal
+- あたらしいterminalをたちあげる．ついでにcurrent dirに移動
+
+* install
+- cp  w1_4_kick_off/w3_commands/bin/new_terminal~win ~/bin/new_terminal
+
+* tldr
+> new_terminal
+> cd [clip paste, ctrl-sshift-v] # for win 

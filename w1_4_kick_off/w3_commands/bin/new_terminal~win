@@ -1,0 +1,4 @@
+#!/usr/bin/ruby
+
+system "pwd | clip.exe"
+system "wt.exe -p Ubuntu2" # -d \"$(wslpath -w \"$1\")\""
