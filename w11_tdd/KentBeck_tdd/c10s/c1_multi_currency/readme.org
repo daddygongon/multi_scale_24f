@@ -1,0 +1,48 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: The Money Example
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* rhythm of TDD
+1. Quickly add a test.
+1. Run all test and see the new one fail.
+1. Make a little change.
+1. Run all tests and see them all succeed.
+1. Refactor to remove duplication.
+
+* Surprised are likely to include
+- How each test can cover a small increment of functionality
+- How small and ugly the changes can be tom ake the new tests run
+- How often the tests are run
+- How many teensy-weensy steps make up the refactroings
+  - teensy-weensy :: tiny
+
+* todo0
+- [ ] $5 _ 10 CHF = $10 if rate is 2:1
+- [ ] $5 * 2 $10
+
+#+begin_src shell
+> ruby tdd_c1_r0.rb
+Error: test_multiplication(TestDollar): NameError: uninitialized constant TestDollar::Dollar
+#+end_src
+ 
+* todo1
+- [ ] $5 _ 10 CHF = $10 if rate is 2:1
+- [ ] $5 * 2 $10
+- [ ] Make "amount" private
+- [ ] Dollar side-effects?
+- [ ] Money rounding?
+
+
+* todo2[1/5]
+- [ ] $5 _ 10 CHF = $10 if rate is 2:1
+- [X] $5 * 2 $10
+- [ ] Make "amount" private
+- [ ] Dollar side-effects?
+- [ ] Money rounding?
+
+
