@@ -1,0 +1,17 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: Kent Beck's TDD
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* references
+- class一渡り
+  - "Rubyによるデザインパターン", Russ Olsen, (ピアソン・エデュケーション, 2009).
+  - ruby basicも
+- "Test-Driven Development by Example", KentBeck, (Pearson Ed., 2003).
+  - 「テスト駆動開発」, Kent Beck, (オーム社, 2017).
+
+
