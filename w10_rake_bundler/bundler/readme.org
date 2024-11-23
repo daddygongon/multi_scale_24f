@@ -8,7 +8,47 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * install
+
 #+begin_src shell
 > sudo gem install bundler
+> bundle gem hello_rudy -b --git --mit --test=test-unit
 #+end_src
+
+* revise
+#+begin_src shell
+> chmod a+x exe/hello_rudy
+> emacs hello_rudy.gemspec
+#+end_src
+で怒られたところを修正します．
+用意できてないところは，コメントアウトしときましょう．
+
+さらにlib/hello_rudy.rbを次のように加筆します．
+
+#+begin_src ruby
+require "hello_rudy/version"
+
+module HelloRudy
+  class Error < StandardError; end
+  # Your code goes here...
+  name = ARGV[0] || 'Rudy'
+  puts "Hello #{name}."
+end
+#+end_src
+
+* run local
+そうして，動くことが確認できたら，
+#+begin_example
+> bundle exec exe/hello_rudy
+> sudo rake install:local
+hello_rudy 0.1.0 built to pkg/hello_rudy-0.1.0.gem.
+hello_rudy (0.1.0) installed.
+#+end_example
+
+そうすると
+#+begin_example
+> hello_rudy Rudy
+Hello Rudy.
+#+end_example
+とちゃんと動くようになったでしょ？
+
 
