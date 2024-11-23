@@ -7,18 +7,24 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* install
+* name
+bundlerはgemでの一貫性のある開発環境を提供します．
 
+なかでも，bundle gemはgemの開発環境のひな形を提供(scaffolding).
+* install
 #+begin_src shell
 > sudo gem install bundler
 > bundle gem hello_rudy -b --git --mit --test=test-unit
 #+end_src
 
+
+[[file:./bundler/slide1.png]]
 * revise
 #+begin_src shell
 > chmod a+x exe/hello_rudy
 > emacs hello_rudy.gemspec
 #+end_src
+[[file:./bundler/slide2_1.png]]
 で怒られたところを修正します．
 用意できてないところは，コメントアウトしときましょう．
 
@@ -51,4 +57,17 @@ Hello Rudy.
 #+end_example
 とちゃんと動くようになったでしょ？
 
+
+* git
+bundler gemでscaffoldingすると，自動的にgit repositoryに
+なっています．
+multi_scaleの下に新たなgit repositoryをつくることに
+なります．
+そのままgit add -Aすると怒られます．
+
+[[file:./bundler/slide2_2.png]]
+
+1. 指示通りにsubmoduleにするか
+1. multi_scaleから出すか
+してください．
 

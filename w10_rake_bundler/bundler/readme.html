@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-11-23 Sat 12:53 -->
+<!-- 2024-11-23 Sat 13:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>bundler memo</title>
+<meta name="generator" content="Org mode" />
 <meta name="author" content="Shigeto R. Nishitani" />
-<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
@@ -17,41 +17,108 @@
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <h1 class="title">bundler memo</h1>
-<div id="table-of-contents" role="doc-toc">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#org2af8e1e">1. install</a></li>
-<li><a href="#orge7e44fb">2. revise</a></li>
-<li><a href="#org864d5e1">3. run local</a></li>
+<li><a href="#orga1276ed">1. name</a></li>
+<li><a href="#orgad8f02b">2. install</a></li>
+<li><a href="#orgf31cd01">3. revise</a></li>
+<li><a href="#org49683b3">4. run local</a></li>
+<li><a href="#org5658781">5. git</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2af8e1e" class="outline-2">
-<h2 id="org2af8e1e"><span class="section-number-2">1.</span> install</h2>
+<div id="outline-container-orga1276ed" class="outline-2">
+<h2 id="orga1276ed"><span class="section-number-2">1</span> name</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+bundlerはgemでの一貫性のある開発環境を提供します．
+</p>
+
+<p>
+なかでも，bundle gemはgemの開発環境のひな形を提供(scaffolding).
+</p>
+</div>
+</div>
+<div id="outline-container-orgad8f02b" class="outline-2">
+<h2 id="orgad8f02b"><span class="section-number-2">2</span> install</h2>
+<div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-shell">&gt; sudo gem install bundler
 &gt; bundle gem hello_rudy -b --git --mit --test=test-unit
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-orge7e44fb" class="outline-2">
-<h2 id="orge7e44fb"><span class="section-number-2">2.</span> revise</h2>
-<div class="outline-text-2" id="text-2">
+
+
+<div class="figure">
+<p><img src="./bundler/slide1.png" alt="slide1.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf31cd01" class="outline-2">
+<h2 id="orgf31cd01"><span class="section-number-2">3</span> revise</h2>
+<div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-shell">&gt; chmod a+x exe/hello_rudy
 &gt; emacs hello_rudy.gemspec
 </pre>
 </div>
 <p>
+<img src="./bundler/slide2_1.png" alt="slide2_1.png" />
 で怒られたところを修正します．
 用意できてないところは，コメントアウトしときましょう．
 </p>
@@ -61,26 +128,26 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">"hello_rudy/version"</span>
+<pre class="src src-ruby"><span style="color: #483d8b;">require</span> <span style="color: #8b2252;">"hello_rudy/version"</span>
 
-<span style="color: #1c86ee;">module</span> <span style="color: #00688b;">HelloRudy</span>
-  <span style="color: #1c86ee;">class</span> <span style="color: #00688b;">Error</span> &lt; <span style="color: #00688b;">StandardError</span>; <span style="color: #1c86ee;">end</span>
-  <span style="color: #7f7f7f;"># </span><span style="color: #7f7f7f;">Your code goes here...</span>
-  name = <span style="color: #00688b;">ARGV</span>[0] || <span style="color: #8b7355;">'Rudy'</span>
-  <span style="color: #cd6600;">puts</span> <span style="color: #8b7355;">"Hello </span><span style="color: #2e8b57;">#{name}</span><span style="color: #8b7355;">."</span>
-<span style="color: #1c86ee;">end</span>
+<span style="color: #a020f0;">module</span> <span style="color: #228b22;">HelloRudy</span>
+  <span style="color: #a020f0;">class</span> <span style="color: #228b22;">Error</span> &lt; <span style="color: #228b22;">StandardError</span>; <span style="color: #a020f0;">end</span>
+  <span style="color: #b22222;"># </span><span style="color: #b22222;">Your code goes here...</span>
+  name = <span style="color: #228b22;">ARGV</span>[0] || <span style="color: #8b2252;">'Rudy'</span>
+  <span style="color: #483d8b;">puts</span> <span style="color: #8b2252;">"Hello </span><span style="color: #a0522d;">#{name}</span><span style="color: #8b2252;">."</span>
+<span style="color: #a020f0;">end</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org864d5e1" class="outline-2">
-<h2 id="org864d5e1"><span class="section-number-2">3.</span> run local</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org49683b3" class="outline-2">
+<h2 id="org49683b3"><span class="section-number-2">4</span> run local</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 そうして，動くことが確認できたら，
 </p>
-<pre class="example" id="org0b29d97">
+<pre class="example">
 &gt; bundle exec exe/hello_rudy
 &gt; sudo rake install:local
 hello_rudy 0.1.0 built to pkg/hello_rudy-0.1.0.gem.
@@ -90,7 +157,7 @@ hello_rudy (0.1.0) installed.
 <p>
 そうすると
 </p>
-<pre class="example" id="orge2438dd">
+<pre class="example">
 &gt; hello_rudy Rudy
 Hello Rudy.
 </pre>
@@ -99,11 +166,39 @@ Hello Rudy.
 </p>
 </div>
 </div>
+
+
+<div id="outline-container-org5658781" class="outline-2">
+<h2 id="org5658781"><span class="section-number-2">5</span> git</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+bundler gemでscaffoldingすると，自動的にgit repositoryに
+なっています．
+multi_scaleの下に新たなgit repositoryをつくることに
+なります．
+そのままgit add -Aすると怒られます．
+</p>
+
+
+<div class="figure">
+<p><img src="./bundler/slide2_2.png" alt="slide2_2.png" />
+</p>
+</div>
+
+<ol class="org-ol">
+<li>指示通りにsubmoduleにするか</li>
+<li>multi_scaleから出すか</li>
+</ol>
+<p>
+してください．
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-11-23 Sat 12:53</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2024-11-23 Sat 13:54</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
