@@ -1,0 +1,25 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: The Money Example c7 Apples and Oranges
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* todo2[7/15]
+- [ ] $5 + 10 CHF = $10 if rate is 2:1
+- [X] $5 * 2 $10
+- [X] Make "amount" private
+- [X] Dollar side-effects?
+- [ ] Money rounding?
+- [X] equals()
+- [ ] hashCode()
+- [ ] Equal nil
+- [ ] Equal object
+- [X] 5 CHF * 2 = 10 CHF
+- [ ] Dollar/Franc duplication
+- [ ] Common equals
+- [ ] Common times
+- [X] Compare Francs with Dollars
+- [X] equals change ==  
