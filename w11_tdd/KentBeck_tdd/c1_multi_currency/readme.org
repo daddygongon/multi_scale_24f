@@ -1,19 +1,23 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: The Money Example
+#+TITLE: The Money Example c1 Multi-Currency Money
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* Red, green, refactoring (p. x)
-- Red :: Write a little test that doewn't wordk, 
+* Red, green, refactor (p. x)
+- Red :: Write a little test that doesn't word, 
   and perhaps doesn't even compile at first.
 - Green :: Make the test work quickly,
   committing whatever sins necessary in the process.
 - Refactor :: Eliminate all of the duplication created 
   in merely getting the test to work.
+
+*Red/green/refacotor -- the TDD mantra.*
+
+*Courage*. メタ心理学だね
 
 * rhythm of TDD (p.2)
 1. Quickly add a test.

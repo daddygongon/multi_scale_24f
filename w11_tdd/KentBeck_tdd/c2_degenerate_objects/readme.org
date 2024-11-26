@@ -1,6 +1,6 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: The Money Example c2
+#+TITLE: The Money Example c2 Degenerate Objects
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
@@ -12,20 +12,20 @@
 1. Make it run.
 1. Make it right.
 
-The goal is clean code that works
+The goal is *clean code that works*
 (thanks to Ron Jeffries for this pitty summary).
-Clean code that works is out of the reach of
-even the best programmers
-some ot the time, 
-and out of the reach of most programmers (like me)
-most of the time.
-Dived and conquere, baby.
-First we'll solve the "tat works" part of the problem.
-Then we'll sove the "cean code" part.
-This is the opposite of architecure-driven develpoment,
-where you sove "clean code" first,
-then scramble around rtying to integrtae into the design
-the things you learn as you sove the "tat works" problem.
+- Clean code that works is 
+  - out of the reach of even the best programmers
+    some of the time, and
+  - out of the reach of most programmers (like me)
+    most of the time.
+- Divide and conquer, baby.
+- First we'll solve the *"that works"* part of the problem.
+  - Then we'll solve the *"clean code"* part.
+- This is the opposite of architecture-driven develpoment,
+  - where you solve *"clean code"* first,
+  - then scramble around trying to integrate into the design
+    the things you learn as you solve the *"that works"* problem.
 
 * todo2[2/5]
 - [ ] $5 _ 10 CHF = $10 if rate is 2:1
@@ -34,4 +34,11 @@ the things you learn as you sove the "tat works" problem.
 - [X] Dollar side-effects?
 - [ ] Money rounding?
 
+* Strategy
+Following are two of the tree strategies I know
+for quickly getting to green:
+- Fake It :: Return a constant an gradually replace
+  constatants with varialbes until you have the real code.
+- Use Obvious Implementation :: Type in the real implementation.
 
+There is a third style of TDD, *Triangulation*.

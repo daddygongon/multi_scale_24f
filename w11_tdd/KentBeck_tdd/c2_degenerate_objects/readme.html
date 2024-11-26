@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-11-26 Tue 10:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Money Example c2 Degenerate Objects</title>
+<meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">The Money Example c2 Degenerate Objects</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org275d880">1. TDD cycle</a></li>
+<li><a href="#orgf09f355">2. todo2<code>[2/5]</code></a></li>
+<li><a href="#org6069947">3. Strategy</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org275d880" class="outline-2">
+<h2 id="org275d880"><span class="section-number-2">1.</span> TDD cycle</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>Write a test.</li>
+<li>Make it run.</li>
+<li>Make it right.</li>
+</ol>
+
+<p>
+The goal is <b>clean code that works</b>
+(thanks to Ron Jeffries for this pitty summary).
+</p>
+<ul class="org-ul">
+<li>Clean code that works is 
+<ul class="org-ul">
+<li>out of the reach of even the best programmers
+some of the time, and</li>
+<li>out of the reach of most programmers (like me)
+most of the time.</li>
+</ul></li>
+<li>Divide and conquer, baby.</li>
+<li>First we'll solve the <b>"that works"</b> part of the problem.
+<ul class="org-ul">
+<li>Then we'll solve the <b>"clean code"</b> part.</li>
+</ul></li>
+<li>This is the opposite of architecture-driven develpoment,
+<ul class="org-ul">
+<li>where you solve <b>"clean code"</b> first,</li>
+<li>then scramble around trying to integrate into the design
+the things you learn as you solve the <b>"that works"</b> problem.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf09f355" class="outline-2">
+<h2 id="orgf09f355"><span class="section-number-2">2.</span> todo2<code>[2/5]</code></h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> $5 _ 10 CHF = $10 if rate is 2:1</li>
+<li class="on"><code>[X]</code> $5 * 2 $10</li>
+<li class="off"><code>[&#xa0;]</code> Make "amount" private</li>
+<li class="on"><code>[X]</code> Dollar side-effects?</li>
+<li class="off"><code>[&#xa0;]</code> Money rounding?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6069947" class="outline-2">
+<h2 id="org6069947"><span class="section-number-2">3.</span> Strategy</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Following are two of the tree strategies I know
+for quickly getting to green:
+</p>
+<dl class="org-dl">
+<dt>Fake It</dt><dd>Return a constant an gradually replace
+constatants with varialbes until you have the real code.</dd>
+<dt>Use Obvious Implementation</dt><dd>Type in the real implementation.</dd>
+</dl>
+
+<p>
+There is a third style of TDD, <b>Triangulation</b>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shigeto R. Nishitani</p>
+<p class="date">Created: 2024-11-26 Tue 10:45</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
