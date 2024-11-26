@@ -7,15 +7,23 @@ task :default do
   system "rake -T"
 end
 
-desc "get todo from readme.org" #desc -> description
-task :get_todo do # any name on task_name
-  target = ARGV[1] || 'c1_multi_currency'
-  p file = Dir.glob("./#{target}/readme")
-  system "my_help -l #{file[0]} todo"
+def get_prev_c(new_c)
+  count = new_c.split('_')[0][1..-1].to_i
+  count -= 1
+  prev_c = Dir.glob("c#{count}_*")[0]
 end
 
-desc "delta init and fin in a dir" #desc -> description
-task :delta do # any name on task_name
+desc "delta readme.org" #desc -> description
+task :d_readme do # any name on task_name
+  target = ARGV[1] || 'c2_degenerate_objects'
+  prev_c = get_prev_c(target)
+  cur_readme = "./#{target}/readme.org"
+  prev_readme = "./#{prev_c}/readme.org"
+  system "delta --side-by-side #{prev_readme} #{cur_readme}"
+end
+
+desc "delta init and fin tdds in a dir" #desc -> description
+task :d_tdd do # any name on task_name
   target = ARGV[1] || 'c1_multi_currency'
   files = Dir.glob("#{target}/tdd_*")
   system "delta --side-by-side #{files[0]} #{files[-1]}"
@@ -29,9 +37,8 @@ task :setup do # any name on task_name
     puts "check ARGV[1]."
     exit
   end
-  count = new_c.split('_')[0][1..-1].to_i
-  count -= 1
-  prev_c = Dir.glob("c#{count}_*")[0]
+
+  prev_c = get_prev_c(new_c)
   p last_tdd = Dir.glob("#{prev_c}/*")[-1]
   p readme = "#{prev_c}/readme.org"
   system "cp #{readme} #{new_c}"

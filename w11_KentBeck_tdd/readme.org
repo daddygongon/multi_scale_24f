@@ -1,6 +1,6 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: template for org-file
+#+TITLE: TDD by Kent Beck
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
@@ -9,9 +9,9 @@
 
 * references
 - class一渡り
-  - "Rubyによるデザインパターン", Russ Olsen, (ピアソン・エデュケーション, 2009).
-  - ruby basicも
-- "Test-Driven Development by Example", KentBeck, (Pearson Ed., 2003).
+  - [[https://kwanseio365-my.sharepoint.com/:b:/g/personal/cru32369_nuc_kwansei_ac_jp/Eb8tN2JlfS1Klh4hQHcil_gBEu60TYqaAF6feJ8zIHFRDw?e=INvhU8]["Rubyによるデザインパターン"]], Russ Olsen, (ピアソン・エデュケーション, 2009).
+  - [[https://kwanseio365-my.sharepoint.com/:b:/g/personal/cru32369_nuc_kwansei_ac_jp/EUxLOyYqydpCgDhY9ayLZpoBadMXU4ThwZLiM7kSxOYX6Q?e=IBb61d][ruby basicも]]
+- [[https://kwanseio365-my.sharepoint.com/:b:/g/personal/cru32369_nuc_kwansei_ac_jp/EYuxsR1j3_tKoBF8Aq-hyrUBv_f3qg4EPB31e0UDOMIdVg?e=vNrHkm]["Test-Driven Development by Example"]], KentBeck, (Pearson Ed., 2003).
   - 「テスト駆動開発」, Kent Beck, (オーム社, 2017).
 
 - git_hub/ruby_docs/multi_scale_23/codes

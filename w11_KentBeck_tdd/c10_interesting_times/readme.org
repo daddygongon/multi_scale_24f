@@ -1,0 +1,43 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: The Money Example c10 Interesting Times
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* todo2[10/17]
+- [ ] $5 + 10 CHF = $10 if rate is 2:1
+- [X] $5 * 2 $10
+- [X] Make "amount" private
+- [X] Dollar side-effects?
+- [ ] Money rounding?
+- [X] equals()
+- [ ] hashCode()
+- [ ] Equal nil
+- [ ] Equal object
+- [X] 5 CHF * 2 = 10 CHF
+- [ ] Dollar/Franc duplication
+- [X] Common equals
+- [X] Common times
+- [X] Compare Francs with Dollars
+- [X] equals change ==  
+- [X] Currency?
+- [ ] Delete test_franc_multiplication?
+
+* error
+- 問題 :: FrancとMoneyを比べているためerrorが出る
+#+begin_src ruby
+> ruby tdd_c10_r2.rb
+
+#<Franc:0x000000010791a408 @amount=10, @currency="CHF">
+#<Money:0x000000010791a160 @amount=10, @currency="CHF">
+F
+===========
+Failure: test_Franc_multiplication(TestDollar):
+  <true> expected but was
+  <false>
+#+end_src
+- 解法 :: テキストにある通り，classを比べるのではなく，
+  currencyを比べる
