@@ -1,6 +1,6 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: Kent Beck's TDD
+#+TITLE: template for org-file
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
@@ -13,5 +13,22 @@
   - ruby basicも
 - "Test-Driven Development by Example", KentBeck, (Pearson Ed., 2003).
   - 「テスト駆動開発」, Kent Beck, (オーム社, 2017).
+
+- git_hub/ruby_docs/multi_scale_23/codes
+
+- test/unit
+  https://qiita.com/jnchito/items/ff4f7a23addbd8dbc460
+
+* steps
+> rake setup c3_equality
+> cd c3_equality
+> mv tdd_last.rb tdd_c3_r0.rb
+> cp tdd_c3_r0.rb tdd_c3_r1.rb
+> emacs readme.org
+> emacs tdd_c3_r1.rb
+> ruby tdd_c3_r1.rb
+> ...
+> tidy
+
 
 
