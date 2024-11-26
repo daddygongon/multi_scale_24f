@@ -14,48 +14,16 @@
 - test/unit
   https://qiita.com/jnchito/items/ff4f7a23addbd8dbc460
 
-
-* c2_degenerate_object[1/2]
-- [ ] $5 + 10 CHF = $10 if rate is 2:1
-- [X] $5 * 2 = $10
-- [ ] Make "amount" private
-- [ ] Dollar side effects?
-- [ ] Money rounding?
-
-* c1_multi_currency[1/2]
-- [ ] $5 + 10 CHF = $10 if rate is 2:1
-- [X] $5 * 2 = $10
-- [ ] Make "amount" private
-- [ ] Dollar side effects?
-- [ ] Money rounding?
-
-* co_start todo [0/2]
-- [ ] $5 + 10 CHF = $10 if rate is 2:1
-- [ ] $5 * 2 = $10
-
-- assert_equalですぐにできる．
-- しかし，amountをうまく参照させる方法が思いつかない．
-- assert_true(five.assert_equal...)と変えたが．．．
-- 再度.amountをとるように変更．
-こちらの方が少ないから．
-* c0_check_unit_test
-#+begin_src ruby
-# test_sample.rb
-require 'test/unit'
-
-class Sample
-  def self.greeting
-    'Hello, world!'
-  end
-end
-
-class TestSample < Test::Unit::TestCase
-  def test_greeting
-    assert_equal 'Hello, world!', Sample.greeting
-  end
-end
-#+end_src
-
+* steps
+> rake setup c3_equality
+> cd c3_equality
+> mv tdd_last.rb tdd_c3_r0.rb
+> cp tdd_c3_r0.rb tdd_c3_r1.rb
+> emacs readme.org
+> emacs tdd_c3_r1.rb
+> ruby tdd_c3_r1.rb
+> ...
+> tidy
 
 
 

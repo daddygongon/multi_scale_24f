@@ -1,0 +1,43 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: The Money Example c5 franc-ly speaking
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* sin thing
+What short step will get us to a green bar?
+Copying the Dollar code and replacing Dollar with Franc.
+
+Stop. Hold on. I can hear the aesthetically inclined
+among you sneering and spitting.
+Copy-and-paste reuse?
+Teh death of abstraction?
+The killer of clean design?
+
+if you're upset, taka cleanising breath.
+In ghrough th nose ... 
+hold it 1, 2, 3 ...
+out thgrough the mouth.
+Remember, cut cyclce has different phases
+(the go by quickly, ogten in seconds,
+but they are phases.):
+
+
+* todo2[5/13]
+- [ ] $5 + 10 CHF = $10 if rate is 2:1
+- [X] $5 * 2 $10
+- [X] Make "amount" private
+- [X] Dollar side-effects?
+- [ ] Money rounding?
+- [X] equals()
+- [ ] hashCode()
+- [ ] Equal nil
+- [ ] Equal object
+- [X] 5 CHF * 2 = 10 CHF
+- [ ] Dollar/Franc duplication
+- [ ] Common equals
+- [ ] Common times
+  

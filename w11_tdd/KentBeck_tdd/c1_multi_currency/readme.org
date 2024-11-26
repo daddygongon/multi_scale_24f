@@ -7,16 +7,24 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* rhythm of TDD
+* Red, green, refactoring (p. x)
+- Red :: Write a little test that doewn't wordk, 
+  and perhaps doesn't even compile at first.
+- Green :: Make the test work quickly,
+  committing whatever sins necessary in the process.
+- Refactor :: Eliminate all of the duplication created 
+  in merely getting the test to work.
+
+* rhythm of TDD (p.2)
 1. Quickly add a test.
 1. Run all test and see the new one fail.
 1. Make a little change.
 1. Run all tests and see them all succeed.
 1. Refactor to remove duplication.
 
-* Surprised are likely to include
+* The surprises (p.2)
 - How each test can cover a small increment of functionality
-- How small and ugly the changes can be tom ake the new tests run
+- How small and ugly the changes can be to make the new tests run
 - How often the tests are run
 - How many teensy-weensy steps make up the refactroings
   - teensy-weensy :: tiny

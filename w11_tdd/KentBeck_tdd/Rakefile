@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+require "colorize"
+require 'command_line/global'
+require 'fileutils'
+
+task :default do
+  system "rake -T"
+end
+
+desc "get todo from readme.org" #desc -> description
+task :get_todo do # any name on task_name
+  target = ARGV[1] || 'c1_multi_currency'
+  p file = Dir.glob("./#{target}/readme")
+  system "my_help -l #{file[0]} todo"
+end
+
+desc "delta init and fin in a dir" #desc -> description
+task :delta do # any name on task_name
+  target = ARGV[1] || 'c1_multi_currency'
+  files = Dir.glob("#{target}/tdd_*")
+  system "delta --side-by-side #{files[0]} #{files[-1]}"
+end
+desc "set up new chapter from previous chapter" #desc -> description
+task :setup do # any name on task_name
+  # your code goes
+  new_c = ARGV[1] || 'c2_degenerate_objects'
+  if File.exist?("#{new_c}/readme.org")
+    puts "There exists #{new_c}/readme.org"
+    puts "check ARGV[1]."
+    exit
+  end
+  count = new_c.split('_')[0][1..-1].to_i
+  count -= 1
+  prev_c = Dir.glob("c#{count}_*")[0]
+  p last_tdd = Dir.glob("#{prev_c}/*")[-1]
+  p readme = "#{prev_c}/readme.org"
+  system "cp #{readme} #{new_c}"
+  system "cp #{last_tdd} #{new_c}/tdd_last.rb "
+  exit
+end
+

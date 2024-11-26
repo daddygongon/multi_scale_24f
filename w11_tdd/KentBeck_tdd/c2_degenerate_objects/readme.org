@@ -1,0 +1,37 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: The Money Example c2
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* TDD cycle
+1. Write a test.
+1. Make it run.
+1. Make it right.
+
+The goal is clean code that works
+(thanks to Ron Jeffries for this pitty summary).
+Clean code that works is out of the reach of
+even the best programmers
+some ot the time, 
+and out of the reach of most programmers (like me)
+most of the time.
+Dived and conquere, baby.
+First we'll solve the "tat works" part of the problem.
+Then we'll sove the "cean code" part.
+This is the opposite of architecure-driven develpoment,
+where you sove "clean code" first,
+then scramble around rtying to integrtae into the design
+the things you learn as you sove the "tat works" problem.
+
+* todo2[2/5]
+- [ ] $5 _ 10 CHF = $10 if rate is 2:1
+- [X] $5 * 2 $10
+- [ ] Make "amount" private
+- [X] Dollar side-effects?
+- [ ] Money rounding?
+
+
