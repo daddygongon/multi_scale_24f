@@ -29,8 +29,7 @@ task :d_tdd do # any name on task_name
   system "delta --side-by-side #{files[0]} #{files[-1]}"
 end
 desc "set up new chapter from previous chapter" #desc -> description
-task :setup do # any name on task_name
-  # your code goes
+task :setup do
   new_c = ARGV[1] || 'c2_degenerate_objects'
   if File.exist?("#{new_c}/readme.org")
     puts "There exists #{new_c}/readme.org"
@@ -38,11 +37,16 @@ task :setup do # any name on task_name
     exit
   end
 
+  new_num = new_c.split('_')[0]
   prev_c = get_prev_c(new_c)
-  p last_tdd = Dir.glob("#{prev_c}/*")[-1]
-  p readme = "#{prev_c}/readme.org"
-  system "cp #{readme} #{new_c}"
-  system "cp #{last_tdd} #{new_c}/tdd_last.rb "
+  last_tdd = Dir.glob("#{prev_c}/*")[-1]
+  readme = "#{prev_c}/readme.org"
+  ["cp #{readme} #{new_c}",
+   "cp #{last_tdd} #{new_c}/tdd_#{new_num}_r0.rb",
+   "cp #{last_tdd} #{new_c}/tdd_#{new_num}_r1.rb"].each do |comm|
+    puts comm
+    system comm
+  end
   exit
 end
 

@@ -1,0 +1,51 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: The Money Example c12 Addition, Finally
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* todo3[12/17]
+- [ ] $5 + 10 CHF = $10 if rate is 2:1
+- [ ] $5 + $5 = $10
+
+* todo2[11/17]
+- [ ] $5 + 10 CHF = $10 if rate is 2:1
+- [X] $5 * 2 = $10
+- [X] Make "amount" private
+- [X] Dollar side-effects?
+- [ ] Money rounding?
+- [X] equals()
+- [ ] hashCode()
+- [ ] Equal nil
+- [ ] Equal object
+- [X] 5 CHF * 2 = 10 CHF
+- [X] Dollar/Franc duplication
+- [X] Common equals
+- [X] Common times
+- [X] Compare Francs with Dollars
+- [X] equals change ==  
+- [X] Currency?
+- [X] Delete test_franc_multiplication?
+
+* not error but not implmented
+** r2での省略形
+- expressionをどう表していいのかわからなくて，放置
+- expressionは型宣言なんで，Rubyではいならい？
+
+** r3での実装法
+この後の章でだいぶといじるみたいなので，
+強引にmodule, includeで表現してみた．
+testは通る．
+
+#+begin_src ruby
+module Expression
+  def plus(addend)
+    Money.new(@amount + addend.amount, @currency)
+  end
+end
+class Money
+  include Expression
+#+end_src

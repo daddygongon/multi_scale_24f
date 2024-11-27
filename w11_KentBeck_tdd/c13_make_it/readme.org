@@ -1,0 +1,15 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: The Money Example c13 Make It
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* todo3[0/3]
+- [ ] $5 + 10 CHF = $10 if rate is 2:1
+- [ ] $5 + $5 = $10
+- [ ] Return Money from $5 + $5
+
+
