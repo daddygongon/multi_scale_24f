@@ -9,7 +9,8 @@ end
 
 module Expression
   def plus(addend)
-    Money.new(@amount + addend.amount, @currency)
+    #    Money.new(@amount + addend.amount, @currency)
+    Sum.new(self, addend)
   end
 end
 
@@ -49,8 +50,9 @@ end
 class TestDollar < Test::Unit::TestCase
   test "plus returns sum" do
     five = Money.new.dollar(5)
-    results = five.plus(five)
-    sum = Sum.new(results)
+#    results = five.plus(five)
+    #    sum = Sum.new(five, five)
+    sum = five.plus(five)
     assert_equal(five, sum.augend)
     assert_equal(five, sum.addend)
   end

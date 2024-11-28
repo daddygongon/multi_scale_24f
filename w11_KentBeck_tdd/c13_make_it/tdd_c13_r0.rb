@@ -37,6 +37,9 @@ class Money
 end
 
 class TestDollar < Test::Unit::TestCase
+  def "test plus returns sum"
+
+  end
   def test_simple_addition
     five = Money.new.dollar(5)
     sum = five.plus(five)

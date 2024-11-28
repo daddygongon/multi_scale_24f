@@ -3,13 +3,15 @@ require 'test/unit'
 
 class Bank
   def reduce(source, to)
-    Money.new.dollar(10)
+    sum = source # not Sum.new(source)
+    sum.reduce(to)
   end
 end
 
 module Expression
   def plus(addend)
-    Money.new(@amount + addend.amount, @currency)
+    #    Money.new(@amount + addend.amount, @currency)
+    Sum.new(self, addend)
   end
 end
 
@@ -19,6 +21,10 @@ class Sum
   def initialize(augend, addend)
     @augend = augend
     @addend = addend
+  end
+  def reduce(to)
+    amount = @augend.amount + @addend.amount
+    Money.new(amount, to)
   end
 end
 
@@ -47,10 +53,17 @@ class Money
 end
 
 class TestDollar < Test::Unit::TestCase
+  test "reduce sum" do
+    sum = Sum.new(Money.new.dollar(3), Money.new.dollar(4))
+    bank = Bank.new
+    result = bank.reduce(sum, "USD")
+    assert_true Money.new.dollar(7) == result
+  end
   test "plus returns sum" do
     five = Money.new.dollar(5)
-    results = five.plus(five)
-    sum = Sum.new(results)
+#    results = five.plus(five)
+    #    sum = Sum.new(five, five)
+    sum = five.plus(five)
     assert_equal(five, sum.augend)
     assert_equal(five, sum.addend)
   end

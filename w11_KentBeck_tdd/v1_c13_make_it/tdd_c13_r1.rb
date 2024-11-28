@@ -1,12 +1,6 @@
 # test_sample.rb
 require 'test/unit'
 
-class Bank
-  def reduce(source, to)
-    Money.new.dollar(10)
-  end
-end
-
 module Expression
   def plus(addend)
     Money.new(@amount + addend.amount, @currency)
@@ -22,9 +16,18 @@ class Sum
   end
 end
 
+class Bank
+  def reduce(source, to)
+    Money.new.dollar(10)
+  end
+end
+
 class Money
   include Expression
   attr_reader :amount
+  def plus(addend)
+    Sum.new(self, addend)
+  end
   def initialize(amount=nil, currency=nil)
     @amount = amount
     @currency = currency
@@ -47,12 +50,13 @@ class Money
 end
 
 class TestDollar < Test::Unit::TestCase
-  test "plus returns sum" do
+  def test_puls_returns_sum
     five = Money.new.dollar(5)
-    results = five.plus(five)
-    sum = Sum.new(results)
-    assert_equal(five, sum.augend)
-    assert_equal(five, sum.addend)
+#    result = five.plus(five) # このままでは動かない
+    #    sum = Sum.new(result) # Money.plus => Sumを作成
+    sum = five.plus(five)
+    assert_equal five, sum.augend
+    assert_equal five, sum.addend
   end
   def test_simple_addition
     five = Money.new.dollar(5)

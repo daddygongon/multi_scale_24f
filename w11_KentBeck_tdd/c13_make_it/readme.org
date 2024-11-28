@@ -7,9 +7,46 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* todo3[0/3]
+* todo3[0/2]
 - [ ] $5 + 10 CHF = $10 if rate is 2:1
 - [ ] $5 + $5 = $10
 - [ ] Return Money from $5 + $5
 
+* p.60 testPlusReturnsSum
+いまだに，JavaでのExpressionの扱いがわからない．
+テキストでは，
+#+begin_src java
+  public void testPlusReturnsSum() {
+    Money five= MOney.dollar(5);
+    Expression results = five.plus(five);
+    Sum sum= (Sum) result;
+    assertEquals(five, sum.augend);
+    assertEquals(five, sum.addend);
+}
+#+end_src
+なんで，そのままRubyに直すと，
+#+begin_src ruby
+  test "plus returns sum" do
+    five = Money.new.dollar(5)
+    results = five.plus(five)
+    sum = Sum.new(results)
+    assert_equal(five, sum.augend)
+    assert_equal(five, sum.addend)
+  end
+#+end_src
+で通るといいのですが，エラー．
+#+begin_src ruby
+> ruby tdd_c13_r1.rb
+Error: test: plus returns sum(TestDollar): ArgumentError: wrong number of arguments (given 1, expected 2)
+tdd_c13_r1.rb:19:in `initialize'
+tdd_c13_r1.rb:53:in `new'
+tdd_c13_r1.rb:53:in `block in <class:TestDollar>'
+#+end_src
 
+書いてあることをそのまま翻意すると，
+- $5 + $5 でMoneyを返す実装をどうするか？
+- まずは，testがSum.new(five, five)で動くようにする(r2)
+- five + になるので，Money.plus methodに書けばいい(r3)
+  - testでsum = five.plus(five)で通るようになったが．．．
+
+* p.63 testReduceSum

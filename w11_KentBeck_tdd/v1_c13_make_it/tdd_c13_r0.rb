@@ -12,16 +12,6 @@ module Expression
     Money.new(@amount + addend.amount, @currency)
   end
 end
-
-class Sum
-  include Expression
-  attr_reader :augend, :addend
-  def initialize(augend, addend)
-    @augend = augend
-    @addend = addend
-  end
-end
-
 class Money
   include Expression
   attr_reader :amount
@@ -47,13 +37,6 @@ class Money
 end
 
 class TestDollar < Test::Unit::TestCase
-  test "plus returns sum" do
-    five = Money.new.dollar(5)
-    results = five.plus(five)
-    sum = Sum.new(results)
-    assert_equal(five, sum.augend)
-    assert_equal(five, sum.addend)
-  end
   def test_simple_addition
     five = Money.new.dollar(5)
     sum = five.plus(five)
