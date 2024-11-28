@@ -1,0 +1,5 @@
+#include "macro.def"
+xlabel: time [s]
+ylabel: queue Length [packet]
+option: set style data linespoints
+option: set key top right

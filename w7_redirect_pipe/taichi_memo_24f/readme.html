@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
+<head>
+<!-- 2024-11-07 Thu 15:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unixの哲学 - pipe redirect</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Taichi Emi (Lab: Hiroyuki Osaki, student number: 47023705)" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Unixの哲学 - pipe redirect</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1fe2aa7">1. Unix のシステム連携</a>
+<ul>
+<li><a href="#org04fb584">1.1. pipe</a>
+<ul>
+<li><a href="#org68b42c2">usage</a></li>
+<li><a href="#org5d3d1dd">meaning</a></li>
+</ul>
+</li>
+<li><a href="#orga760b8b">1.2. redirect</a>
+<ul>
+<li><a href="#org0a39d30">usage</a></li>
+<li><a href="#orgcfff173">meaning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc49bf1a">2. グラフのプロット</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org22076c1">gnuplot install</a></li>
+<li><a href="#orgf52b6f8">xdoplot &amp; psfix-gnuplot install</a></li>
+<li><a href="#org84386b1">plot やり方</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgdda2b0d">3. footnoote</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1fe2aa7" class="outline-2">
+<h2 id="org1fe2aa7"><span class="section-number-2">1</span> Unix のシステム連携</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+unixの特徴の一つである 「小さな道具を連携する」 ことを実現するためのツー
+ルに 「pipe」「redirect」がある.
+</p>
+</div>
+
+<div id="outline-container-org04fb584" class="outline-3">
+<h3 id="org04fb584"><span class="section-number-3">1.1</span> pipe</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org68b42c2" class="outline-4">
+<h4 id="org68b42c2">usage</h4>
+<div class="outline-text-4" id="text-org68b42c2">
+<p>
+<code>|</code> がパイプを意味する.
+</p>
+
+<p>
+<code>|</code> の左側のプログラムの標準出力が、右側のプログラムの標準入力となる.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&gt; ls
+
+1_puts.rb  2_name.rb  3_array.rb  4_method.rb  tidy.rb
+
+
+&gt; ls | grep "method"
+
+4_method.rb
+</pre>
+</div>
+
+<p>
+上記の例では, ls コマンドの出力が grep コマンドの入力となっている.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5d3d1dd" class="outline-4">
+<h4 id="org5d3d1dd">meaning</h4>
+<div class="outline-text-4" id="text-org5d3d1dd">
+<p>
+pipe という英単語は、OALD7 では以下のように定義されている.
+</p>
+<blockquote>
+<p>
+pipe
+</p>
+
+<p>
+★ pipe / [UK]  pa_p; NAmE  [US]  / noun, verb
+</p>
+
+<p>
+■ noun 
+</p>
+
+<p>
+1 [C, U] a tube through which liquids and gases can flow:
+hot and cold water pipes ◇ lead / plastic pipes ◇ a leaking gas pipe ◇ Copper pipe is sold
+in lengths.  ◇ a burst pipe
+&#x2014;see also drainpipe, exhaust, waste pipe, windpipe
+</p>
+
+
+<p>
+2 [C] a narrow tube with a bowl at one end, used for smoking tobacco:
+to smoke a pipe  ◇ He puffed on his pipe.  ◇ pipe tobacco 
+</p>
+
+<p>
+3 [C] a musical instrument in the shape of a tube, played by blowing
+&#x2014;see also pan pipes
+</p>
+
+<p>
+4 [C] any of the tubes from which sound is produced in an organ
+</p>
+
+<p>
+5 pipes [pl.] = bagpipes
+</p>
+
+
+
+<p>
+■ verb 
+</p>
+
+<p>
+1 [vn] to send water, gas, oil, etc. through a pipe from one place to another:
+to pipe oil across the desert  ◇ Water is piped from the reservoir to the city. 
+</p>
+
+<p>
+2 [vn] [usually passive] to send sounds or signals through a wire or cable from one place to
+another:
+The speech was piped over a public address system. 
+</p>
+
+<p>
+3 to play music on a pipe or the bagpipes, especially to welcome sb who has arrived:
+[vn] Passengers were piped aboard ship at the start of the cruise.  ◇ [v] a prize for piping
+and drumming
+</p>
+
+<p>
+4 to speak or sing in a high voice or with a high sound:
+[v] Outside a robin piped.  [also v speech] 
+</p>
+
+<p>
+5 [vn] to decorate food, especially a cake, with thin lines of icing, etc. by squeezing it
+out of a special bag or tube:
+The cake had <span class="underline">Happy Birthday</span> piped on it. 
+</p>
+
+<p>
+[ PHRASAL VERBS ]
+</p>
+
+<p>
+_pipe _down
+</p>
+
+<p>
+(informal) used especially in orders, to tell sb to stop talking or to be less noisy
+</p>
+
+
+<p>
+_pipe _up (with sth)
+</p>
+
+<p>
+(informal) to begin to speak:
+</p>
+
+<p>
+The person next to me piped up with a silly comment.  ◇ [+ speech] <span class="underline">I know the answer,</span>
+piped up a voice at the back of the room.
+</p>
+
+<p>
+▼ WORD ORIGIN
+</p>
+
+<p>
+pipe
+</p>
+
+<p>
+Old English p_pe musical tube, p_pian play a pipe, of Germanic origin; related to Dutch
+pijp and German Pfeife, based on Latin pipare to peep, chirp, reinforced in Middle English
+by Old French piper to chirp, squeak.
+</p>
+</blockquote>
+
+<p>
+また、オンライン辞書グループ 「通信用語の基礎知識」<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> では以下のように説明されている.
+</p>
+<blockquote>
+<p>
+パイプ 【電算用語:応用情報編】
+</p>
+
+<p>
+分類: コンピュータ &gt; ソフト &gt; 処理方法 &gt; タスク・スレッド
+</p>
+
+<p>
+読み: パイプ
+</p>
+
+<p>
+外語: pipe
+</p>
+
+<p>
+発音: p_ip
+</p>
+
+<p>
+品詞: 名詞
+</p>
+
+
+<p>
+◇あるタスクの出力と, 別のタスクの入力を接続する機能.
+</p>
+
+<p>
+◇MS-DOS はシングルタスク OS であるため, 一旦テンポラリファイルに出力され, 次のタスクの入力時
+に読み込ませている.
+</p>
+
+<p>
+◇UNIX では, MS-DOS と違い入力と出力が並行して行なわれる. バッファリングの分だけ遅延があるが,
+結果が即時に処理される. これは, 単機能のモジュール化という UNIX の考え方に適った設計といえる.
+</p>
+
+<p>
+※パイプ
+</p>
+
+<p>
+% cat infile | sort | more
+</p>
+</blockquote>
+
+<p>
+Wikipedhia にも詳細な解説がある.
+<a href="https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%A4%E3%83%97_(%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF)">https://ja.wikipedia.org/wiki/%E3%83%91%E3%82%A4%E3%83%97_(%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF)</a>
+</p>
+
+<p>
+これらの情報から、
+私は "pipe" という名称は以下のような意味から命名されていると推測する.
+</p>
+
+<blockquote>
+<p>
+[名詞]
+</p>
+
+<p>
+1 [C, U] a tube through which liquids and gases can flow:
+hot and cold water pipes ◇ lead / plastic pipes ◇ a leaking gas pipe ◇ Copper pipe is sold
+in lengths.  ◇ a burst pipe
+&#x2014;see also drainpipe, exhaust, waste pipe, windpipe
+</p>
+
+<p>
+[動詞形]
+</p>
+
+<p>
+1 [vn] to send water, gas, oil, etc. through a pipe from one place to another:
+to pipe oil across the desert  ◇ Water is piped from the reservoir to the city. 
+</p>
+
+<p>
+2 [vn] [usually passive] to send sounds or signals through a wire or cable from one place to
+another:
+The speech was piped over a public address system. 
+</p>
+</blockquote>
+
+<p>
+コンピュータにおいて,複数のプログラムの入出力というリソースを運ぶための管という意と推測した.
+以下の図のように,複数のプログラムの入出力を運ぶ役割をしているのが 「pipe」である.
+</p>
+
+
+<div class="figure">
+<p><img src="./figure/pipe.png" alt="pipe.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga760b8b" class="outline-3">
+<h3 id="orga760b8b"><span class="section-number-3">1.2</span> redirect</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org0a39d30" class="outline-4">
+<h4 id="org0a39d30">usage</h4>
+<div class="outline-text-4" id="text-org0a39d30">
+<blockquote>
+<p>
+[command] &gt; [path to file]
+</p>
+</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-shell">&gt; cal
+   November 2024      
+Su Mo Tu We Th Fr Sa  
+		1  2  
+ 3  4  5  6  7  8  9  
+10 11 12 13 14 15 16  
+17 18 19 20 21 22 23  
+24 25 26 27 28 29 30
+
+&gt; cal &gt; cal.txt
+&gt; cat cal.txt
+   November 2024      
+Su Mo Tu We Th Fr Sa  
+		1  2  
+ 3  4  5  6  7  8  9  
+10 11 12 13 14 15 16  
+17 18 19 20 21 22 23  
+24 25 26 27 28 29 30
+&gt; cal &gt; cal.txt
+
+&gt; cal -m 12 &gt;&gt;cal.txt 
+&gt; cat cal.txt
+   November 2024      
+Su Mo Tu We Th Fr Sa  
+		1  2  
+ 3  4  5  6  7  8  9  
+10 11 12 13 14 15 16  
+17 18 19 20 21 22 23  
+24 25 26 27 28 29 30  
+
+   December 2024      
+Su Mo Tu We Th Fr Sa  
+ 1  2  3  4  5  6  7  
+ 8  9 10 11 12 13 14  
+15 16 17 18 19 20 21  
+22 23 24 25 26 27 28  
+29 30 31           
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>&gt;</code>   書き出し. 元の内容は消去される.</li>
+
+<li><code>&gt;&gt;</code>  追記</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcfff173" class="outline-4">
+<h4 id="orgcfff173">meaning</h4>
+<div class="outline-text-4" id="text-orgcfff173">
+<p>
+redirect という英単語は、OALD7 では以下のように定義されている.
+</p>
+<blockquote>
+<p>
+re_dir_ect
+</p>
+
+<p>
+re_dir_ect / [UK] <span class="underline">ri_d__rekt; NAmE [US] ; [UK] -d</span>-; NAmE ; [UK] -da_-; NAmE / verb [vn]
+</p>
+
+<p>
+redirect sth (to sth)
+</p>
+
+<p>
+1 to use sth, for example money, in a different way or for a different purpose:
+Resources are being redirected to this important new project. 
+</p>
+
+<p>
+2 to send sth to a different address or in a different direction:
+</p>
+
+<p>
+Inquiries on this matter are being redirected to the press office.  ◇ Make sure you get your
+mail redirected to your new address.
+</p>
+
+<p>
+→　re_dir_ec_tion noun [sing., U]:
+</p>
+
+<p>
+a sudden redirection of economic policy  ◇ the redirection of mail 
+</p>
+</blockquote>
+
+<p>
+また、オンライン辞書グループ 「通信用語の基礎知識」<sup><a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup> では以下のように説明されている.
+</p>
+<blockquote>
+<p>
+分類: コンピュータ &gt; 制御・管理
+読み: リダイレクト
+外語: redirect
+発音: rid_r_kt | -dai-
+品詞: さ変名詞
+</p>
+
+<p>
+◇入出力先を他のものに切り替える機能.
+◇ファイルのリダイレクトの場合, あるタスクの出力をファイル化する, または逆に, ファイルの内容を
+タスクへの入力とする. UNIX のシェルでは, "&lt;", "&gt;", "&gt;&gt;", "&amp;&gt;" などの記号を使う.
+◇HTTP の場合, Location ヘッダを使って HTTP アクセスを任意の URL に飛ばす.
+</p>
+
+<p>
+※ファイルのリダイレクトの例
+  リダイレクト "&lt;"(入力) "&gt;"(出力)
+   % sort &lt; infile &gt; outfile
+</p>
+</blockquote>
+
+<p>
+コンピュータ用語としての 「redirect」は、OALDにおける 2 の意味, 「異る
+アドレスまたは方向に何かを送る」から来ていると考えられる.
+</p>
+
+<blockquote>
+<p>
+2 to send sth to a different address or in a different direction:
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc49bf1a" class="outline-2">
+<h2 id="orgc49bf1a"><span class="section-number-2">2</span> グラフのプロット</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+本稿は, Debian GNU/linux 上で記述しているため maple が動作しないため, gnuplot で代用するものとする.
+</p>
+</div>
+
+<div id="outline-container-org22076c1" class="outline-4">
+<h4 id="org22076c1">gnuplot install</h4>
+<div class="outline-text-4" id="text-org22076c1">
+<p>
+以下のコマンドで gnuplot の install を行うことができる.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">&gt; sudo apt install gnuplot gnuplot-doc gnuplot-qt
+</pre>
+</div>
+
+<p>
+以下から作成できるグラフの例を見ることができる.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">&gt; cd /usr/share/doc/gnuplot/examples
+&gt; gnuplot all.dem
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf52b6f8" class="outline-4">
+<h4 id="orgf52b6f8">xdoplot &amp; psfix-gnuplot install</h4>
+<div class="outline-text-4" id="text-orgf52b6f8">
+<p>
+xdoplot および psfix-gnuplot を install .
+</p>
+
+<ul class="org-ul">
+<li>xdoplot</li>
+</ul>
+
+<p>
+<a href="https://www.lsnl.jp/~ohsaki/software/xdoplot/">https://www.lsnl.jp/~ohsaki/software/xdoplot/</a>
+</p>
+
+<ul class="org-ul">
+<li>psfix-gnuplot</li>
+</ul>
+
+<p>
+<a href="https://www.lsnl.jp/~ohsaki/software/perl/psfix-gnuplot">https://www.lsnl.jp/~ohsaki/software/perl/psfix-gnuplot</a>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&gt; wget https://www.lsnl.jp/~ohsaki/software/xdoplot/xdoplot
+&gt; wget https://www.lsnl.jp/~ohsaki/software/perl/psfix-gnuplot
+&gt; sudo install -m 755 xdoplot psfix-gnuplot /usr/local/bin
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org84386b1" class="outline-4">
+<h4 id="org84386b1">plot やり方</h4>
+<div class="outline-text-4" id="text-org84386b1">
+<div class="org-src-container">
+<pre class="src src-shell">&gt; xdoplot -te file.res | psfix-gnuplot &gt;file.eps
+&gt; gv file.eps
+</pre>
+</div>
+
+<p>
+以下のように, pipe と redirect を使うと作業の効率化を行うことができる.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">&gt; ruby make_resource.rb &gt;sample.res
+&gt; cat sample.res
+#include "time-queue.def"
+option: set xrange [0:.4]
+option: set yrange [0:10]
+show: 1, 3
+
+name: maxp = 0.1, tau = 0.1
+0.0     9
+0.1     4
+0.2     0
+0.3     1
+0.4     11
+
+name: maxp = 0.2, tau = 0.1
+0.0     9
+0.1     0
+0.2     1
+0.3     10
+0.4     8
+
+name: maxp = 0.3, tau = 0.1
+0.0     9
+0.1     0
+0.2     10
+0.3     8
+0.4     6
+&gt; xdoplot -te sample.res | psfix-gnuplot &gt;sample.eps
+</pre>
+</div>
+
+<p>
+以下が出力されるグラフである.
+</p>
+
+
+<div class="figure">
+<p><img src="./figure/sample.png" alt="sample.png" />
+</p>
+</div>
+
+<p>
+以下はリソースファイルを作成した ruby プログラム <code>make_resource.rb</code> である.
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby">srand(10)
+
+puts '#include "time-queue.def"'
+puts 'option: set xrange [0:.4]'
+puts 'option: set yrange [0:10]'
+puts 'show: 1, 3'
+
+puts "\n"
+
+puts 'name: maxp = 0.1, tau = 0.1'
+for i in 0..4 do
+  x=i
+  printf("0.%g\t%d\n", x,rand(12))
+end
+
+puts "\n"
+
+puts 'name: maxp = 0.2, tau = 0.1'
+for i in 0..4 do
+  x=i
+  printf("0.%g\t%d\n", x,rand(12))
+end
+
+puts "\n"
+
+puts 'name: maxp = 0.3, tau = 0.1'
+for i in 0..4 do
+  x=i
+  printf("0.%g\t%d\n", x,rand(12))
+end
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdda2b0d" class="outline-2">
+<h2 id="orgdda2b0d"><span class="section-number-2">3</span> footnoote</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.wdic.org/grp/WDIC">https://www.wdic.org/grp/WDIC</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Taichi Emi (Lab: Hiroyuki Osaki, student number: 47023705)</p>
+<p class="date">Created: 2024-11-07 Thu 15:30</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

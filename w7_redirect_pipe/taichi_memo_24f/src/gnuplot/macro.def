@@ -1,0 +1,8 @@
+#define bold(x) {/Helvetica-Bold x}
+#define italic(x) {/Helvetica-Oblique x}
+#define symbol(x) {/Symbol x}
+#define maxp italic(max_p)
+#define minth italic(min_{th})
+#define maxth italic(max_{th})
+#define wq italic(w_q)
+#define tau symbol(t)

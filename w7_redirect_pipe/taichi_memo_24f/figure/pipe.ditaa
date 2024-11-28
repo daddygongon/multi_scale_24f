@@ -1,0 +1,10 @@
+                         /-----------\     pipe       /-----------\      pipe      /-----------\
+   computer              | program A |--------------> | program B |--------------> | program C |
+                         \-----------/   stdin/out    \-----------/   stdin/out    \-----------/
+                          ^         |                   |                            |
+                          |         |                   |                            |
+                    stdin |         | stderror          | stderror		     | stderror	  
+                          |         |                   V                            |
+               /-----------\        |         /-----------\                          |
+text terminal  | keyboard  |        +-------->| display   |<-------------------------+
+               \-----------/                  \-----------/  
