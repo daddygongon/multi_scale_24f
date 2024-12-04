@@ -1,0 +1,19 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: Kent Beck's Test Driven Development
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* Red, Green, Refactoring?
+- Red :: Write a little test
+  - that doesn't work,
+- Green :: Make the test work quickly,
+  - commiting whatever sins
+    necessary in the process
+- Refactor :: Eliminate all of the
+  duplication,
+
+Red/green/refactor -- the TDD mantra

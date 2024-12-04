@@ -21,9 +21,10 @@
 | 13        | TDD_KentBeck     |                             |
 
 * w14 HyperCard, finally
-** [[https://archive.org/details/hypercardstacks]]
+** [[https://archive.org/details/hypercardstacks
+]]
 すごい．動く！
-
+- 35 Standard File Funtions
 ** [[https://retool.com/]]
 なんやろ．めちゃtop pageはかっこいい！
 
