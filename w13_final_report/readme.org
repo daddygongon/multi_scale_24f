@@ -1,0 +1,37 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: Final report
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* grading
+1. gitに共有しているdaddygongon_readme.orgの点数(dead_line:1/8) 60点目安
+   - $13 \times 5 + \alpha$
+1. final_report(dead_line:1/22) 40点満点
+   - git共有フォルダーにfinal_reportをmkdir
+   - なんでもいいので，Rubyで書いた自作のcommand line applicationを置く
+     - 最悪，pythonコードを吐くやつでもOK!!
+     - =system "phthon hoge.py"= なんかは．．．減点対象！
+   - 目的, 使い方などの解説をreadme.orgに記述
+     - 西谷が動かせなかったら，最悪0点
+   - git にsynchro
+
+* リスト
+以下の人は氏名，研究室，学籍番号をreadme.orgに記述!!
+
+#+begin_src
+git@github.com:ren-in/multi_scale.git,
+git@github.com:hhk42957/multi_scale.git, R. Ozaki
+git@github.com:kaoru9610/multi_scale.git
+git@github.com:jiwoo0326/multi_scale.git,
+git@github.com:kou0810/multi_scale.git
+git@github.com:afternoon0503/multi_scale.git
+git@github.com:JNKT215/multi_scale_24.git
+git@github.com:iwa-ko/multi_scale_2024.git
+git@github.com:5-Dri/multi_scale.git
+git@github.com:shugo1155/multi_scale.git
+git@github.com:chisakiii/multi_scale.git
+#+end_src
