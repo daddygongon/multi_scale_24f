@@ -7,10 +7,13 @@
 #+OPTIONS:   H:4 toc:t num:2
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* todo3[0/2]
+* todo3[1/6]
 - [ ] $5 + 10 CHF = $10 if rate is 2:1
 - [ ] $5 + $5 = $10
 - [ ] Return Money from $5 + $5
+- [X] Bank reduce(Money)
+- [ ] Reduce Money with conversion
+- [ ] Reduce(Bank, String)
 
 * p.60 testPlusReturnsSum
 いまだに，JavaでのExpressionの扱いがわからない．
@@ -49,4 +52,30 @@ tdd_c13_r1.rb:53:in `block in <class:TestDollar>'
 - five + になるので，Money.plus methodに書けばいい(r3)
   - testでsum = five.plus(five)で通るようになったが．．．
 
-* p.63 testReduceSum
+* p.63 testReduceSum => r6 <2024-12-18 Wed>
+この間，時間をおいてしまったので，メモが理解できなくなってます．
+r5ではtest "reduce sum"が通っていますが．．．
+test "Reduce money"
+はないですね．これを書いてみましょうか．
+
+結果が，r6です．
+
+さらに，p.64-65のExpressionの記述を
+読み替えて，
+#+begin_src ruby
+module Expression
+  def reduce(to)
+    return self
+  end
+end
+#+end_src
+とした，r7では
+#+begin_src ruby
+class Bank
+  def reduce(source, to)
+    return source.reduce(to)
+  end
+end
+#+end_src
+と綺麗になります．
+これでc13終了．
