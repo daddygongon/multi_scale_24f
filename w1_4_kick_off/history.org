@@ -1,0 +1,36 @@
+* installed claの確認
+    1  python --version
+    2  ruby --version
+    3  ls
+    4  pwd
+    5  git --version
+* github
+    6  ssh-keygen
+    9  cd .ssh
+   11  cat id_rsa.pub
+   12  explorer.exe https://github.com
+   15  git clone git@github.com:daddygongon/multi_scale_24f.git
+* install some cla on system
+   17  sudo apt update
+   18  sudo apt install fish
+   19  chsh -s /usr/bin/fish
+   20  sudo apt install emacs-nox
+   21  sudo apt install ruby
+   22  ruby -v
+   27  sudo apt install fd-find
+   29  fdfind fd
+   30  fdfind --extension pptx
+* install some cla on ~/bin
+   31  cd 
+   32  mkdir bin
+   34  fdfind open
+   36  cp w1_4_kick_off/w3_commands/bin/open bin
+   37  cp w1_4_kick_off/w3_commands/bin/new_terminal~win bin/new_terminal
+   38  cp w1_4_kick_off/w3_commands/bin/pull_request bin
+   39  cp w1_4_kick_off/w3_commands/bin/tidy~recur_Zone_Identifier bin/tidy
+
+* config fish
+  fdfind config
+  cp w1_4_kick_off/w3_commands/bin/config.fish\~wsl ~/.config/fish/config.fish
+
+
