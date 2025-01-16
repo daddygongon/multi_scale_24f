@@ -32,3 +32,17 @@
 
 # | file:./images/screen_1004_8.png | file:./images/screen_1004_9.png 
 
+* git push
+- git init
+- git add .
+- git commit -m 'first commit'
+で
+Author identity unknown
+
+- git config --global user.email "hoge@kwansei.ac.jp"
+- git config --global user.name "hoge hage"
+その後，
+- git pull origin main
+- git config pull.rebase false
+
+- git config --global core.editor emacs

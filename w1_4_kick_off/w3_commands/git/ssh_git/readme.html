@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-10-14 Mon 15:25 -->
+<!-- 2025-01-16 Thu 17:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ssh and github</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
@@ -17,70 +17,25 @@
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">ssh and github</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3c3cae2">1. ssh</a></li>
-<li><a href="#org6abf5d2">2. github (web appli by rails)</a></li>
-<li><a href="#org0c68587">3. git clone</a></li>
+<li><a href="#org8f3ec6c">1. ssh</a></li>
+<li><a href="#org93594ef">2. github (web appli by rails)</a></li>
+<li><a href="#org8fdfa73">3. git clone</a></li>
+<li><a href="#orgec6f4ec">4. git push</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org3c3cae2" class="outline-2">
-<h2 id="org3c3cae2"><span class="section-number-2">1</span> ssh</h2>
+<div id="outline-container-org8f3ec6c" class="outline-2">
+<h2 id="org8f3ec6c"><span class="section-number-2">1.</span> ssh</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>already installed</li>
@@ -103,8 +58,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org6abf5d2" class="outline-2">
-<h2 id="org6abf5d2"><span class="section-number-2">2</span> github (web appli by rails)</h2>
+<div id="outline-container-org93594ef" class="outline-2">
+<h2 id="org93594ef"><span class="section-number-2">2.</span> github (web appli by rails)</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>explorer.exe https://github.com</code></li>
@@ -131,8 +86,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0c68587" class="outline-2">
-<h2 id="org0c68587"><span class="section-number-2">3</span> git clone</h2>
+<div id="outline-container-org8fdfa73" class="outline-2">
+<h2 id="org8fdfa73"><span class="section-number-2">3.</span> git clone</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><code>git clone git@github.com.daddygongon/multi_scale_24f.git</code></li>
@@ -151,11 +106,40 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </div>
+
+<div id="outline-container-orgec6f4ec" class="outline-2">
+<h2 id="orgec6f4ec"><span class="section-number-2">4.</span> git push</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>git init</li>
+<li>git add .</li>
+<li>git commit -m 'first commit'</li>
+</ul>
+<p>
+で
+Author identity unknown
+</p>
+
+<ul class="org-ul">
+<li>git config &#x2013;global user.email "hoge@kwansei.ac.jp"</li>
+<li>git config &#x2013;global user.name "hoge hage"</li>
+</ul>
+<p>
+その後，
+</p>
+<ul class="org-ul">
+<li>git pull origin main</li>
+<li>git config pull.rebase false</li>
+
+<li>git config &#x2013;global core.editor emacs</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-10-14 Mon 15:25</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2025-01-16 Thu 17:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
