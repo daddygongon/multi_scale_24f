@@ -21,18 +21,17 @@
 | 13        | TDD_KentBeck     |                             |
 
 * w14 HyperCard, finally
-** [[https://archive.org/details/hypercardstacks
-]]
+- [[https://archive.org/details/hypercardstacks]]
 すごい．動く！
 - 35 Standard File Funtions
-** [[https://retool.com/]]
+-  [[https://retool.com/]]
 なんやろ．めちゃtop pageはかっこいい！
-
-** [[https://www.apple.com/jp/swift/playgrounds/][swift playgrounds]]
+- [[https://www.apple.com/jp/swift/playgrounds/][swift playgrounds]]
 なんか外してる？
 
 * w7 matplotlib <2024-11-13 Wed>
 - 金井くんのcode
+
 #+begin_src ruby
 require "scanf"
 
@@ -55,7 +54,8 @@ plt.scatter(data[:, 0], data[:, 1], color='red', s=100, edgecolor='black', label
 plt.grid()
 plt.show()
 "
-#+emd_src
+#+end_src
+
 - これは，純正のlinuxだからそのまま表示してくれる．
   - ubuntu on wslだと少し工夫が必要．
   - 多分，jupyter notebookでcopy & pasteが正解．

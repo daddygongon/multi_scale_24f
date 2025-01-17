@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2024-11-20 Wed 15:18 -->
+<!-- 2025-01-17 Fri 12:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>todo for multi_scale</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Shigeto R. Nishitani" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
@@ -17,89 +17,54 @@
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">todo for multi_scale</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org26fc55a">1. w7 matplotlib <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-11-13 Wed&gt;</span></span></a></li>
-<li><a href="#orgcaaf345">2. weekly check, and chunking</a></li>
-<li><a href="#orgccd0aa8">3. 大項目</a></li>
-<li><a href="#orga8bde7c">4. w4_hyper_card/readme.html</a></li>
-<li><a href="#org2230796">5. w3_commands/readme.html</a></li>
-<li><a href="#org061805c">6. w2_my_help_emacs/readme.html</a></li>
-<li><a href="#orgf393426">7. w1_introduction/readme.html</a></li>
+<li><a href="#orge9efb30">1. w14 HyperCard, finally</a></li>
+<li><a href="#orgebf42a1">2. w7 matplotlib <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-11-13 Wed&gt;</span></span></a></li>
+<li><a href="#org3dd9cb0">3. weekly check, and chunking</a></li>
+<li><a href="#orgaa8d10b">4. 大項目</a></li>
+<li><a href="#orgb856001">5. w4_hyper_card/readme.html</a></li>
+<li><a href="#org958b007">6. w3_commands/readme.html</a></li>
+<li><a href="#org3f8daa4">7. w2_my_help_emacs/readme.html</a></li>
+<li><a href="#org85c47e9">8. w1_introduction/readme.html</a></li>
 </ul>
 </div>
 </div>
@@ -183,47 +148,63 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 
-<div id="outline-container-org26fc55a" class="outline-2">
-<h2 id="org26fc55a"><span class="section-number-2">1</span> w7 matplotlib <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-11-13 Wed&gt;</span></span></h2>
+<div id="outline-container-orge9efb30" class="outline-2">
+<h2 id="orge9efb30"><span class="section-number-2">1.</span> w14 HyperCard, finally</h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="https://archive.org/details/hypercardstacks">https://archive.org/details/hypercardstacks</a></li>
+</ul>
+<p>
+すごい．動く！
+</p>
+<ul class="org-ul">
+<li>35 Standard File Funtions</li>
+<li><a href="https://retool.com/">https://retool.com/</a></li>
+</ul>
+<p>
+なんやろ．めちゃtop pageはかっこいい！
+</p>
+<ul class="org-ul">
+<li><a href="https://www.apple.com/jp/swift/playgrounds/">swift playgrounds</a></li>
+</ul>
+<p>
+なんか外してる？
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgebf42a1" class="outline-2">
+<h2 id="orgebf42a1"><span class="section-number-2">2.</span> w7 matplotlib <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-11-13 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>金井くんのcode</li>
 </ul>
-<p>
-#+begin_src ruby
-require "scanf"
-</p>
 
-<p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #cd6600;">require</span> <span style="color: #8b7355;">"scanf"</span>
+
 results = []
-File.readlines("results.txt").each do |line|
-  data = line.scanf("[%f,%f,%f]")
+<span style="color: #00688b;">File</span>.readlines(<span style="color: #8b7355;">"results.txt"</span>).each <span style="color: #1c86ee;">do</span> |line|
+  data = line.scanf(<span style="color: #8b7355;">"[%f,%f,%f]"</span>)
   results &lt;&lt; [data[0], data[2]]
-end
-</p>
+<span style="color: #1c86ee;">end</span>
 
-<p>
-#pp results
-</p>
+<span style="color: #7f7f7f;">#</span><span style="color: #7f7f7f;">pp results</span>
 
-<p>
-puts "
-import numpy as np
-import matplotlib.pyplot as plt
-</p>
+<span style="color: #cd6600;">puts</span> <span style="color: #8b7355;">"</span>
+<span style="color: #8b7355;">import numpy as np</span>
+<span style="color: #8b7355;">import matplotlib.pyplot as plt</span>
 
-<p>
-data = np.array(#{results})
-</p>
+<span style="color: #8b7355;">data = np.array(</span><span style="color: #2e8b57;">#{results}</span><span style="color: #8b7355;">)</span>
 
-<p>
-plt.plot(data[:, 0], data[:, 1])
-plt.scatter(data[:, 0], data[:, 1], color='red', s=100, edgecolor='black', label='データポイント', zorder=5)
-plt.grid()
-plt.show()
-"
-#+emd_src
-</p>
+<span style="color: #8b7355;">plt.plot(data[:, 0], data[:, 1])</span>
+<span style="color: #8b7355;">plt.scatter(data[:, 0], data[:, 1], color='red', s=100, edgecolor='black', label='&#12487;&#12540;&#12479;&#12509;&#12452;&#12531;&#12488;', zorder=5)</span>
+<span style="color: #8b7355;">plt.grid()</span>
+<span style="color: #8b7355;">plt.show()</span>
+<span style="color: #8b7355;">"</span>
+</pre>
+</div>
+
 <ul class="org-ul">
 <li>これは，純正のlinuxだからそのまま表示してくれる．
 <ul class="org-ul">
@@ -234,9 +215,9 @@ plt.show()
 </div>
 </div>
 
-<div id="outline-container-orgcaaf345" class="outline-2">
-<h2 id="orgcaaf345"><span class="section-number-2">2</span> weekly check, and chunking</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org3dd9cb0" class="outline-2">
+<h2 id="org3dd9cb0"><span class="section-number-2">3.</span> weekly check, and chunking</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>自分のmulti_scale_24を整理して，git pushしてください．
 <ul class="org-ul">
@@ -254,9 +235,9 @@ plt.show()
 </div>
 </div>
 
-<div id="outline-container-orgccd0aa8" class="outline-2">
-<h2 id="orgccd0aa8"><span class="section-number-2">3</span> 大項目</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgaa8d10b" class="outline-2">
+<h2 id="orgaa8d10b"><span class="section-number-2">4.</span> 大項目</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>hyper_card
 <ul class="org-ul">
@@ -289,9 +270,9 @@ plt.show()
 </div>
 </div>
 
-<div id="outline-container-orga8bde7c" class="outline-2">
-<h2 id="orga8bde7c"><span class="section-number-2">4</span> w4_hyper_card/readme.html</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgb856001" class="outline-2">
+<h2 id="orgb856001"><span class="section-number-2">5.</span> w4_hyper_card/readme.html</h2>
+<div class="outline-text-2" id="text-5">
 <a href="w4_hyper_card/readme.html"
   class="example">
   <img src=""
@@ -302,9 +283,9 @@ plt.show()
 </div>
 </div>
 
-<div id="outline-container-org2230796" class="outline-2">
-<h2 id="org2230796"><span class="section-number-2">5</span> w3_commands/readme.html</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org958b007" class="outline-2">
+<h2 id="org958b007"><span class="section-number-2">6.</span> w3_commands/readme.html</h2>
+<div class="outline-text-2" id="text-6">
 <a href="w3_commands/readme.html"
   class="example">
   <img src="./w3_commands/ssh_git/images/screen_1004_10.png"
@@ -315,9 +296,9 @@ plt.show()
 </div>
 </div>
 
-<div id="outline-container-org061805c" class="outline-2">
-<h2 id="org061805c"><span class="section-number-2">6</span> w2_my_help_emacs/readme.html</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org3f8daa4" class="outline-2">
+<h2 id="org3f8daa4"><span class="section-number-2">7.</span> w2_my_help_emacs/readme.html</h2>
+<div class="outline-text-2" id="text-7">
 <a href="w2_my_help_emacs/readme.html"
   class="example">
   <img src="w2_my_help_emacs/images/screen_appli_layer_1006.png"
@@ -328,9 +309,9 @@ plt.show()
 </div>
 </div>
 
-<div id="outline-container-orgf393426" class="outline-2">
-<h2 id="orgf393426"><span class="section-number-2">7</span> w1_introduction/readme.html</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-org85c47e9" class="outline-2">
+<h2 id="org85c47e9"><span class="section-number-2">8.</span> w1_introduction/readme.html</h2>
+<div class="outline-text-2" id="text-8">
 <a href="w1_introduction/readme.html"
   class="example">
   <img src="w1_introduction/images/screen_1004_1.png"
@@ -343,8 +324,8 @@ plt.show()
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2024-11-20 Wed 15:18</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2025-01-17 Fri 12:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
