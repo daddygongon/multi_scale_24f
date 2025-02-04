@@ -1,0 +1,43 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: Python on wsl and vscode
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* install <2025-01-22 Wed>
+- [[https://learn.microsoft.com/ja-jp/windows/python/web-frameworks][Windows で Web 開発に Python を使用する]]
+  - wsl
+  - python これは入っているのを使用してみる
+  - vscode
+    - getting copilot free (githubのdaddygongonに自動連携)
+  - sudo apt upgrade python3
+  - sudo apt install python3-pip
+  - sudo apt install python3-venv
+    - source .venv/bin/activate #for bash
+    - source .venv/bin/activate.fish #for fish
+- install extension for wsl
+- install extension for python
+- key-bind Allow Chords, 'Send Keybindings To Shell'
+
+** x-serve
+- 今は特別なinstallなしでGUI appsが稼働．
+
+- [[https://stackoverflow.com/questions/62890536/how-do-you-fix-tkinter-in-python3-8-on-wsl][How do you fix tkinter in python3.8 on wsl?]] ,  Answer 8
+- [[https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps][Run Linux GUI apps on the Windows Subsystem for Linux]]
+
+- sudo apt install python3-tk
+
+#+begin_src python
+from tkinter import *
+
+root = Tk()
+a = Label(root, text ="Hello World")
+a.pack()
+
+root.mainloop()
+#+end_src
+で稼働．
+

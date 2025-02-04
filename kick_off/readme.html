@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="jp" xml:lang="jp">
 <head>
-<!-- 2025-01-16 Thu 18:01 -->
+<!-- 2025-01-28 Tue 17:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>setup for wsl</title>
@@ -25,23 +25,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2cb3ca9">1. activate wsl</a></li>
-<li><a href="#org3887f97">2. light設定</a></li>
-<li><a href="#org512a1a9">3. wsl(terminal, cui, cla, shell)設定</a>
+<li><a href="#org6fbba4a">1. activate wsl</a></li>
+<li><a href="#org5d54b6e">2. light設定</a></li>
+<li><a href="#orge8a43f5">3. git or github</a></li>
+<li><a href="#orga9c7988">4. wsl(terminal, cui, cla, shell)設定</a>
 <ul>
-<li><a href="#orgf8d0bb6">3.1. installed claの確認</a></li>
-<li><a href="#orgf852d85">3.2. github</a></li>
-<li><a href="#org367bb34">3.3. install some cla on system</a></li>
-<li><a href="#org2f2e023">3.4. install some cla on ~/bin</a></li>
-<li><a href="#org4e39e6d">3.5. config fish</a></li>
+<li><a href="#orgaf346a1">4.1. installed claの確認</a></li>
+<li><a href="#org3614e73">4.2. github</a></li>
+<li><a href="#org0bb616d">4.3. install some cla on system</a></li>
+<li><a href="#orgd3e8c73">4.4. install some cla on ~/bin</a></li>
+<li><a href="#orge475b4f">4.5. config fish</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2cb3ca9" class="outline-2">
-<h2 id="org2cb3ca9"><span class="section-number-2">1.</span> activate wsl</h2>
+
+<div id="outline-container-org6fbba4a" class="outline-2">
+<h2 id="org6fbba4a"><span class="section-number-2">1.</span> activate wsl</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 on Powershell from Terminal
@@ -79,8 +81,8 @@ terminalを再起動するとUbuntuがpull down menuに見える．
 </div>
 </div>
 
-<div id="outline-container-org3887f97" class="outline-2">
-<h2 id="org3887f97"><span class="section-number-2">2.</span> light設定</h2>
+<div id="outline-container-org5d54b6e" class="outline-2">
+<h2 id="org5d54b6e"><span class="section-number-2">2.</span> light設定</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 目を保護するため，light modeを推奨．
@@ -88,13 +90,25 @@ terminalを再起動するとUbuntuがpull down menuに見える．
 </div>
 </div>
 
-<div id="outline-container-org512a1a9" class="outline-2">
-<h2 id="org512a1a9"><span class="section-number-2">3.</span> wsl(terminal, cui, cla, shell)設定</h2>
+<div id="outline-container-orge8a43f5" class="outline-2">
+<h2 id="orge8a43f5"><span class="section-number-2">3.</span> git or github</h2>
 <div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>make account</li>
+<li>ssh config</li>
+<li>make private repository</li>
+</ul>
 </div>
-<div id="outline-container-orgf8d0bb6" class="outline-3">
-<h3 id="orgf8d0bb6"><span class="section-number-3">3.1.</span> installed claの確認</h3>
-<div class="outline-text-3" id="text-3-1">
+</div>
+
+
+<div id="outline-container-orga9c7988" class="outline-2">
+<h2 id="orga9c7988"><span class="section-number-2">4.</span> wsl(terminal, cui, cla, shell)設定</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgaf346a1" class="outline-3">
+<h3 id="orgaf346a1"><span class="section-number-3">4.1.</span> installed claの確認</h3>
+<div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>1  python &#x2013;version</li>
 <li>2  ruby &#x2013;version</li>
@@ -104,9 +118,9 @@ terminalを再起動するとUbuntuがpull down menuに見える．
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf852d85" class="outline-3">
-<h3 id="orgf852d85"><span class="section-number-3">3.2.</span> github</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org3614e73" class="outline-3">
+<h3 id="org3614e73"><span class="section-number-3">4.2.</span> github</h3>
+<div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>6  ssh-keygen</li>
 <li>9  cd .ssh</li>
@@ -116,9 +130,11 @@ terminalを再起動するとUbuntuがpull down menuに見える．
 </ul>
 </div>
 </div>
-<div id="outline-container-org367bb34" class="outline-3">
-<h3 id="org367bb34"><span class="section-number-3">3.3.</span> install some cla on system</h3>
-<div class="outline-text-3" id="text-3-3">
+
+
+<div id="outline-container-org0bb616d" class="outline-3">
+<h3 id="org0bb616d"><span class="section-number-3">4.3.</span> install some cla on system</h3>
+<div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>17  sudo apt update</li>
 <li>18  sudo apt install fish</li>
@@ -132,9 +148,9 @@ terminalを再起動するとUbuntuがpull down menuに見える．
 </ul>
 </div>
 </div>
-<div id="outline-container-org2f2e023" class="outline-3">
-<h3 id="org2f2e023"><span class="section-number-3">3.4.</span> install some cla on ~/bin</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-orgd3e8c73" class="outline-3">
+<h3 id="orgd3e8c73"><span class="section-number-3">4.4.</span> install some cla on ~/bin</h3>
+<div class="outline-text-3" id="text-4-4">
 <ul class="org-ul">
 <li>31  cd</li>
 <li>32  mkdir bin</li>
@@ -147,9 +163,9 @@ terminalを再起動するとUbuntuがpull down menuに見える．
 </div>
 </div>
 
-<div id="outline-container-org4e39e6d" class="outline-3">
-<h3 id="org4e39e6d"><span class="section-number-3">3.5.</span> config fish</h3>
-<div class="outline-text-3" id="text-3-5">
+<div id="outline-container-orge475b4f" class="outline-3">
+<h3 id="orge475b4f"><span class="section-number-3">4.5.</span> config fish</h3>
+<div class="outline-text-3" id="text-4-5">
 <ul class="org-ul">
 <li>fdfind config</li>
 <li>cp w1_4_kick_off/w3_commands/bin/config.fish\~wsl ~/.config/fish/config.fish</li>
@@ -160,7 +176,7 @@ terminalを再起動するとUbuntuがpull down menuに見える．
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shigeto R. Nishitani</p>
-<p class="date">Created: 2025-01-16 Thu 18:01</p>
+<p class="date">Created: 2025-01-28 Tue 17:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
