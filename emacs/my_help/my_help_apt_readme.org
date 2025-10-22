@@ -1,6 +1,6 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent nolineimages overview num
-#+TITLE: w2 my_help, terminal pane, and emacs -I
+#+TITLE: w2 my_help, terminal pane
 #+AUTHOR: Shigeto R. Nishitani
 #+EMAIL:     (concat "shigeto_nishitani@mac.com")
 #+LANGUAGE:  jp
@@ -8,14 +8,14 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 
-# 0: my_help_install/readme.html
+* my_help_install/readme.html
 
 #+begin_export html
 <a href="my_help_install/readme.html"
   class="example">
  <img src="images/screen_241003_1.png"
   width=200
-  alt=finite_temp
+  alt=my_help_install
   >
 </a>
 #+end_export
@@ -26,7 +26,7 @@
   class="example">
   <img src="my_help_install/screen_241001_3.png"
   width=200
-  alt=finite_temp
+  alt=my_help_install
   >
 </a>
 #+end_export
@@ -37,24 +37,12 @@
   class="example">
   <img src="terminal_pane/screen_241001_2.png"
   width=200
-  alt=finite_temp
+  alt=terminal_pane
   >
 </a>
 #+end_export
 
-* GUI and CUIでのactivateあるいはcommand capture
-
-|file:./images/screen_241003_1.png|file:./images/screen_241003_2.png
-
-アプリの役割分担(layer, 切り分け)
-| 一般名詞（呼称） | 　固有名詞                  | package manager | config.                   |
-|------------------+-----------------------------+-----------------+---------------------------|
-| os               | 　wsl, Ubuntu               | apt, brew       |                           |
-| shell            | fish, bash, zsh, PowerShell |                 | ./config/fish/config.fish |
-| editor           | emacs, vscode               | elpa            | ./emacs.d/init.el         |
-| language         | Ruby, Python, C             | gem, pip        |                           |
-
-* my_help <2024-10-02 Wed>
+* my_help install and usage <2024-10-02 Wed>
 - gem install my_help
 - my_help set editor 'emacs -nw'
 - terminal pane

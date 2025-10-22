@@ -1,0 +1,23 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: setup for ~/bin
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* install some cla on ~/bin
+-   31  cd 
+-   32  mkdir bin
+-   34  fdfind open
+-   36  cp w1_4_kick_off/w3_commands/bin/open bin
+-   37  cp w1_4_kick_off/w3_commands/bin/new_terminal~win bin/new_terminal
+-   38  cp w1_4_kick_off/w3_commands/bin/pull_request bin
+-   39  cp w1_4_kick_off/w3_commands/bin/tidy~recur_Zone_Identifier bin/tidy
+
+* config fish
+-  fdfind config
+-  cp w1_4_kick_off/w3_commands/bin/config.fish\~wsl ~/.config/fish/config.fish
+
+

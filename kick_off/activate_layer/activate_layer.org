@@ -1,0 +1,21 @@
+#+OPTIONS: ^:{}
+#+STARTUP: indent nolineimages overview num
+#+TITLE: GUI and CUIでのactivateあるいはcommand capture
+#+AUTHOR: Shigeto R. Nishitani
+#+EMAIL:     (concat "shigeto_nishitani@mac.com")
+#+LANGUAGE:  jp
+#+OPTIONS:   H:4 toc:t num:2
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+
+
+|file:./images/screen_241003_1.png|file:./images/screen_241003_2.png
+
+アプリの役割分担(layer, 切り分け)
+| 一般名詞（呼称） | 　固有名詞                  | package manager | config.                   |
+|------------------+-----------------------------+-----------------+---------------------------|
+| os               | 　wsl, Ubuntu               | apt, brew       |                           |
+| shell            | fish, bash, zsh, PowerShell |                 | ./config/fish/config.fish |
+| editor           | emacs, vscode               | elpa            | ./emacs.d/init.el         |
+| language         | Ruby, Python, C             | gem, pip        |                           |
+
